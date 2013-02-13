@@ -5,12 +5,13 @@ University project for the Database Systems 2 course.
 
 ## Project folders
 
-The project is divided into 4 folders:
+The project is divided into 5 folders:
 
 - `app`, containing the Web application.
 - `db`, containing scripts and files for creating and managing the database.
 - `dw`, containing the scripts for the data warehouse.
 - `rest`, containing the RESTful Web Service that implements the business logic.
+- `doc`, containing the whole documentation and a bunch of other stuff.
 
 ## RESTful Web Service
 
@@ -22,10 +23,11 @@ The dependencies for the RESTful Web Service are:
 
 ## History
 
-### 2013-02-12
-
-- Empty project created on GitHub.
-
 ### 2013-02-13
 
 - RESTful Web Service set up with all of the libraries, base classes and configs.
+- Database scripts created with tables, constraints, indexes and foreign keys. TODO: triggers and functions.
+
+### 2013-02-12
+
+- Empty project created on GitHub.
