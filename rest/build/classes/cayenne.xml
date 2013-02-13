@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domains project-version="3.0.0.1">
+<domain name="DB">
+	<map name="DBMap" location="DBMap.map.xml"/>
+
+	<node name="DBNode"
+		 datasource="DBNode.driver.xml"
+		 factory="org.apache.cayenne.conf.DriverDataSourceFactory">
+			<map-ref name="DBMap"/>
+	 </node>
+</domain>
+</domains>

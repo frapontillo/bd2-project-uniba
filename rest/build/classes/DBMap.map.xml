@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+  project-version="3.0.0.1">
+	<property name="defaultPackage" value="net.frapontillo.uni.db2.project.db"/>
+	<property name="defaultSchema" value="public"/>
+	<db-entity name="user" schema="public">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="password" type="VARCHAR" isMandatory="true" length="2147483647"/>
+		<db-attribute name="username" type="VARCHAR" isMandatory="true" length="2147483647"/>
+	</db-entity>
+	<db-entity name="user_session" schema="public">
+		<db-attribute name="authcode" type="VARCHAR" isMandatory="true" length="2147483647"/>
+		<db-attribute name="date_login" type="DATE" isMandatory="true" length="13"/>
+		<db-attribute name="date_logout" type="DATE" length="13"/>
+		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isMandatory="true" length="19"/>
+		<db-attribute name="id_user" type="INTEGER" isMandatory="true" length="10"/>
+	</db-entity>
+	<obj-entity name="UserDB" className="net.frapontillo.uni.db2.project.db.UserDB" dbEntityName="user">
+		<obj-attribute name="id" type="java.lang.Integer" db-attribute-path="id"/>
+		<obj-attribute name="password" type="java.lang.String" db-attribute-path="password"/>
+		<obj-attribute name="username" type="java.lang.String" db-attribute-path="username"/>
+	</obj-entity>
+	<obj-entity name="UserSessionDB" className="net.frapontillo.uni.db2.project.db.UserSessionDB" dbEntityName="user_session">
+		<obj-attribute name="authcode" type="java.lang.String" db-attribute-path="authcode"/>
+		<obj-attribute name="dateLogin" type="java.util.Date" db-attribute-path="date_login"/>
+		<obj-attribute name="dateLogout" type="java.util.Date" db-attribute-path="date_logout"/>
+		<obj-attribute name="id" type="java.lang.Long" db-attribute-path="id"/>
+	</obj-entity>
+	<db-relationship name="userSessions" source="user" target="user_session" toMany="true">
+		<db-attribute-pair source="id" target="id_user"/>
+	</db-relationship>
+	<db-relationship name="toUser" source="user_session" target="user" toMany="false">
+		<db-attribute-pair source="id_user" target="id"/>
+	</db-relationship>
+	<obj-relationship name="userSessions" source="UserDB" target="UserSessionDB" deleteRule="Deny" db-relationship-path="userSessions"/>
+	<obj-relationship name="toUser" source="UserSessionDB" target="UserDB" deleteRule="Nullify" db-relationship-path="toUser"/>
+</data-map>
