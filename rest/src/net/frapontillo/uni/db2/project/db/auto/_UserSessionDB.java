@@ -17,7 +17,6 @@ public abstract class _UserSessionDB extends CayenneDataObject {
     public static final String AUTHCODE_PROPERTY = "authcode";
     public static final String DATE_LOGIN_PROPERTY = "dateLogin";
     public static final String DATE_LOGOUT_PROPERTY = "dateLogout";
-    public static final String ID_PROPERTY = "id";
     public static final String TO_USER_PROPERTY = "toUser";
 
     public static final String ID_PK_COLUMN = "id";
@@ -41,13 +40,6 @@ public abstract class _UserSessionDB extends CayenneDataObject {
     }
     public Date getDateLogout() {
         return (Date)readProperty("dateLogout");
-    }
-
-    public void setId(Long id) {
-        writeProperty("id", id);
-    }
-    public Long getId() {
-        return (Long)readProperty("id");
     }
 
     public void setToUser(UserDB toUser) {

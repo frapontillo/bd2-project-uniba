@@ -2,6 +2,7 @@ package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.db.UserSessionDB;
 import net.frapontillo.uni.db2.project.entity.UserSession;
+import net.frapontillo.uni.db2.project.util.DBUtil;
 
 public class UserSessionConverter extends
 		AbstractConverter<UserSessionDB, UserSession> {
@@ -11,7 +12,7 @@ public class UserSessionConverter extends
 		if (source == null) return null;
 		UserSession obj = new UserSession();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			obj.setId(source.getId());
+			obj.setId((Long) DBUtil.getID(source,  UserSessionDB.ID_PK_COLUMN));
 			obj.setAuthcode(source.getAuthcode());
 			obj.setUser(new UserConverter().from(source.getToUser(), lev - 1));
 		}
@@ -23,11 +24,11 @@ public class UserSessionConverter extends
 	}
 
 	@Override
-	public UserSessionDB to(UserSession source, int lev) {
+	public UserSessionDB to(UserSession source, UserSessionDB dbObj, int lev) {
 		if (source == null) return null;
-		UserSessionDB dbObj = new UserSessionDB();
+		if (dbObj == null) dbObj = new UserSessionDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			dbObj.setId(source.getId());
+			dbObj.writeProperty(UserSessionDB.ID_PK_COLUMN, source.getId());
 			dbObj.setAuthcode(source.getAuthcode());
 			dbObj.setToUser(new UserConverter().to(source.getUser()));
 		}

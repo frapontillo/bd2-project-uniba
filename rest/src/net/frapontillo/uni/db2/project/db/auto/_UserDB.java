@@ -14,19 +14,11 @@ import net.frapontillo.uni.db2.project.db.UserSessionDB;
  */
 public abstract class _UserDB extends CayenneDataObject {
 
-    public static final String ID_PROPERTY = "id";
     public static final String PASSWORD_PROPERTY = "password";
     public static final String USERNAME_PROPERTY = "username";
     public static final String USER_SESSIONS_PROPERTY = "userSessions";
 
     public static final String ID_PK_COLUMN = "id";
-
-    public void setId(Integer id) {
-        writeProperty("id", id);
-    }
-    public Integer getId() {
-        return (Integer)readProperty("id");
-    }
 
     public void setPassword(String password) {
         writeProperty("password", password);
