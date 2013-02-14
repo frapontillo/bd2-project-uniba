@@ -7,7 +7,7 @@ University project for the Database Systems 2 course.
 
 The project is divided into 5 folders:
 
-- `app`, containing the Web application.
+- `web`, containing the Web application.
 - `db`, containing scripts and files for creating and managing the database.
 - `dw`, containing the scripts for the data warehouse.
 - `rest`, containing the RESTful Web Service that implements the business logic.
