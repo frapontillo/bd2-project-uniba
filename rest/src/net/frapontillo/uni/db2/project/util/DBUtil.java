@@ -27,7 +27,7 @@ public final class DBUtil {
         String url = "jdbc:postgresql://localhost:5432/db2";
 
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("org.postgresql.Driver").newInstance();
             Connection conn = DriverManager.getConnection(url, userName, password);
             factory = new Factory(conn, SQLDialect.POSTGRES);
         } catch (Exception e) {

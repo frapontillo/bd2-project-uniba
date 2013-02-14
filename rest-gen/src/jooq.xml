@@ -45,5 +45,9 @@
       <!-- The destination directory of your generated classes -->
       <directory>../rest/src</directory>
     </target>
+    
+	<strategy>
+		<name>net.frapontillo.uni.db2.project.jooq.gen.DBGeneratorStrategy</name>
+	</strategy>
   </generator>
 </configuration>

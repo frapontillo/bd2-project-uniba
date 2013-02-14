@@ -20,7 +20,7 @@ public final class Routines {
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
 	public static java.lang.Object cercaDipendente(org.jooq.Configuration configuration, java.lang.String nomecognome) {
-		net.frapontillo.uni.db2.project.jooq.routines.CercaDipendente f = new net.frapontillo.uni.db2.project.jooq.routines.CercaDipendente();
+		net.frapontillo.uni.db2.project.jooq.routines.CercaDipendenteDB f = new net.frapontillo.uni.db2.project.jooq.routines.CercaDipendenteDB();
 		f.setNomecognome(nomecognome);
 
 		f.execute(configuration);
@@ -33,7 +33,7 @@ public final class Routines {
 	 * @param nomecognome
 	 */
 	public static org.jooq.Field<java.lang.Object> cercaDipendente(java.lang.String nomecognome) {
-		net.frapontillo.uni.db2.project.jooq.routines.CercaDipendente f = new net.frapontillo.uni.db2.project.jooq.routines.CercaDipendente();
+		net.frapontillo.uni.db2.project.jooq.routines.CercaDipendenteDB f = new net.frapontillo.uni.db2.project.jooq.routines.CercaDipendenteDB();
 		f.setNomecognome(nomecognome);
 
 		return f.asField();
@@ -45,7 +45,7 @@ public final class Routines {
 	 * @param nomecognome
 	 */
 	public static org.jooq.Field<java.lang.Object> cercaDipendente(org.jooq.Field<java.lang.String> nomecognome) {
-		net.frapontillo.uni.db2.project.jooq.routines.CercaDipendente f = new net.frapontillo.uni.db2.project.jooq.routines.CercaDipendente();
+		net.frapontillo.uni.db2.project.jooq.routines.CercaDipendenteDB f = new net.frapontillo.uni.db2.project.jooq.routines.CercaDipendenteDB();
 		f.setNomecognome(nomecognome);
 
 		return f.asField();
@@ -57,7 +57,7 @@ public final class Routines {
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
 	public static java.lang.Object delDipendenza(org.jooq.Configuration configuration) {
-		net.frapontillo.uni.db2.project.jooq.routines.DelDipendenza f = new net.frapontillo.uni.db2.project.jooq.routines.DelDipendenza();
+		net.frapontillo.uni.db2.project.jooq.routines.DelDipendenzaDB f = new net.frapontillo.uni.db2.project.jooq.routines.DelDipendenzaDB();
 
 		f.execute(configuration);
 		return f.getReturnValue();
@@ -68,7 +68,7 @@ public final class Routines {
 	 *
 	 */
 	public static org.jooq.Field<java.lang.Object> delDipendenza() {
-		net.frapontillo.uni.db2.project.jooq.routines.DelDipendenza f = new net.frapontillo.uni.db2.project.jooq.routines.DelDipendenza();
+		net.frapontillo.uni.db2.project.jooq.routines.DelDipendenzaDB f = new net.frapontillo.uni.db2.project.jooq.routines.DelDipendenzaDB();
 
 		return f.asField();
 	}
@@ -80,7 +80,7 @@ public final class Routines {
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
 	public static java.lang.Boolean esisteSessione(org.jooq.Configuration configuration, java.lang.String auth) {
-		net.frapontillo.uni.db2.project.jooq.routines.EsisteSessione f = new net.frapontillo.uni.db2.project.jooq.routines.EsisteSessione();
+		net.frapontillo.uni.db2.project.jooq.routines.EsisteSessioneDB f = new net.frapontillo.uni.db2.project.jooq.routines.EsisteSessioneDB();
 		f.setAuth(auth);
 
 		f.execute(configuration);
@@ -93,7 +93,7 @@ public final class Routines {
 	 * @param auth
 	 */
 	public static org.jooq.Field<java.lang.Boolean> esisteSessione(java.lang.String auth) {
-		net.frapontillo.uni.db2.project.jooq.routines.EsisteSessione f = new net.frapontillo.uni.db2.project.jooq.routines.EsisteSessione();
+		net.frapontillo.uni.db2.project.jooq.routines.EsisteSessioneDB f = new net.frapontillo.uni.db2.project.jooq.routines.EsisteSessioneDB();
 		f.setAuth(auth);
 
 		return f.asField();
@@ -105,7 +105,7 @@ public final class Routines {
 	 * @param auth
 	 */
 	public static org.jooq.Field<java.lang.Boolean> esisteSessione(org.jooq.Field<java.lang.String> auth) {
-		net.frapontillo.uni.db2.project.jooq.routines.EsisteSessione f = new net.frapontillo.uni.db2.project.jooq.routines.EsisteSessione();
+		net.frapontillo.uni.db2.project.jooq.routines.EsisteSessioneDB f = new net.frapontillo.uni.db2.project.jooq.routines.EsisteSessioneDB();
 		f.setAuth(auth);
 
 		return f.asField();
@@ -117,7 +117,7 @@ public final class Routines {
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
 	public static java.lang.Object insDipendenza(org.jooq.Configuration configuration) {
-		net.frapontillo.uni.db2.project.jooq.routines.InsDipendenza f = new net.frapontillo.uni.db2.project.jooq.routines.InsDipendenza();
+		net.frapontillo.uni.db2.project.jooq.routines.InsDipendenzaDB f = new net.frapontillo.uni.db2.project.jooq.routines.InsDipendenzaDB();
 
 		f.execute(configuration);
 		return f.getReturnValue();
@@ -128,7 +128,7 @@ public final class Routines {
 	 *
 	 */
 	public static org.jooq.Field<java.lang.Object> insDipendenza() {
-		net.frapontillo.uni.db2.project.jooq.routines.InsDipendenza f = new net.frapontillo.uni.db2.project.jooq.routines.InsDipendenza();
+		net.frapontillo.uni.db2.project.jooq.routines.InsDipendenzaDB f = new net.frapontillo.uni.db2.project.jooq.routines.InsDipendenzaDB();
 
 		return f.asField();
 	}
@@ -139,7 +139,7 @@ public final class Routines {
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
 	public static java.lang.Object updDipendenza(org.jooq.Configuration configuration) {
-		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenza f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenza();
+		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaDB f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaDB();
 
 		f.execute(configuration);
 		return f.getReturnValue();
@@ -150,7 +150,7 @@ public final class Routines {
 	 *
 	 */
 	public static org.jooq.Field<java.lang.Object> updDipendenza() {
-		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenza f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenza();
+		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaDB f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaDB();
 
 		return f.asField();
 	}
@@ -161,7 +161,7 @@ public final class Routines {
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
 	public static java.lang.Object updDipendenzaLicenziamento(org.jooq.Configuration configuration) {
-		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamento f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamento();
+		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamentoDB f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamentoDB();
 
 		f.execute(configuration);
 		return f.getReturnValue();
@@ -172,7 +172,7 @@ public final class Routines {
 	 *
 	 */
 	public static org.jooq.Field<java.lang.Object> updDipendenzaLicenziamento() {
-		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamento f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamento();
+		net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamentoDB f = new net.frapontillo.uni.db2.project.jooq.routines.UpdDipendenzaLicenziamentoDB();
 
 		return f.asField();
 	}
