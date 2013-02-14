@@ -30,13 +30,15 @@ public class AttivitaResource {
 	@GET
 	@Path("/{id}")
 	public Attivita get(@PathParam("id") String id) {
-		int mId = Integer.parseInt(id);
-		SelectQuery query = new SelectQuery(AttivitaDB.class,
-				ExpressionFactory.matchDbExp(AttivitaDB.ID_ATTIVITA_PK_COLUMN, mId));
-		List<AttivitaDB> dbObjs = (List<AttivitaDB>)DBUtil.getContext().performQuery(query);
-		AttivitaDB dbObj = dbObjs.size() > 0 ? (AttivitaDB)dbObjs.get(0) : null;
-		Attivita obj = new AttivitaConverter().from(dbObj);
-		return obj;
+//		int mId = Integer.parseInt(id);
+//		SelectQuery query = new SelectQuery(AttivitaDB.class,
+//				ExpressionFactory.matchDbExp(AttivitaDB.ID_ATTIVITA_PK_COLUMN, mId));
+//		List<AttivitaDB> dbObjs = (List<AttivitaDB>)DBUtil.getContext().performQuery(query);
+//		AttivitaDB dbObj = dbObjs.size() > 0 ? (AttivitaDB)dbObjs.get(0) : null;
+//		Attivita obj = new AttivitaConverter().from(dbObj);
+//		return obj;
+		DBUtil.getConn().select().from(net.frapontillo.uni.db2.project.jooq.tables.Attivita.ATTIVITA).fetch();
+		return null;
 	}
 	
 	@GET

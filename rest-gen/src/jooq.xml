@@ -17,7 +17,7 @@
       <!-- The database type. The format here is:
            org.util.[database].[database]Database -->
       <name>org.jooq.util.postgres.PostgresDatabase</name>
-
+      
       <!-- The database schema (or in the absence of schema support, in your RDBMS this
            can be the owner, user, database name) to be generated -->
       <inputSchema>public</inputSchema>
@@ -43,7 +43,7 @@
       <packageName>net.frapontillo.uni.db2.project.jooq</packageName>
 
       <!-- The destination directory of your generated classes -->
-      <directory>../rest/src/net/frapontillo/uni/db2/project/jooq</directory>
+      <directory>../rest/src</directory>
     </target>
   </generator>
 </configuration>
