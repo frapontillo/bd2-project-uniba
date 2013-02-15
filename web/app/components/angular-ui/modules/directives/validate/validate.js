@@ -5,10 +5,8 @@
  * The ui-validate directive makes it easy to use any function(s) defined in scope as a validator function(s).
  * A validator function will trigger validation on both model and input changes.
  *
- * @example <input ui-validate=" 'myValidatorFunction($value)' ">
- * @example <input ui-validate="{ foo : '$value > anotherModel', bar : 'validateFoo($value)' }">
- * @example <input ui-validate="{ foo : '$value > anotherModel' }" ui-validate-watch=" 'anotherModel' ">
- * @example <input ui-validate="{ foo : '$value > anotherModel', bar : 'validateFoo($value)' }" ui-validate-watch=" { foo : 'anotherModel' } ">
+ * @example <input ui-validate="myValidatorFunction">
+ * @example <input ui-validate="{foo : validateFoo, bar : validateBar}">
  *
  * @param ui-validate {string|object literal} If strings is passed it should be a scope's function to be used as a validator.
  * If an object literal is passed a key denotes a validation error key while a value should be a validator function.
@@ -20,18 +18,21 @@ angular.module('ui.directives').directive('uiValidate', function () {
     restrict: 'A',
     require: 'ngModel',
     link: function (scope, elm, attrs, ctrl) {
-      var validateFn, watch, validators = {},
-        validateExpr = scope.$eval(attrs.uiValidate);
 
-      if (!validateExpr) return;
+      var validateFn, validateExpr = attrs.uiValidate;
 
-      if (angular.isString(validateExpr)) {
+      validateExpr = scope.$eval(validateExpr);
+      if (!validateExpr) {
+        return;
+      }
+
+      if (angular.isFunction(validateExpr)) {
         validateExpr = { validator: validateExpr };
       }
 
-      angular.forEach(validateExpr, function (expression, key) {
+      angular.forEach(validateExpr, function (validatorFn, key) {
         validateFn = function (valueToValidate) {
-          if (scope.$eval(expression, { '$value' : valueToValidate })) {
+          if (validatorFn(valueToValidate)) {
             ctrl.$setValidity(key, true);
             return valueToValidate;
           } else {
@@ -39,28 +40,9 @@ angular.module('ui.directives').directive('uiValidate', function () {
             return undefined;
           }
         };
-        validators[key] = validateFn;
         ctrl.$formatters.push(validateFn);
         ctrl.$parsers.push(validateFn);
       });
-
-      // Support for ui-validate-watch
-      if (attrs.uiValidateWatch) {
-        watch = scope.$eval(attrs.uiValidateWatch);
-        if (angular.isString(watch)) {
-          scope.$watch(watch, function(){
-            angular.forEach(validators, function(validatorFn, key){
-              validatorFn(ctrl.$modelValue);
-            });
-          });
-        } else {
-          angular.forEach(watch, function(expression, key){
-            scope.$watch(expression, function(){
-              validators[key](ctrl.$modelValue);
-            });
-          });
-        }
-      }
     }
   };
 });

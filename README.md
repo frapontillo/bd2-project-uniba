@@ -33,6 +33,11 @@ The dependencies for the RESTful Web Service are:
 - Regenerated jooq entities because of DB schema changes.
 - All resources are complete and properly working.
 - Web service ready to be used.
+- Web application initialized. Loaded libraries: `jquery`, `angular`, `angular-cookies`, `angular-resource`, `angular-ui`, `bootstrap`, `angular-bootstrap`, `angular-strap`.
+- Home page created.
+- Header created.
+- Login and logout pages created.
+- `Factory` for `UserSession` created and working.
 
 ### 2013-02-14
 

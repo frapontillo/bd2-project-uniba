@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!DOCTYPE html ng-app="webApp">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="webApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="webApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="webApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="webApp"> <!--<![endif]-->
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <title></title>
         <meta name="description" content=""/>
         <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="components/bootstrap/docs/assets/css/docs.css"/>
+        <link rel="stylesheet" href="components/bootstrap/docs/assets/css/bootstrap.css"/>
+        <link rel="stylesheet" href="components/bootstrap/docs/assets/css/bootstrap-responsive.css"/>
+        <link rel="stylesheet" href="components/angular-ui/build/angular-ui.css"/>
         <link rel="stylesheet" href="styles/main.css"/>
-
     </head>
-    <body ng-app="webApp">
+    <body>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -24,13 +27,46 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div class="container" ng-view></div>
+        <div ng-include src="'views/_header.html'"></div>
+        <div class="container">
+            <div class="container-view" ng-view></div>
+            <hr>
+            <footer>
+                <p>© Francesco Pontillo 2013</p>
+            </footer>
+        </div>
 
+        <script src="components/jquery/jquery.js"></script>
         <script src="scripts/vendor/angular.js"></script>
+        <script src="components/angular-resource/angular-resource.js"></script>
+        <script src="components/angular-cookies/angular-cookies.js"></script>
+        <script src="components/angular-ui/build/angular-ui.js"></script>
+        <script src="scripts/vendor/ui-bootstrap-custom-tpls-0.1.0-SNAPSHOT.js"></script>
+        <script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="components/bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="components/bootstrap/js/bootstrap-affix.js"></script>
 
         <!-- build:js scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/attivita.js"></script>
+        <script src="scripts/controllers/dipendente.js"></script>
+        <script src="scripts/controllers/struttura.js"></script>
+        <script src="scripts/controllers/dipendenza.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/logout.js"></script>
+        <script src="scripts/services/Menu.js"></script>
+        <script src="scripts/services/Struttura.js"></script>
+        <script src="scripts/services/Attivita.js"></script>
+        <script src="scripts/services/Dipendente.js"></script>
+        <script src="scripts/services/Dipendenza.js"></script>
+        <script src="scripts/services/TipoStruttura.js"></script>
+        <script src="scripts/services/TipoAttivita.js"></script>
+        <script src="scripts/services/UserSession.js"></script>
+        <script src="scripts/services/User.js"></script>
+        <script src="scripts/services/Config.js"></script>
+        <script src="scripts/services/AuthHandler.js"></script>
+        <script src="scripts/services/AppHttpInterceptor.js"></script>
         <!-- endbuild -->
     </body>
 </html>

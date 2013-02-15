@@ -5,12 +5,11 @@
 angular.module('ui.directives').directive('uiCodemirror', ['ui.config', '$timeout', function (uiConfig, $timeout) {
 	'use strict';
 
-	var events = ["cursorActivity", "viewportChange", "gutterClick", "focus", "blur", "scroll", "update"];
 	return {
 		restrict:'A',
 		require:'ngModel',
 		link:function (scope, elm, attrs, ngModel) {
-			var options, opts, onChange, deferCodeMirror, codeMirror;
+			var options, opts, events, onChange, deferCodeMirror, codeMirror;
 
 			if (elm[0].type !== 'textarea') {
 				throw new Error('uiCodemirror3 can only be applied to a textarea element');
@@ -18,6 +17,9 @@ angular.module('ui.directives').directive('uiCodemirror', ['ui.config', '$timeou
 
 			options = uiConfig.codemirror || {};
 			opts = angular.extend({}, options, scope.$eval(attrs.uiCodemirror));
+
+
+			events = "cursorActivity viewportChange gutterClick focus blur scroll update".split(' ');
 
 			onChange = function (aEvent) {
 				return function (instance, changeObj) {
@@ -60,14 +62,6 @@ angular.module('ui.directives').directive('uiCodemirror', ['ui.config', '$timeou
 					codeMirror.setValue(ngModel.$viewValue);
 				};
 
-				// Watch ui-refresh and refresh the directive
-				if (attrs.uiRefresh) {
-					scope.$watch(attrs.uiRefresh, function(newVal, oldVal){
-						// Skip the initial watch firing
-						if (newVal !== oldVal)
-							$timeout(codeMirror.refresh);
-					});
-				}
 			};
 
 			$timeout(deferCodeMirror);

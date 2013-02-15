@@ -1,0 +1,15 @@
+/**
+ * Created with JetBrains WebStorm.
+ * User: francescopontillo
+ * Date: 15/02/13
+ * Time: 17:05
+ */
+/* line 10, ../../app/styles/my-bootstrap.scss */
+.hero-unit.big-hero-unit {
+  text-align: center;
+  padding: 30px;
+}
+/* line 13, ../../app/styles/my-bootstrap.scss */
+.hero-unit.big-hero-unit h1 {
+  font-size: 60px;
+}
