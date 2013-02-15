@@ -1,7 +1,7 @@
 package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.entity.Dipendenza;
-import net.frapontillo.uni.db2.project.jooq.tables.records.DipendenzaRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB;
 import net.frapontillo.uni.db2.project.util.ConvUtil;
 
 public class DipendenzaConverter extends AbstractConverter<DipendenzaRecordDB, Dipendenza> {
@@ -11,6 +11,7 @@ public class DipendenzaConverter extends AbstractConverter<DipendenzaRecordDB, D
 		if (source == null) return null;
 		Dipendenza obj = new Dipendenza();
 		if (lev >= CONV_TYPE.MINIMUM) {
+			obj.setId(source.getId());
 			obj.setCf(source.getCfDipendente());
 			obj.setId_attivita(source.getIdAttivita());
 			obj.setData_assunzione(source.getDataAssunzione());
@@ -26,6 +27,7 @@ public class DipendenzaConverter extends AbstractConverter<DipendenzaRecordDB, D
 		if (source == null) return null;
 		if (dbObj == null) dbObj = new DipendenzaRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
+			if (source.getId() != null) dbObj.setId(source.getId());
 			dbObj.setCfDipendente(source.getCf());
 			dbObj.setIdAttivita(source.getId_attivita());
 			dbObj.setDataAssunzione(ConvUtil.DateUtilToSql(source.getData_assunzione()));

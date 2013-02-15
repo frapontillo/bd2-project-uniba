@@ -1,7 +1,7 @@
 package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.entity.Dipendente;
-import net.frapontillo.uni.db2.project.jooq.tables.records.DipendenteRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB;
 import net.frapontillo.uni.db2.project.util.ConvUtil;
 
 public class DipendenteConverter extends AbstractConverter<DipendenteRecordDB, Dipendente> {
@@ -18,7 +18,7 @@ public class DipendenteConverter extends AbstractConverter<DipendenteRecordDB, D
 		if (lev >= CONV_TYPE.NORMAL) {
 			obj.setData_nascita(source.getDataNascita());
 			obj.setLuogo_nascita(source.getLuogoNascita());
-			obj.setSesso(source.getSesso());
+			obj.setSesso(source.getSesso() ? "M" :"F");
 		}
 		if (lev >= CONV_TYPE.CASCADE) {
 			obj.setAttivita_gestite(new AttivitaConverter().fromList(source.fetchAttivitaDBList()));
@@ -39,7 +39,11 @@ public class DipendenteConverter extends AbstractConverter<DipendenteRecordDB, D
 		if (lev >= CONV_TYPE.NORMAL) {
 			dbObj.setDataNascita(ConvUtil.DateUtilToSql(source.getData_nascita()));
 			dbObj.setLuogoNascita(source.getLuogo_nascita());
-			dbObj.setSesso(source.getSesso());
+			String sesso = source.getSesso();
+			if (sesso != null) {
+				dbObj.setSesso(sesso.equals("M"));
+			} else dbObj.setSesso(null);
+			
 		}
 		if (lev >= CONV_TYPE.CASCADE) {
 		}

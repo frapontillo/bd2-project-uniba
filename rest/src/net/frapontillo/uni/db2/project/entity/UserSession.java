@@ -1,6 +1,6 @@
 package net.frapontillo.uni.db2.project.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

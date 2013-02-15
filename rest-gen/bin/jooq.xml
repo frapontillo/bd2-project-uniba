@@ -7,7 +7,7 @@
     <user>postgres</user>
     <password>30lode</password>
   </jdbc>
-
+  
   <generator>
     <!-- The default code generator. You can override this one, to generate your own code style
          Defaults to org.jooq.util.DefaultGenerator -->
@@ -38,12 +38,13 @@
 		<relations>true</relations>
 		<!-- Generate DAOs in addition to POJO classes
 	       Defaults to false -->
-		<daos>true</daos>
+	    <!--  TODO: per ora non sembra che servano. -->
+		<daos>false</daos>
     </generate>
 
     <target>
       <!-- The destination package of your generated classes (within the destination directory) -->
-      <packageName>net.frapontillo.uni.db2.project.jooq</packageName>
+      <packageName>net.frapontillo.uni.db2.project.jooq.gen</packageName>
 
       <!-- The destination directory of your generated classes -->
       <directory>../rest/src</directory>

@@ -25,6 +25,15 @@ The dependencies for the RESTful Web Service are:
 
 ## History
 
+### 2013-02-15
+
+- `UserSession` inserted, retrieved and deleted.
+- Added `BadResponseException` with related `Mapper`.
+- Authentication handled properly.
+- Regenerated jooq entities because of DB schema changes.
+- All resources are complete and properly working.
+- Web service ready to be used.
+
 ### 2013-02-14
 
 - Web app project draft created with yeoman.

@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class TipoStruttura implements IEntity {
 	protected Integer id;
-	protected char codice;
+	protected String codice;
 	protected String descrizione;
-	public TipoStruttura(Integer id, char codice, String descrizione) {
+	public TipoStruttura(Integer id, String codice, String descrizione) {
 		super();
 		this.id = id;
 		this.codice = codice;
@@ -20,10 +20,10 @@ public class TipoStruttura implements IEntity {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public char getCodice() {
+	public String getCodice() {
 		return codice;
 	}
-	public void setCodice(char codice) {
+	public void setCodice(String codice) {
 		this.codice = codice;
 	}
 	public String getDescrizione() {

@@ -1,7 +1,6 @@
 package net.frapontillo.uni.db2.project.resource;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -21,12 +20,12 @@ import org.jooq.Record;
 import org.jooq.Result;
 import org.jooq.impl.Factory;
 
-import static net.frapontillo.uni.db2.project.jooq.Tables.*;
+import static net.frapontillo.uni.db2.project.jooq.gen.Tables.*;
 
 import net.frapontillo.uni.db2.project.converter.AttivitaConverter;
 import net.frapontillo.uni.db2.project.entity.Attivita;
 import net.frapontillo.uni.db2.project.filter.AuthenticationResourceFilter;
-import net.frapontillo.uni.db2.project.jooq.tables.records.AttivitaRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB;
 import net.frapontillo.uni.db2.project.util.DBUtil;
 
 import com.sun.jersey.core.spi.factory.ResponseBuilderImpl;
@@ -34,17 +33,15 @@ import com.sun.jersey.spi.container.ResourceFilters;
 
 @Path("attivita")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-// TODO: riabilitare dopo implementazione del login
-// @ResourceFilters(AuthenticationResourceFilter.class)
+@ResourceFilters(AuthenticationResourceFilter.class)
 public class AttivitaResource {
 	@GET
 	@Path("/{id}")
-	public Attivita get(@PathParam("id") String id) {
-		int mId = Integer.parseInt(id);
+	public Attivita get(@PathParam("id") Integer id) {
 		AttivitaRecordDB r = (AttivitaRecordDB) DBUtil.getConn()
 				.select()
 				.from(ATTIVITA)
-				.where(ATTIVITA.ID_ATTIVITA.equal(mId))
+				.where(ATTIVITA.ID_ATTIVITA.equal(id))
 				.fetchOne();
 		Attivita entity = new AttivitaConverter().from(r);
 		return entity;
@@ -74,12 +71,11 @@ public class AttivitaResource {
 	@PUT
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Attivita put(@PathParam("id") String id, Attivita a) {
-		int mId = Integer.parseInt(id);
+	public Attivita put(@PathParam("id") Integer id, Attivita a) {
 		Factory f = DBUtil.getConn();
 		AttivitaRecordDB r = (AttivitaRecordDB) f.select()
 				.from(ATTIVITA)
-				.where(ATTIVITA.ID_ATTIVITA.equal(mId))
+				.where(ATTIVITA.ID_ATTIVITA.equal(id))
 				.fetchOne();
 		new AttivitaConverter().to(a, r);
 		r.store();
@@ -90,11 +86,10 @@ public class AttivitaResource {
 	@DELETE
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Response delete(@PathParam("id") String id) {
-		int mId = Integer.parseInt(id);
+	public Response delete(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
 		int d = f.delete(ATTIVITA)
-				.where(ATTIVITA.ID_ATTIVITA.equal(mId))
+				.where(ATTIVITA.ID_ATTIVITA.equal(id))
 				.execute();
 		
 		if (d == 1) {

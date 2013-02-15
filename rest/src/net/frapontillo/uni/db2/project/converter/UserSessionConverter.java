@@ -1,7 +1,8 @@
 package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.entity.UserSession;
-import net.frapontillo.uni.db2.project.jooq.tables.records.UserSessionRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.UserSessionRecordDB;
+import net.frapontillo.uni.db2.project.util.ConvUtil;
 
 public class UserSessionConverter extends
 		AbstractConverter<UserSessionRecordDB, UserSession> {
@@ -16,8 +17,8 @@ public class UserSessionConverter extends
 			obj.setUser(new UserConverter().from(source.fetchUserDB(), lev - 1));
 		}
 		if (lev >= CONV_TYPE.NORMAL) {
-			obj.setDate_login(source.getDateLogin());
-			obj.setDate_logout(source.getDateLogout());
+			obj.setDate_login(ConvUtil.TimestampToDate(source.getDateLogin()));
+			obj.setDate_logout(ConvUtil.TimestampToDate(source.getDateLogout()));
 		}
 		return obj;
 	}
@@ -32,8 +33,8 @@ public class UserSessionConverter extends
 			dbObj.setIdUser(source.getUser().getId());
 		}
 		if (lev >= CONV_TYPE.NORMAL) {
-			dbObj.setDateLogin(source.getDate_login());
-			dbObj.setDateLogout(source.getDate_logout());
+			dbObj.setDateLogin(ConvUtil.DateToTimestamp(source.getDate_login()));
+			dbObj.setDateLogout(ConvUtil.DateToTimestamp(source.getDate_logout()));
 		}
 		return dbObj;
 	}

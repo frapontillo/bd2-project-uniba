@@ -16,9 +16,10 @@ public class NullResponseFilter implements ContainerResponseFilter {
 		// Se l'oggetto è nullo, se il metodo non è OPTIONS e se lo status code è 200
 		if (res.getEntity() == null &&
 				!req.getMethod().equals("OPTIONS") &&
-				res.getStatus() != Status.INTERNAL_SERVER_ERROR.getStatusCode() &&
-				res.getStatus() != Status.NO_CONTENT.getStatusCode() &&
-				res.getStatus() != Status.UNAUTHORIZED.getStatusCode())
+				res.getStatus() == Status.OK.getStatusCode())
+//				res.getStatus() != Status.INTERNAL_SERVER_ERROR.getStatusCode() &&
+//				res.getStatus() != Status.NO_CONTENT.getStatusCode() &&
+//				res.getStatus() != Status.UNAUTHORIZED.getStatusCode()
 			throw new NotFoundException();
 		
 		// Forzo la restituzione dello status code 200

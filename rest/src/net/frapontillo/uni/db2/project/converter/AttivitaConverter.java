@@ -1,7 +1,7 @@
 package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.entity.Attivita;
-import net.frapontillo.uni.db2.project.jooq.tables.records.AttivitaRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB;
 
 public class AttivitaConverter extends AbstractConverter<AttivitaRecordDB, Attivita> {
 

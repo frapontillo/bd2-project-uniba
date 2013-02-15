@@ -1,7 +1,7 @@
 package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.entity.Struttura;
-import net.frapontillo.uni.db2.project.jooq.tables.records.StrutturaRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.StrutturaRecordDB;
 
 public class StrutturaConverter extends AbstractConverter<StrutturaRecordDB, Struttura> {
 

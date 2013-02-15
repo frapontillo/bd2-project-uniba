@@ -10,6 +10,7 @@ public class Struttura implements IEntity {
 	protected String codice;
 	protected TipoStruttura tipo;
 	protected List<Attivita> attivita;
+	
 	public Struttura(Integer id, String codice, TipoStruttura tipo,
 			List<Attivita> attivita) {
 		super();

@@ -1,7 +1,7 @@
 package net.frapontillo.uni.db2.project.converter;
 
 import net.frapontillo.uni.db2.project.entity.User;
-import net.frapontillo.uni.db2.project.jooq.tables.records.UserRecordDB;
+import net.frapontillo.uni.db2.project.jooq.gen.tables.records.UserRecordDB;
 
 public class UserConverter extends AbstractConverter<UserRecordDB, User> {
 
