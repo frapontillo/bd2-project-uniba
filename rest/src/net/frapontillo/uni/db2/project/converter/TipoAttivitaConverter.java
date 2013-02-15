@@ -1,28 +1,27 @@
 package net.frapontillo.uni.db2.project.converter;
 
-import net.frapontillo.uni.db2.project.db.TipoAttivitaDB;
 import net.frapontillo.uni.db2.project.entity.TipoAttivita;
-import net.frapontillo.uni.db2.project.util.DBUtil;
+import net.frapontillo.uni.db2.project.jooq.tables.records.TipoAttivitaRecordDB;
 
-public class TipoAttivitaConverter extends AbstractConverter<TipoAttivitaDB, TipoAttivita> {
+public class TipoAttivitaConverter extends AbstractConverter<TipoAttivitaRecordDB, TipoAttivita> {
 
 	@Override
-	public TipoAttivita from(TipoAttivitaDB source, int lev) {
+	public TipoAttivita from(TipoAttivitaRecordDB source, int lev) {
 		if (source == null) return null;
 		TipoAttivita obj = new TipoAttivita();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			obj.setId((Integer) DBUtil.getID(source, TipoAttivitaDB.ID_PK_COLUMN));
+			obj.setId(source.getId());
 			obj.setDescrizione(source.getDescrizione());
 		}
 		return obj;
 	}
 
 	@Override
-	public TipoAttivitaDB to(TipoAttivita source, TipoAttivitaDB dbObj, int lev) {
+	public TipoAttivitaRecordDB to(TipoAttivita source, TipoAttivitaRecordDB dbObj, int lev) {
 		if (source == null) return null;
-		if (dbObj == null) dbObj = new TipoAttivitaDB();
+		if (dbObj == null) dbObj = new TipoAttivitaRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			dbObj.writeProperty(TipoAttivitaDB.ID_PK_COLUMN, source.getId());
+			dbObj.setId(source.getId());
 			dbObj.setDescrizione(source.getDescrizione());
 		}
 		return dbObj;

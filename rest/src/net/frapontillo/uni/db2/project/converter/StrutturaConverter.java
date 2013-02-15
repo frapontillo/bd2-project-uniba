@@ -1,37 +1,33 @@
 package net.frapontillo.uni.db2.project.converter;
 
-import net.frapontillo.uni.db2.project.db.StrutturaDB;
 import net.frapontillo.uni.db2.project.entity.Struttura;
-import net.frapontillo.uni.db2.project.util.DBUtil;
+import net.frapontillo.uni.db2.project.jooq.tables.records.StrutturaRecordDB;
 
-public class StrutturaConverter extends AbstractConverter<StrutturaDB, Struttura> {
+public class StrutturaConverter extends AbstractConverter<StrutturaRecordDB, Struttura> {
 
 	@Override
-	public Struttura from(StrutturaDB source, int lev) {
+	public Struttura from(StrutturaRecordDB source, int lev) {
 		if (source == null) return null;
 		Struttura obj = new Struttura();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			obj.setId((Integer) DBUtil.getID(source, StrutturaDB.ID_STRUTTURA_PK_COLUMN));
+			obj.setId(source.getIdStruttura());
 			obj.setCodice(source.getCodice());
-			obj.setTipo(new TipoStrutturaConverter().from(source.getToTipoStruttura()));
+			obj.setTipo(new TipoStrutturaConverter().from(source.fetchTipoStrutturaDB()));
 		}
 		if (lev >= CONV_TYPE.CASCADE) {
-			obj.setAttivita(new AttivitaConverter().fromList(source.getAttivitas()));
+			obj.setAttivita(new AttivitaConverter().fromList(source.fetchAttivitaDBList()));
 		}
 		return obj;
 	}
 
 	@Override
-	public StrutturaDB to(Struttura source, StrutturaDB dbObj, int lev) {
+	public StrutturaRecordDB to(Struttura source, StrutturaRecordDB dbObj, int lev) {
 		if (source == null) return null;
-		if (dbObj == null) dbObj = new StrutturaDB();
+		if (dbObj == null) dbObj = new StrutturaRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			dbObj.writeProperty(StrutturaDB.ID_STRUTTURA_PK_COLUMN, source.getId());
+			dbObj.setIdStruttura(source.getId());
 			dbObj.setCodice(source.getCodice());
-			dbObj.setToTipoStruttura(new TipoStrutturaConverter().to(source.getTipo()));
-		}
-		if (lev >= CONV_TYPE.CASCADE) {
-			// TODO: impossibile gestire le attività da qui
+			dbObj.setIdTipoStruttura(source.getTipo().getId());
 		}
 		return dbObj;
 	}

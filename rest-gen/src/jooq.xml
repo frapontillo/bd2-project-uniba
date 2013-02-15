@@ -32,10 +32,13 @@
     </database>
 
     <generate>
-      <!-- Primary key / foreign key relations should be generated and used.
-           This will be a prerequisite for various advanced features
-           Defaults to false -->
-      <relations>true</relations>
+		<!-- Primary key / foreign key relations should be generated and used.
+		     This will be a prerequisite for various advanced features
+		     Defaults to false -->
+		<relations>true</relations>
+		<!-- Generate DAOs in addition to POJO classes
+	       Defaults to false -->
+		<daos>true</daos>
     </generate>
 
     <target>
@@ -49,5 +52,6 @@
 	<strategy>
 		<name>net.frapontillo.uni.db2.project.jooq.gen.DBGeneratorStrategy</name>
 	</strategy>
+	
   </generator>
 </configuration>

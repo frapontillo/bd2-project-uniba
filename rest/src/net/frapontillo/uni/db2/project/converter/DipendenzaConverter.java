@@ -1,36 +1,35 @@
 package net.frapontillo.uni.db2.project.converter;
 
-import java.util.Date;
-
-import net.frapontillo.uni.db2.project.db.DipendenzaDB;
 import net.frapontillo.uni.db2.project.entity.Dipendenza;
-import net.frapontillo.uni.db2.project.util.DBUtil;
+import net.frapontillo.uni.db2.project.jooq.tables.records.DipendenzaRecordDB;
+import net.frapontillo.uni.db2.project.util.ConvUtil;
 
-public class DipendenzaConverter extends AbstractConverter<DipendenzaDB, Dipendenza> {
+public class DipendenzaConverter extends AbstractConverter<DipendenzaRecordDB, Dipendenza> {
 
 	@Override
-	public Dipendenza from(DipendenzaDB source, int lev) {
+	public Dipendenza from(DipendenzaRecordDB source, int lev) {
 		if (source == null) return null;
 		Dipendenza obj = new Dipendenza();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			obj.setCf((String) DBUtil.getID(source, DipendenzaDB.CF_DIPENDENTE_PK_COLUMN));
-			obj.setId_attivita((Integer) DBUtil.getID(source, DipendenzaDB.ID_ATTIVITA_PK_COLUMN));
-			obj.setData_assunzione((Date) DBUtil.getID(source, DipendenzaDB.DATA_ASSUNZIONE_PK_COLUMN));
+			obj.setCf(source.getCfDipendente());
+			obj.setId_attivita(source.getIdAttivita());
+			obj.setData_assunzione(source.getDataAssunzione());
 			obj.setData_licenziamento(source.getDataLicenziamento());
+			obj.setAttivita(new AttivitaConverter().from(source.fetchAttivitaDB(), CONV_TYPE.MINIMUM));
+			obj.setDipendente(new DipendenteConverter().from(source.fetchDipendenteDB(), CONV_TYPE.MINIMUM));
 		}
-		obj.setAttivita(new AttivitaConverter().from(source.getToAttivita(), CONV_TYPE.MINIMUM));
 		return obj;
 	}
 
 	@Override
-	public DipendenzaDB to(Dipendenza source, DipendenzaDB dbObj, int lev) {
+	public DipendenzaRecordDB to(Dipendenza source, DipendenzaRecordDB dbObj, int lev) {
 		if (source == null) return null;
-		if (dbObj == null) dbObj = new DipendenzaDB();
+		if (dbObj == null) dbObj = new DipendenzaRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			dbObj.writeProperty(DipendenzaDB.CF_DIPENDENTE_PK_COLUMN, source.getCf());
-			dbObj.writeProperty(DipendenzaDB.ID_ATTIVITA_PK_COLUMN, source.getId_attivita());
-			dbObj.writeProperty(DipendenzaDB.DATA_ASSUNZIONE_PK_COLUMN, source.getData_assunzione());
-			dbObj.setDataLicenziamento(source.getData_licenziamento());
+			dbObj.setCfDipendente(source.getCf());
+			dbObj.setIdAttivita(source.getId_attivita());
+			dbObj.setDataAssunzione(ConvUtil.DateUtilToSql(source.getData_assunzione()));
+			dbObj.setDataLicenziamento(ConvUtil.DateUtilToSql(source.getData_licenziamento()));
 		}
 		return dbObj;
 	}

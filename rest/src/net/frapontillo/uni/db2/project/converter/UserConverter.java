@@ -1,28 +1,27 @@
 package net.frapontillo.uni.db2.project.converter;
 
-import net.frapontillo.uni.db2.project.db.UserDB;
 import net.frapontillo.uni.db2.project.entity.User;
-import net.frapontillo.uni.db2.project.util.DBUtil;
+import net.frapontillo.uni.db2.project.jooq.tables.records.UserRecordDB;
 
-public class UserConverter extends AbstractConverter<UserDB, User> {
+public class UserConverter extends AbstractConverter<UserRecordDB, User> {
 
 	@Override
-	public User from(UserDB source, int lev) {
+	public User from(UserRecordDB source, int lev) {
 		if (source == null) return null;
 		User obj = new User();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			obj.setId((Integer) DBUtil.getID(source, UserDB.ID_PK_COLUMN));
+			obj.setId(source.getId());
 			obj.setUsername(source.getUsername());
 		}
 		return obj;
 	}
 
 	@Override
-	public UserDB to(User source, UserDB dbObj, int lev) {
+	public UserRecordDB to(User source, UserRecordDB dbObj, int lev) {
 		if (source == null) return null;
-		if (dbObj == null) dbObj = new UserDB();
+		if (dbObj == null) dbObj = new UserRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			dbObj.writeProperty(UserDB.ID_PK_COLUMN, source.getId());
+			dbObj.setId(source.getId());
 			dbObj.setUsername(source.getUsername());
 		}
 		return dbObj;

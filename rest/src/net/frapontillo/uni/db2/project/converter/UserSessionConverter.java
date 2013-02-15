@@ -1,20 +1,19 @@
 package net.frapontillo.uni.db2.project.converter;
 
-import net.frapontillo.uni.db2.project.db.UserSessionDB;
 import net.frapontillo.uni.db2.project.entity.UserSession;
-import net.frapontillo.uni.db2.project.util.DBUtil;
+import net.frapontillo.uni.db2.project.jooq.tables.records.UserSessionRecordDB;
 
 public class UserSessionConverter extends
-		AbstractConverter<UserSessionDB, UserSession> {
+		AbstractConverter<UserSessionRecordDB, UserSession> {
 
 	@Override
-	public UserSession from(UserSessionDB source, int lev) {
+	public UserSession from(UserSessionRecordDB source, int lev) {
 		if (source == null) return null;
 		UserSession obj = new UserSession();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			obj.setId((Long) DBUtil.getID(source,  UserSessionDB.ID_PK_COLUMN));
+			obj.setId(source.getId());
 			obj.setAuthcode(source.getAuthcode());
-			obj.setUser(new UserConverter().from(source.getToUser(), lev - 1));
+			obj.setUser(new UserConverter().from(source.fetchUserDB(), lev - 1));
 		}
 		if (lev >= CONV_TYPE.NORMAL) {
 			obj.setDate_login(source.getDateLogin());
@@ -24,13 +23,13 @@ public class UserSessionConverter extends
 	}
 
 	@Override
-	public UserSessionDB to(UserSession source, UserSessionDB dbObj, int lev) {
+	public UserSessionRecordDB to(UserSession source, UserSessionRecordDB dbObj, int lev) {
 		if (source == null) return null;
-		if (dbObj == null) dbObj = new UserSessionDB();
+		if (dbObj == null) dbObj = new UserSessionRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
-			dbObj.writeProperty(UserSessionDB.ID_PK_COLUMN, source.getId());
+			dbObj.setId(source.getId());
 			dbObj.setAuthcode(source.getAuthcode());
-			dbObj.setToUser(new UserConverter().to(source.getUser()));
+			dbObj.setIdUser(source.getUser().getId());
 		}
 		if (lev >= CONV_TYPE.NORMAL) {
 			dbObj.setDateLogin(source.getDate_login());

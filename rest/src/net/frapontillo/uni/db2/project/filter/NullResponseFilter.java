@@ -17,6 +17,7 @@ public class NullResponseFilter implements ContainerResponseFilter {
 		if (res.getEntity() == null &&
 				!req.getMethod().equals("OPTIONS") &&
 				res.getStatus() != Status.INTERNAL_SERVER_ERROR.getStatusCode() &&
+				res.getStatus() != Status.NO_CONTENT.getStatusCode() &&
 				res.getStatus() != Status.UNAUTHORIZED.getStatusCode())
 			throw new NotFoundException();
 		

@@ -5,9 +5,10 @@ import java.util.List;
 
 import net.frapontillo.uni.db2.project.entity.IEntity;
 
-import org.apache.cayenne.CayenneDataObject;
+import org.jooq.Record;
+import org.jooq.Result;
 
-public abstract class AbstractConverter<S extends CayenneDataObject, D extends IEntity> {
+public abstract class AbstractConverter<S extends Record, D extends IEntity> {
 	
 	public abstract D from(S source, int lev);
 	public final D from(S source) {
@@ -32,6 +33,20 @@ public abstract class AbstractConverter<S extends CayenneDataObject, D extends I
 		List<D> list = new ArrayList<D>();
 		for (S s : source) {
 			D d = from(s);
+			list.add(d);
+		}
+		return list;
+	}
+	
+
+	public final List<D> fromResult(Result<Record> source) {
+		return fromResult(source, CONV_TYPE.NORMAL);
+	}
+	@SuppressWarnings("unchecked")
+	public List<D> fromResult(Result<Record> source, int lev) {
+		List<D> list = new ArrayList<D>();
+		for (Record s : source) {
+			D d = from((S) s);
 			list.add(d);
 		}
 		return list;
