@@ -14,15 +14,20 @@ webApp.config(['$routeProvider', function($routeProvider) {
 			templateRoute: '/struttura',
 			controller: 'StrutturaListCtrl'
 		})
+		.when('/struttura/new', {
+			templateUrl: 'views/struttura_new.html',
+			templateRoute: '/struttura/new',
+			controller: 'StrutturaNewEditCtrl'
+		})
 		.when('/struttura/:id', {
 			templateUrl: 'views/struttura_detail.html',
 			templateRoute: '/struttura/:id',
 			controller: 'StrutturaDetailCtrl'
 		})
 		.when('/struttura/:id/edit', {
-			templateUrl: 'views/struttura_list.html',
+			templateUrl: 'views/struttura_edit.html',
 			templateRoute: '/struttura/:id/edit',
-			controller: 'StrutturaEditCtrl'
+			controller: 'StrutturaNewEditCtrl'
 		})
 		.when('/attivita', {
 			templateUrl: 'views/attivita_list.html',

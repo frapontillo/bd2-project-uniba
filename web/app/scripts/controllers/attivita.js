@@ -11,3 +11,7 @@ webApp.controller('AttivitaDetailCtrl', function($scope) {
 webApp.controller('AttivitaEditCtrl', function($scope) {
 	// TODO
 });
+
+webApp.controller('AttivitaTableCtrl', function($scope) {
+	// TODO
+});

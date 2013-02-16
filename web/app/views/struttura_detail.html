@@ -1,1 +1,27 @@
-<p>s</p>
+<section id="struttura-detail">
+    <div class="page-header">
+        <h1>Struttura<div class="actionbar pull-right" ng-include src="'views/_edit_entity.html'"></div></h1>
+    </div>
+    <h2 ui-if="s">Dettaglio struttura {{s.tipo.codice + '-' + s.id}}
+        <p class="lead">Per modificare questa struttura, clicca sul pulsante "Modifica".</p></h2>
+
+    <div class="row">
+        <p class="span2"><strong>Codice</strong></p>
+        <p class="span6">{{s.tipo.codice + '-' + s.id}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Descrizione</strong></p>
+        <p class="span6">{{s.codice}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Tipo struttura</strong></p>
+        <p class="span6">{{s.tipo.descrizione}}</p>
+    </div>
+
+    <h3>Attività presenti nella struttura
+        <p class="lead">Per visualizzare o modificare le attività presenti in questa struttura, selezionarne una dalla lista sottostante.</p>
+    </h3>
+    <!-- TODO: creare partial della tabella delle attività in base ad un ID di struttura. -->
+    <div ng-include src="'views/_attivita_table.html'" ng-controller="AttivitaTableCtrl"></div>
+
+</section>

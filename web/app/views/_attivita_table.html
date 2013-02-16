@@ -1,0 +1,22 @@
+<div id="attivita-table-pagination" ng-show="attivita.list">
+    <table id="attivita-table" class="table table-hover table-clickable" data-provides="rowlink">
+        <thead>
+        <tr>
+            <th class="span2">Codice</th>
+            <th class="span4">Descrizione</th>
+            <th class="span4">Tipo struttura</th>
+            <th class="span2"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="a in attivita.list">
+            <td class="span2"><a ng-href="#{{mAttivita.mainUrl()}}/{{s.id}}">{{ a.tipo.codice + '-' + s.id }}</a></td>
+            <td class="span4"><a ng-href="#{{mAttivita.mainUrl()}}/{{s.id}}">{{ a.codice }}</a></td>
+            <td class="span4"><a ng-href="#{{mAttivita.mainUrl()}}/{{s.id}}">{{ a.tipo.descrizione }}</a></td>
+            <td  class="span2"></td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination num-pages="attivita.pages" current-page="page" max-size="10"
+                on-select-page="selectPage(page)" next-text="Avanti" prev-text="Indietro"></pagination>
+</div>

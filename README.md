@@ -33,6 +33,11 @@ The dependencies for the RESTful Web Service are:
 ### 2013-02-16
 
 - `DipendenteResource` now working with the PostgreSQL function.
+- Pages for Struttura made up to now:
+	- List/Search of Struttura
+	- Detail of Struttura (to complete with list of Attivita attached)
+	- Edit Struttura
+	- New Struttura
 
 ### 2013-02-15
 

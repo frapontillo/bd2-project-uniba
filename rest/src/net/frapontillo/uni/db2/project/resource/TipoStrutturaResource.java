@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.jooq.Record;
 import org.jooq.Result;
+import org.jooq.SelectConditionStep;
 
 import net.frapontillo.uni.db2.project.converter.TipoStrutturaConverter;
 import net.frapontillo.uni.db2.project.entity.TipoStruttura;
@@ -44,14 +45,18 @@ public class TipoStrutturaResource {
 	public GenericEntity<List<TipoStruttura>> search(
 			@QueryParam("descrizione") @DefaultValue("") String descrizione,
 			@QueryParam("skip") @DefaultValue("0") Integer skip,
-			@QueryParam("top") @DefaultValue("20") Integer top) {
-		Result<Record> r = DBUtil.getConn()
+			@QueryParam("top") @DefaultValue("0") Integer top) {
+		SelectConditionStep s = DBUtil.getConn()
 				.select()
 				.from(TIPO_STRUTTURA)
-				.where(TIPO_STRUTTURA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"))
-				.limit(top)
-				.offset(skip)
-				.fetch();
+				.where(TIPO_STRUTTURA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"));
+		Result<Record> r = null;
+		if (top > 0) {
+			skip = skip >= 0 ? skip : 0;
+			r = s.limit(top).offset(skip).fetch();
+		} else {
+			r = s.fetch();
+		}
 		List<TipoStruttura> entity = new TipoStrutturaConverter().fromResult(r);
 		return new GenericEntity<List<TipoStruttura>>(entity) {};
 	}

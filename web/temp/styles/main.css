@@ -53,6 +53,49 @@
     box-sizing: content-box;
   }
 }
+/* line 53, ../../app/styles/my-bootstrap.scss */
+.table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+  background-color: #e5e5e5;
+}
+
+/* line 58, ../../app/styles/my-bootstrap.scss */
+table.table-clickable td {
+  padding: 0;
+}
+/* line 61, ../../app/styles/my-bootstrap.scss */
+table.table-clickable td a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333333;
+  padding: 8px;
+  text-decoration: none;
+  box-sizing: content-box;
+}
+/* line 72, ../../app/styles/my-bootstrap.scss */
+table.table-clickable td a:hover,
+table.table-clickable td a:focus {
+  text-decoration: none;
+}
+
+/* line 78, ../../app/styles/my-bootstrap.scss */
+div.actionbar {
+  display: inline-block;
+}
+/* line 80, ../../app/styles/my-bootstrap.scss */
+div.actionbar .for-alert {
+  display: inline-block;
+  font-size: 14px;
+}
+/* line 84, ../../app/styles/my-bootstrap.scss */
+div.actionbar .for-alert .alert > div {
+  height: 30px;
+}
+/* line 87, ../../app/styles/my-bootstrap.scss */
+div.actionbar .for-alert .alert .close {
+  display: none;
+}
+
 /**
  * Created with JetBrains WebStorm.
  * User: francescopontillo
@@ -115,7 +158,14 @@ body {
  * Date: 15/02/13
  * Time: 22:29
  */
-/* line 8, ../../app/styles/struttura-list.scss */
-table#struttura-table {
-  height: 300px;
+/* line 9, ../../app/styles/struttura-list.scss */
+section#struttura-list .pagination {
+  text-align: center;
 }
+
+/**
+ * Created with JetBrains WebStorm.
+ * User: francescopontillo
+ * Date: 16/02/13
+ * Time: 14:41
+ */

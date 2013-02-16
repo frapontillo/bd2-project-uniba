@@ -49,3 +49,44 @@
     box-sizing:       content-box;
   }
 }
+
+.table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+  background-color: #e5e5e5;
+}
+
+table.table-clickable {
+  td {
+    padding: 0;
+
+    a {
+      display:block;
+      width:  100%;
+      height: 100%;
+      color: #333333;
+      padding: 8px;
+      text-decoration: none;
+      box-sizing: content-box;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+div.actionbar {
+  display: inline-block;
+  .for-alert {
+    display: inline-block;
+    font-size:  14px;
+    .alert {
+      > div {
+        height: 30px;
+      }
+      .close {
+        display: none;
+      }
+    }
+  }
+}

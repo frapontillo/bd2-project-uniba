@@ -75,20 +75,6 @@ public class StrutturaResource {
 		return entity;
 	}
 	
-	/*
-	@GET
-	public GenericEntity<List<Struttura>> searchAll(
-			@QueryParam("codice") String codice) {
-		Result<Record> r = DBUtil.getConn()
-				.select()
-				.from(STRUTTURA)
-				.where(STRUTTURA.CODICE.likeIgnoreCase("%"+codice+"%"))
-				.fetch();
-		List<Struttura> entity = new StrutturaConverter().fromResult(r);
-		return new GenericEntity<List<Struttura>>(entity) {};
-	}
-	*/
-	
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Struttura post(Struttura a) {
