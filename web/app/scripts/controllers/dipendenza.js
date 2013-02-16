@@ -1,9 +1,13 @@
 'use strict';
 
-webApp.controller('DipendenzaCtrl', function($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Testacular'
-  ];
+webApp.controller('DipendenzaListCtrl', function($scope) {
+	// TODO
+});
+
+webApp.controller('DipendenzaDetailCtrl', function($scope) {
+	// TODO
+});
+
+webApp.controller('DipendenzaEditCtrl', function($scope) {
+	// TODO
 });

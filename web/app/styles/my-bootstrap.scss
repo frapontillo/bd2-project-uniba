@@ -5,15 +5,47 @@
  * Time: 17:05
  */
 
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -41px;
+}
 
+.push {
+  height:   41px;
+}
+
+.fixed-footer {
+  background-color:   #eeeeee;
+  text-align:         center;
+  padding:            10px 0;
+  border-top:         1px solid #e5e5e5;
+  p {
+    margin:           0;
+  }
+}
 
 .hero-unit.big-hero-unit {
+  margin-top:      40px;
   text-align:       center;
   padding:          30px;
+  border:           1px solid #e5e5e5;
   h1 {
     font-size: 60px;
   }
   h2 {
 
+  }
+}
+
+.page-header {
+  margin-top:       0px;
+  margin-bottom:    10px;
+}
+
+@media (min-width: 767px) {
+  input:not([type="image"]) {
+    box-sizing:       content-box;
   }
 }

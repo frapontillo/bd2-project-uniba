@@ -2,22 +2,32 @@ package net.frapontillo.uni.db2.project.resource;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.jooq.Configuration;
+import org.jooq.Record;
+import org.jooq.Result;
+import org.jooq.UpdatableRecord;
 import org.jooq.impl.Factory;
+import org.jooq.impl.UpdatableRecordImpl;
 
 import static net.frapontillo.uni.db2.project.jooq.gen.Tables.*;
+import static net.frapontillo.uni.db2.project.jooq.gen.Routines.*;
 
 import net.frapontillo.uni.db2.project.converter.DipendenteConverter;
 import net.frapontillo.uni.db2.project.entity.Dipendente;
+import net.frapontillo.uni.db2.project.entity.DipendenteList;
 import net.frapontillo.uni.db2.project.exception.BadRequestException;
 import net.frapontillo.uni.db2.project.filter.AuthenticationResourceFilter;
+import net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB;
 import net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB;
 import net.frapontillo.uni.db2.project.util.DBUtil;
 
@@ -38,6 +48,22 @@ public class DipendenteResource {
 				.fetchOne();
 		Dipendente d = new DipendenteConverter().from(dbObj);
 		return d;
+	}
+	
+	@GET
+	public DipendenteList search(
+			@QueryParam("nomecognome") String nomecognome,
+			@QueryParam("page") @DefaultValue("1") Double page) {
+		Long pageSize = (long) 10;
+		Long offset = (long) (pageSize*(page-1));
+		double pages = 0;
+		Factory f = DBUtil.getConn();
+		Result<Record> r = f.select(cercaDipendente(nomecognome, pageSize, offset)).fetch();
+		Double count = f.select(contaCercaDipendenti(nomecognome)).fetchOne(0, Double.class);
+		pages = Math.ceil(count/pageSize);
+		// TODO: gestire errore di casting da RecordImpl a DipendenteRecordDB!!!
+		DipendenteList entity = new DipendenteList(page, pages, new DipendenteConverter().fromResult(r));
+		return entity;
 	}
 	
 	@POST

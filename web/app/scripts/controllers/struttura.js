@@ -1,9 +1,13 @@
 'use strict';
 
-webApp.controller('StrutturaCtrl', function($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Testacular'
-  ];
+webApp.controller('StrutturaListCtrl', function($scope) {
+	// TODO
+});
+
+webApp.controller('StrutturaDetailCtrl', function($scope) {
+	// TODO
+});
+
+webApp.controller('StrutturaEditCtrl', function($scope) {
+	// TODO
 });

@@ -27,10 +27,14 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div ng-include src="'views/_header.html'"></div>
-        <div class="container">
-            <div class="container-view" ng-view></div>
-            <hr>
+        <div class="wrapper">
+            <div ng-include src="'views/_header.html'"></div>
+            <div class="container">
+                <div class="container-view" ng-view></div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <div class="fixed-footer">
             <footer>
                 <p>© Francesco Pontillo 2013</p>
             </footer>
@@ -67,6 +71,7 @@
         <script src="scripts/services/Config.js"></script>
         <script src="scripts/services/AuthHandler.js"></script>
         <script src="scripts/services/AppHttpInterceptor.js"></script>
+        <script src="scripts/directives/onScroll.js"></script>
         <!-- endbuild -->
     </body>
 </html>

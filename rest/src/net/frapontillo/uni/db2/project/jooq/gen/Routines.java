@@ -17,11 +17,15 @@ public final class Routines {
 	 * Call public.cerca_dipendente
 	 *
 	 * @param nomecognome
+	 * @param lim
+	 * @param offs
 	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
 	 */
-	public static java.lang.Object cercaDipendente(org.jooq.Configuration configuration, java.lang.String nomecognome) {
+	public static java.lang.Object cercaDipendente(org.jooq.Configuration configuration, java.lang.String nomecognome, java.lang.Long lim, java.lang.Long offs) {
 		net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB f = new net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB();
 		f.setNomecognome(nomecognome);
+		f.setLim(lim);
+		f.setOffs(offs);
 
 		f.execute(configuration);
 		return f.getReturnValue();
@@ -31,10 +35,14 @@ public final class Routines {
 	 * Get public.cerca_dipendente as a field
 	 *
 	 * @param nomecognome
+	 * @param lim
+	 * @param offs
 	 */
-	public static org.jooq.Field<java.lang.Object> cercaDipendente(java.lang.String nomecognome) {
+	public static org.jooq.Field<java.lang.Object> cercaDipendente(java.lang.String nomecognome, java.lang.Long lim, java.lang.Long offs) {
 		net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB f = new net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB();
 		f.setNomecognome(nomecognome);
+		f.setLim(lim);
+		f.setOffs(offs);
 
 		return f.asField();
 	}
@@ -43,9 +51,51 @@ public final class Routines {
 	 * Get public.cerca_dipendente as a field
 	 *
 	 * @param nomecognome
+	 * @param lim
+	 * @param offs
 	 */
-	public static org.jooq.Field<java.lang.Object> cercaDipendente(org.jooq.Field<java.lang.String> nomecognome) {
+	public static org.jooq.Field<java.lang.Object> cercaDipendente(org.jooq.Field<java.lang.String> nomecognome, org.jooq.Field<java.lang.Long> lim, org.jooq.Field<java.lang.Long> offs) {
 		net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB f = new net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB();
+		f.setNomecognome(nomecognome);
+		f.setLim(lim);
+		f.setOffs(offs);
+
+		return f.asField();
+	}
+
+	/**
+	 * Call public.conta_cerca_dipendenti
+	 *
+	 * @param nomecognome
+	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
+	 */
+	public static java.lang.Integer contaCercaDipendenti(org.jooq.Configuration configuration, java.lang.String nomecognome) {
+		net.frapontillo.uni.db2.project.jooq.gen.routines.ContaCercaDipendentiDB f = new net.frapontillo.uni.db2.project.jooq.gen.routines.ContaCercaDipendentiDB();
+		f.setNomecognome(nomecognome);
+
+		f.execute(configuration);
+		return f.getReturnValue();
+	}
+
+	/**
+	 * Get public.conta_cerca_dipendenti as a field
+	 *
+	 * @param nomecognome
+	 */
+	public static org.jooq.Field<java.lang.Integer> contaCercaDipendenti(java.lang.String nomecognome) {
+		net.frapontillo.uni.db2.project.jooq.gen.routines.ContaCercaDipendentiDB f = new net.frapontillo.uni.db2.project.jooq.gen.routines.ContaCercaDipendentiDB();
+		f.setNomecognome(nomecognome);
+
+		return f.asField();
+	}
+
+	/**
+	 * Get public.conta_cerca_dipendenti as a field
+	 *
+	 * @param nomecognome
+	 */
+	public static org.jooq.Field<java.lang.Integer> contaCercaDipendenti(org.jooq.Field<java.lang.String> nomecognome) {
+		net.frapontillo.uni.db2.project.jooq.gen.routines.ContaCercaDipendentiDB f = new net.frapontillo.uni.db2.project.jooq.gen.routines.ContaCercaDipendentiDB();
 		f.setNomecognome(nomecognome);
 
 		return f.asField();

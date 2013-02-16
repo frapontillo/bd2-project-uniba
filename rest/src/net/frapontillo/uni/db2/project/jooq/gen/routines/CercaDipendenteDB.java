@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.routines;
 @java.lang.SuppressWarnings("all")
 public class CercaDipendenteDB extends org.jooq.impl.AbstractRoutine<java.lang.Object> {
 
-	private static final long serialVersionUID = -1421361078;
+	private static final long serialVersionUID = -1578083574;
 
 
 	/**
@@ -28,6 +28,16 @@ public class CercaDipendenteDB extends org.jooq.impl.AbstractRoutine<java.lang.O
 	public static final org.jooq.Parameter<java.lang.String> NOMECOGNOME = createParameter("nomecognome", org.jooq.impl.SQLDataType.VARCHAR);
 
 	/**
+	 * The procedure parameter <code>public.cerca_dipendente.lim</code>
+	 */
+	public static final org.jooq.Parameter<java.lang.Long> LIM = createParameter("lim", org.jooq.impl.SQLDataType.BIGINT);
+
+	/**
+	 * The procedure parameter <code>public.cerca_dipendente.offs</code>
+	 */
+	public static final org.jooq.Parameter<java.lang.Long> OFFS = createParameter("offs", org.jooq.impl.SQLDataType.BIGINT);
+
+	/**
 	 * Create a new routine call instance
 	 */
 	public CercaDipendenteDB() {
@@ -35,6 +45,8 @@ public class CercaDipendenteDB extends org.jooq.impl.AbstractRoutine<java.lang.O
 
 		setReturnParameter(RETURN_VALUE);
 		addInParameter(NOMECOGNOME);
+		addInParameter(LIM);
+		addInParameter(OFFS);
 	}
 
 	/**
@@ -51,5 +63,37 @@ public class CercaDipendenteDB extends org.jooq.impl.AbstractRoutine<java.lang.O
 	 */
 	public void setNomecognome(org.jooq.Field<java.lang.String> field) {
 		setField(NOMECOGNOME, field);
+	}
+
+	/**
+	 * Set the <code>lim</code> parameter IN value to the routine
+	 */
+	public void setLim(java.lang.Long value) {
+		setValue(net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB.LIM, value);
+	}
+
+	/**
+	 * Set the <code>lim</code> parameter to the function
+	 * <p>
+	 * Use this method only, if the function is called as a {@link org.jooq.Field} in a {@link org.jooq.Select} statement!
+	 */
+	public void setLim(org.jooq.Field<java.lang.Long> field) {
+		setField(LIM, field);
+	}
+
+	/**
+	 * Set the <code>offs</code> parameter IN value to the routine
+	 */
+	public void setOffs(java.lang.Long value) {
+		setValue(net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendenteDB.OFFS, value);
+	}
+
+	/**
+	 * Set the <code>offs</code> parameter to the function
+	 * <p>
+	 * Use this method only, if the function is called as a {@link org.jooq.Field} in a {@link org.jooq.Select} statement!
+	 */
+	public void setOffs(org.jooq.Field<java.lang.Long> field) {
+		setField(OFFS, field);
 	}
 }

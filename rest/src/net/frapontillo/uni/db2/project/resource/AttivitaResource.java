@@ -1,9 +1,9 @@
 package net.frapontillo.uni.db2.project.resource;
 
-import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -11,11 +11,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.jooq.Field;
 import org.jooq.Record;
 import org.jooq.Result;
 import org.jooq.impl.Factory;
@@ -24,6 +24,7 @@ import static net.frapontillo.uni.db2.project.jooq.gen.Tables.*;
 
 import net.frapontillo.uni.db2.project.converter.AttivitaConverter;
 import net.frapontillo.uni.db2.project.entity.Attivita;
+import net.frapontillo.uni.db2.project.entity.AttivitaList;
 import net.frapontillo.uni.db2.project.filter.AuthenticationResourceFilter;
 import net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB;
 import net.frapontillo.uni.db2.project.util.DBUtil;
@@ -48,6 +49,35 @@ public class AttivitaResource {
 	}
 	
 	@GET
+	public AttivitaList search(
+			@QueryParam("nome") String nome,
+			@QueryParam("page") @DefaultValue("1") Double page) {
+		double pageSize = 10;
+		int offset = (int) (pageSize*(page-1));
+		double pages = 0;
+		Factory f = DBUtil.getConn();
+		Result<Record> r = f
+				.select()
+				.from(ATTIVITA)
+				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"))
+				.orderBy(ATTIVITA.NOME)
+				.limit((int)pageSize)
+				.offset(offset)
+				.fetch();
+		Field<Integer> countField = ATTIVITA.CODICE.count();
+		Record c = f
+				.select(countField)
+				.from(ATTIVITA)
+				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"))
+				.fetchOne();
+		Double count = Double.valueOf(c.getValue(countField));
+		pages = Math.ceil(count/pageSize);
+		AttivitaList entity = new AttivitaList(page, pages, new AttivitaConverter().fromResult(r));
+		return entity;
+	}
+	
+	/*
+	@GET
 	public GenericEntity<List<Attivita>> search(@QueryParam("nome") String nome) {
 		Result<Record> r = DBUtil.getConn().select()
 				.from(ATTIVITA)
@@ -56,6 +86,7 @@ public class AttivitaResource {
 		List<Attivita> entity = new AttivitaConverter().fromResult(r);
 		return new GenericEntity<List<Attivita>>(entity) {};
 	}
+	*/
 	
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })

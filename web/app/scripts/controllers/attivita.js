@@ -1,9 +1,13 @@
 'use strict';
 
-webApp.controller('AttivitaCtrl', function($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Testacular'
-  ];
+webApp.controller('AttivitaListCtrl', function($scope) {
+	// TODO
+});
+
+webApp.controller('AttivitaDetailCtrl', function($scope) {
+	// TODO
+});
+
+webApp.controller('AttivitaEditCtrl', function($scope) {
+	// TODO
 });

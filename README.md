@@ -14,6 +14,11 @@ The project is divided into 5 folders:
 - `rest-gen`, containing the generation code for the database classes.
 - `doc`, containing the whole documentation and a bunch of other stuff.
 
+## TODO
+
+- Update the doc with the newest logic schema (already exported in png).
+
+
 ## RESTful Web Service
 
 The dependencies for the RESTful Web Service are:
@@ -38,6 +43,11 @@ The dependencies for the RESTful Web Service are:
 - Header created.
 - Login and logout pages created.
 - `Factory` for `UserSession` created and working.
+- Fixed `Menu` factory class and all of the items, nested items point are now classified in the right parent in the header.
+- Page for Struttura created with a draft of a table and a search box.
+- Added another function to the db.
+- Doc updated.
+- Added paging to `StrutturaResource`, `AttivitaResource`, `DipendenteResource`. `DipendenteResource` and `AttivitaResource` are broken, fix that.
 
 ### 2013-02-14
 

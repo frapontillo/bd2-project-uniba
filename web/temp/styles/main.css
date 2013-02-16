@@ -4,16 +4,55 @@
  * Date: 15/02/13
  * Time: 17:05
  */
-/* line 10, ../../app/styles/my-bootstrap.scss */
+/* line 8, ../../app/styles/my-bootstrap.scss */
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -41px;
+}
+
+/* line 15, ../../app/styles/my-bootstrap.scss */
+.push {
+  height: 41px;
+}
+
+/* line 19, ../../app/styles/my-bootstrap.scss */
+.fixed-footer {
+  background-color: #eeeeee;
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #e5e5e5;
+}
+/* line 24, ../../app/styles/my-bootstrap.scss */
+.fixed-footer p {
+  margin: 0;
+}
+
+/* line 29, ../../app/styles/my-bootstrap.scss */
 .hero-unit.big-hero-unit {
+  margin-top: 40px;
   text-align: center;
   padding: 30px;
+  border: 1px solid #e5e5e5;
 }
-/* line 13, ../../app/styles/my-bootstrap.scss */
+/* line 34, ../../app/styles/my-bootstrap.scss */
 .hero-unit.big-hero-unit h1 {
   font-size: 60px;
 }
 
+/* line 42, ../../app/styles/my-bootstrap.scss */
+.page-header {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 767px) {
+  /* line 48, ../../app/styles/my-bootstrap.scss */
+  input:not([type="image"]) {
+    box-sizing: content-box;
+  }
+}
 /**
  * Created with JetBrains WebStorm.
  * User: francescopontillo
@@ -22,7 +61,6 @@
  */
 /* line 8, ../../app/styles/app-style.scss */
 body {
-  padding-top: 70px;
   background-color: #f5f5f5;
 }
 
@@ -69,4 +107,15 @@ body {
 /* line 23, ../../app/styles/login.scss */
 .form-signin div.for-alert .close {
   display: none;
+}
+
+/**
+ * Created with JetBrains WebStorm.
+ * User: francescopontillo
+ * Date: 15/02/13
+ * Time: 22:29
+ */
+/* line 8, ../../app/styles/struttura-list.scss */
+table#struttura-table {
+  height: 300px;
 }
