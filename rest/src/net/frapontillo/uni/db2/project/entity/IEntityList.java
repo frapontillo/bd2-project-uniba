@@ -6,15 +6,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public abstract class IEntityList<T> {
+	protected double count;
 	protected double page;
 	protected double pages;
 	protected List<T> list;
 	public IEntityList() {}
-	public IEntityList(double page, double pages, List<T> list) {
+	public IEntityList(double count, double page, double pages, List<T> list) {
 		super();
+		this.count = count;
 		this.page = page;
 		this.pages = pages;
 		this.list = list;
+	}
+	public double getCount() {
+		return count;
+	}
+	public void setCount(double count) {
+		this.count = count;
 	}
 	public double getPage() {
 		return page;

@@ -72,7 +72,7 @@ public class AttivitaResource {
 				.fetchOne();
 		Double count = Double.valueOf(c.getValue(countField));
 		pages = Math.ceil(count/pageSize);
-		AttivitaList entity = new AttivitaList(page, pages, new AttivitaConverter().fromResult(r));
+		AttivitaList entity = new AttivitaList(count, page, pages, new AttivitaConverter().fromResult(r));
 		return entity;
 	}
 	

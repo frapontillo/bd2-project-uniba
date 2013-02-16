@@ -30,6 +30,10 @@ The dependencies for the RESTful Web Service are:
 
 ## History
 
+### 2013-02-16
+
+- `DipendenteResource` now working with the PostgreSQL function.
+
 ### 2013-02-15
 
 - `UserSession` inserted, retrieved and deleted.

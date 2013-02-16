@@ -40,6 +40,7 @@
 	       Defaults to false -->
 	    <!--  TODO: per ora non sembra che servano. -->
 		<daos>false</daos>
+		<pojos>false</pojos>
     </generate>
 
     <target>

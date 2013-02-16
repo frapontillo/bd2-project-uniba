@@ -8,10 +8,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlRootElement
 @XmlSeeAlso({Struttura.class})
 public class StrutturaList extends IEntityList<Struttura> {
-
 	public StrutturaList() {}
-	public StrutturaList(double page, double pages, List<Struttura> list) {
-		super(page, pages, list);
+	public StrutturaList(double count, double page, double pages, List<Struttura> list) {
+		super(count, page, pages, list);
 	}
-
 }

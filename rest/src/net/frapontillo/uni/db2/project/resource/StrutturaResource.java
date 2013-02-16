@@ -71,7 +71,7 @@ public class StrutturaResource {
 				.fetchOne();
 		Double count = Double.valueOf(c.getValue(countField));
 		pages = Math.ceil(count/pageSize);
-		StrutturaList entity = new StrutturaList(page, pages, new StrutturaConverter().fromResult(r));
+		StrutturaList entity = new StrutturaList(count, page, pages, new StrutturaConverter().fromResult(r));
 		return entity;
 	}
 	

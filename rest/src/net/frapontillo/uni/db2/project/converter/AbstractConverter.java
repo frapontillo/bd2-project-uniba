@@ -32,7 +32,7 @@ public abstract class AbstractConverter<S extends Record, D extends IEntity> {
 	public List<D> fromList(List<S> source, int lev) {
 		List<D> list = new ArrayList<D>();
 		for (S s : source) {
-			D d = from(s);
+			D d = from(s, CONV_TYPE.MINIMUM);
 			list.add(d);
 		}
 		return list;
