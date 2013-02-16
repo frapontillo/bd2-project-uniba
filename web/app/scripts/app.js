@@ -29,25 +29,15 @@ webApp.config(['$routeProvider', function($routeProvider) {
 			templateRoute: '/struttura/:id/edit',
 			controller: 'StrutturaNewEditCtrl'
 		})
-		.when('/attivita', {
-			templateUrl: 'views/attivita_list.html',
-			templateRoute: '/attivita',
-			controller: 'AttivitaListCtrl'
-		})
-		.when('/attivita/:id', {
-			templateUrl: 'views/attivita_detail.html',
-			templateRoute: '/attivita/:id',
-			controller: 'AttivitaDetailCtrl'
-		})
-		.when('/attivita/:id/edit', {
-			templateUrl: 'views/attivita_list.html',
-			templateRoute: '/attivita/:id/edit',
-			controller: 'AttivitaEditCtrl'
-		})
 		.when('/dipendente', {
 			templateUrl: 'views/dipendente_list.html',
 			templateRoute: '/dipendente',
 			controller: 'DipendenteListCtrl'
+		})
+		.when('/dipendente/new', {
+			templateUrl: 'views/dipendente_new.html',
+			templateRoute: '/dipendente/new',
+			controller: 'DipendenteNewEditCtrl'
 		})
 		.when('/dipendente/:id', {
 			templateUrl: 'views/dipendente_detail.html',
@@ -55,9 +45,29 @@ webApp.config(['$routeProvider', function($routeProvider) {
 			controller: 'DipendenteDetailCtrl'
 		})
 		.when('/dipendente/:id/edit', {
-			templateUrl: 'views/dipendente_list.html',
+			templateUrl: 'views/dipendente_edit.html',
 			templateRoute: '/dipendente/:id/edit',
-			controller: 'DipendenteEditCtrl'
+			controller: 'DipendenteNewEditCtrl'
+		})
+		.when('/attivita', {
+			templateUrl: 'views/attivita_list.html',
+			templateRoute: '/attivita',
+			controller: 'AttivitaListCtrl'
+		})
+		.when('/attivita/new', {
+			templateUrl: 'views/attivita_new.html',
+			templateRoute: '/attivita/new',
+			controller: 'AttivitaNewEditCtrl'
+		})
+		.when('/attivita/:id', {
+			templateUrl: 'views/attivita_detail.html',
+			templateRoute: '/attivita/:id',
+			controller: 'AttivitaDetailCtrl'
+		})
+		.when('/attivita/:id/edit', {
+			templateUrl: 'views/attivita_edit.html',
+			templateRoute: '/attivita/:id/edit',
+			controller: 'AttivitaNewEditCtrl'
 		})
 		.when('/dipendenza/:id', {
 			templateUrl: 'views/dipendenza_detail.html',
@@ -106,7 +116,12 @@ webApp.run(function ($rootScope, $location, $cookieStore, $routeParams, AuthHand
 		name: "Strutture",
 		description: "Gestione delle strutture del centro commerciale. Puoi inserire una nuova struttura, "+
 			"modificarne una esistente o cancellare quelle in disuso.",
-		url: function() { return ["/struttura", "/struttura/" + $routeParams.id, "/struttura/" + $routeParams.id + "/edit"]; },
+		url: function() { return [
+			"/struttura",
+			"/struttura/new",
+			"/struttura/" + $routeParams.id,
+			"/struttura/" + $routeParams.id + "/edit"
+		]; },
 		menuOrder: 0
 	});
 	$rootScope.mAttivita = new Menu({
@@ -114,7 +129,11 @@ webApp.run(function ($rootScope, $location, $cookieStore, $routeParams, AuthHand
 		description: "Gestione delle attività presenti nel centro commerciale. "+
 			"Puoi inserire attività, spostarle nelle diverse strutture, "+
 			"assegnare un manager o proprietario, ecc.",
-		url: function() { return ["/attivita", "/attivita/" + $routeParams.id, "/attivita/" + $routeParams.id + "/edit"]; },
+		url: function() { return [
+			"/attivita",
+			"/attivita/new",
+			"/attivita/" + $routeParams.id,
+			"/attivita/" + $routeParams.id + "/edit"]; },
 		menuOrder: 1
 	});
 	$rootScope.mDipendenti = new Menu({
@@ -122,8 +141,12 @@ webApp.run(function ($rootScope, $location, $cookieStore, $routeParams, AuthHand
 		description: "Gestione dell'anagrafica dei dipendenti, con cronologia delle assunzioni. " +
 		"Possibilità di licenziare un dipendente da un'attività ed assumerlo in un'altra.",
 		url: function() { return [
-			"/dipendente", "/dipendente/" + $routeParams.id, "/dipendente/" + $routeParams.id + "/edit",
-			"/dipendenza/" + $routeParams.id, "/dipendenza/" + $routeParams.id + "/edit"
+			"/dipendente",
+			"/dipendente/new",
+			"/dipendente/" + $routeParams.id,
+			"/dipendente/" + $routeParams.id + "/edit",
+			"/dipendenza/" + $routeParams.id,
+			"/dipendenza/" + $routeParams.id + "/edit"
 		]; },
 		menuOrder: 2
 	});
