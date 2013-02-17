@@ -1,4 +1,4 @@
-<!-- AttivitaListCtrl contiene tutte le informazioni per la ricerca delle attivitò -->
+<!-- AssunzioneListCtrl contiene tutte le informazioni per la ricerca delle assunzioni -->
 <!-- Il click sulla lista è gestito da handleListClick(attivita) -->
 <!-- L'href è gestito dalla funzione handleListLink(attivita) -->
 <div ng-controller="AttivitaListCtrl">
@@ -10,20 +10,22 @@
         <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
     </form>
 
+    <p ui-if="attivita.count == 0">Nessuna attività ritrovata.</p>
+    <p ui-if="searching">Ricerca in corso...</p>
     <div id="attivita-table-pagination" ng-show="attivita.list">
         <table id="attivita-table" class="table table-hover table-clickable" data-provides="rowlink">
             <thead>
             <tr>
-                <th class="span4">Codice</th>
-                <th class="span4">Nome</th>
-                <th class="span4">Tipo Attività</th>
+                <th>Codice</th>
+                <th>Nome</th>
+                <th>Tipo Attività</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="a in attivita.list">
-                <td ng-click="handleListClick(a)"><a ng-href="{{handleListLink(a)}}">{{ a.codice }}</a></td>
-                <td ng-click="handleListClick(a)"><a ng-href="{{handleListLink(a)}}">{{ a.nome }}</a></td>
-                <td ng-click="handleListClick(a)"><a ng-href="{{handleListLink(a)}}">{{ a.tipo_attivita.descrizione }}</a></td>
+                <td ng-click="handleListClick(a)"><a ng-href="{{handleListLink(a)}}">{{ a.codice }}&nbsp;</a></td>
+                <td ng-click="handleListClick(a)"><a ng-href="{{handleListLink(a)}}">{{ a.nome }}&nbsp;</a></td>
+                <td ng-click="handleListClick(a)"><a ng-href="{{handleListLink(a)}}">{{ a.tipo_attivita.descrizione }}&nbsp;</a></td>
             </tr>
             </tbody>
         </table>

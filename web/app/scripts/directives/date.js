@@ -4,7 +4,7 @@ webApp.directive('date', function(dateFilter) {
 	return {
 		require: 'ngModel',
 		link: function(scope, elm, attrs, ctrl) {
-			var dateObj, dateFormat, dateParse;
+			var dateObj, dateFormat, dateParse, required;
 
 			var validate = function(date, dateRep) {
 				return (dateRep == dateFilter(date, dateFormat));
@@ -19,13 +19,13 @@ webApp.directive('date', function(dateFilter) {
 
 			ctrl.$parsers.unshift(function(viewValue) {
 				var mDate = moment(viewValue, dateParse);
-				if (validate(mDate._d, viewValue)) {
-					// it is valid
+				if (mDate && validate(mDate._d, viewValue)) {
+					// Valido
 					ctrl.$setValidity('date', true);
 					return mDate._d;
 				} else {
-					// it is invalid, return undefined (no model update)
-					ctrl.$setValidity('date', false);
+					// Non valido
+					ctrl.$setValidity('date', true);
 					return "";
 				}
 			});

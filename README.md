@@ -18,7 +18,6 @@ The project is divided into 5 folders:
 
 - Update the doc with the newest logic schema (already exported in png).
 - Update the logic schema once again by adding a PK (`ID`) to the `Dipendente` table, then add the image to the doc.
-- Solve date issue on Dipendente Edit/New.
 
 ## RESTful Web Service
 
@@ -45,6 +44,14 @@ The dependencies for the RESTful Web Service are:
 	- New Assunzione.
 	- Edit Assunzione.
 	- Delete Assunzione (firing).
+- Enabled fast linking for creating a new Attivita starting from a Struttura.
+- Attivita created from Struttura.
+- Assunzione created from Dipendente and from Attivita.
+- Assunzione edited and deleted.
+- Datepicker issue seems to stand within the Bootstrap plugin, which is making changes outside of the scope of AngularJS. Cannot fix.
+- Links between entities in pages.
+- Fixed redirection by using `$location.url()` instead of `$location.path()`.
+- Main development phase for Web app has ended.
 
 ### 2013-02-16
 

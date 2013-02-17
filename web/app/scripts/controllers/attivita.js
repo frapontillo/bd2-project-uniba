@@ -37,7 +37,11 @@ webApp.controller('AttivitaListCtrl', function($scope, $rootScope, Attivita) {
 	};
 
 	$scope.searchPage = function() {
-		$scope.attivita = new Attivita().query($scope.cerca, $scope.strutturaForAttivitaList, $scope.page);
+		$scope.searching = true;
+		$scope.attivita = new Attivita().query($scope.cerca, $scope.strutturaForAttivitaList, $scope.page,
+			function() {
+				$scope.searching = false;
+			});
 	};
 
 	$scope.selectPage = function(p) {
@@ -56,6 +60,12 @@ webApp.controller('AttivitaDetailCtrl', function($scope, $rootScope, $routeParam
 	// Avvio una nuova richiesta
 	$scope.a = new Attivita().get($routeParams.id);
 
+	// Avviso la lista delle assunzioni di utilizzare l'ID del dipendente per eseguire la ricerca
+	$scope.attivitaForAssunzioneList = $routeParams.id;
+	// Avviso la lista delle assunzioni di non mostrare il dipendente ma di mostrare l'attività
+	$scope.showDipendente = true;
+	$scope.showAttivita = false;
+
 	$scope.deleteEntity = function() {
 		if (!$scope.locked)
 			$scope.openMessageBox();
@@ -63,6 +73,14 @@ webApp.controller('AttivitaDetailCtrl', function($scope, $rootScope, $routeParam
 
 	$scope.editUrl = function() {
 		return "#" + $rootScope.mAttivita.mainUrl() + "/" + $routeParams.id + "/edit";
+	};
+
+	$scope.newUrl = function() {
+		return "#" + $rootScope.mAssunzioni.mainUrl() + "/new?attivita=" + $routeParams.id;
+	};
+
+	$scope.handleListLink = function(assunzione) {
+		return "#" + $rootScope.mAssunzioni.mainUrl() + "/" + assunzione.id;
 	};
 
 	$scope.deleteAttivita = function() {
@@ -217,11 +235,18 @@ webApp.controller('AttivitaEditCtrl', function($scope, $rootScope, $routeParams,
 	});
 });
 
-webApp.controller('AttivitaNewCtrl', function($scope, $rootScope, Attivita) {
+webApp.controller('AttivitaNewCtrl', function($scope, $rootScope, $location, Attivita, Struttura, Dipendente) {
 	$scope.a = new Attivita();
 
+	// Se in URL ci sono gli ID della struttura e/o del proprietario, li seleziono già
+	if ($location.search().struttura) {
+		$scope.a.struttura = new Struttura().get($location.search().struttura);
+	}
+	if ($location.search().manager) {
+		$scope.a.manager = new Dipendente().get($location.search().manager);
+	}
+
 	$scope.save = function() {
-		// TODO: controllare validità del form
 		if (!$scope.locked) {
 			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};

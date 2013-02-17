@@ -10,6 +10,8 @@
         <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
     </form>
 
+    <p ui-if="strutture.count == 0">Nessuna struttura ritrovata.</p>
+    <p ui-if="searching">Ricerca in corso...</p>
     <div id="struttura-table-pagination" ng-show="strutture.list">
         <table id="struttura-table" class="table table-hover table-clickable" data-provides="rowlink">
             <thead>
@@ -21,9 +23,9 @@
             </thead>
             <tbody>
             <tr ng-repeat="s in strutture.list">
-                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.tipo.codice + '-' + s.id }}</a></td>
-                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.codice }}</a></td>
-                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.tipo.descrizione }}</a></td>
+                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.tipo.codice + '-' + s.id }}&nbsp;</a></td>
+                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.codice }}&nbsp;</a></td>
+                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.tipo.descrizione }}&nbsp;</a></td>
             </tr>
             </tbody>
         </table>

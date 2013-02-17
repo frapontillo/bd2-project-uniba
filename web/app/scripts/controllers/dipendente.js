@@ -37,7 +37,12 @@ webApp.controller('DipendenteListCtrl', function($scope, $rootScope, Dipendente)
 	};
 
 	$scope.searchPage = function() {
-		$scope.dipendenti = new Dipendente().query($scope.cerca, $scope.page);
+		$scope.searching = true;
+		$scope.dipendenti = new Dipendente().query($scope.cerca, $scope.page,
+			function() {
+				$scope.searching = false;
+			}
+		);
 	};
 
 	$scope.selectPage = function(p) {
@@ -52,6 +57,12 @@ webApp.controller('DipendenteDetailCtrl', function($scope, $rootScope, $routePar
 	// Avvio una nuova richiesta
 	$scope.d = new Dipendente().get($routeParams.id);
 
+	// Avviso la lista delle assunzioni di utilizzare l'ID del dipendente per eseguire la ricerca
+	$scope.dipendenteForAssunzioneList = $routeParams.id;
+	// Avviso la lista delle assunzioni di non mostrare il dipendente ma di mostrare l'attività
+	$scope.showDipendente = false;
+	$scope.showAttivita = true;
+
 	$scope.deleteEntity = function() {
 		if (!$scope.locked)
 			$scope.openMessageBox();
@@ -59,6 +70,14 @@ webApp.controller('DipendenteDetailCtrl', function($scope, $rootScope, $routePar
 
 	$scope.editUrl = function() {
 		return "#" + $rootScope.mDipendenti.mainUrl() + "/" + $routeParams.id + "/edit";
+	};
+
+	$scope.newUrl = function() {
+		return "#" + $rootScope.mAssunzioni.mainUrl() + "/new?dipendente=" + $routeParams.id;
+	};
+
+	$scope.handleListLink = function(assunzione) {
+		return "#" + $rootScope.mAssunzioni.mainUrl() + "/" + assunzione.id;
 	};
 
 	$scope.deleteDipendente = function() {
@@ -122,7 +141,6 @@ webApp.controller('DipendenteEditCtrl', function($scope, $routeParams, Dipendent
 	});
 
 	$scope.save = function() {
-		// TODO: controllare validità del form
 		if (!$scope.locked) {
 			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};
@@ -148,7 +166,6 @@ webApp.controller('DipendenteNewCtrl', function($scope, $routeParams, Dipendente
 	$scope.d = new Dipendente();
 
 	$scope.save = function() {
-		// TODO: controllare validità del form
 		if (!$scope.locked) {
 			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};

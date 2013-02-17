@@ -10,6 +10,8 @@
         <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
     </form>
 
+    <p ui-if="dipendenti.count == 0">Nessun dipendente ritrovato.</p>
+    <p ui-if="searching">Ricerca in corso...</p>
     <div id="dipendente-table-pagination" ng-show="dipendenti.list">
         <table id="dipendente-table" class="table table-hover table-clickable" data-provides="rowlink">
             <thead>
@@ -23,11 +25,11 @@
             </thead>
             <tbody>
             <tr ng-repeat="d in dipendenti.list">
-                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.cognome }}</a></td>
-                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.nome }}</a></td>
-                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.cf }}</a></td>
-                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.data_nascita | date:'shortDate' }}</a></td>
-                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.luogo_nascita }}</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.cognome }}&nbsp;</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.nome }}&nbsp;</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.cf }}&nbsp;</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.data_nascita | date:'shortDate' }}&nbsp;</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.luogo_nascita }}&nbsp;</a></td>
             </tr>
             </tbody>
         </table>

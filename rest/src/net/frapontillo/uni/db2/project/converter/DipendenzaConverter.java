@@ -28,8 +28,8 @@ public class DipendenzaConverter extends AbstractConverter<DipendenzaRecordDB, D
 		if (dbObj == null) dbObj = new DipendenzaRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
 			if (source.getId() != null) dbObj.setId(source.getId());
-			dbObj.setIdDipendente(source.getIdDipendente());
-			dbObj.setIdAttivita(source.getId_attivita());
+			dbObj.setIdDipendente(source.getDipendente().getId());
+			dbObj.setIdAttivita(source.getAttivita().getId());
 			dbObj.setDataAssunzione(ConvUtil.DateUtilToSql(source.getData_assunzione()));
 			dbObj.setDataLicenziamento(ConvUtil.DateUtilToSql(source.getData_licenziamento()));
 		}

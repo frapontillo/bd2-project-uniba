@@ -37,7 +37,12 @@ webApp.controller('StrutturaListCtrl', function($scope, $rootScope, Struttura) {
 	};
 
 	$scope.searchPage = function() {
-		$scope.strutture = new Struttura().query($scope.cerca, $scope.page);
+		$scope.searching = true;
+		$scope.strutture = new Struttura().query($scope.cerca, $scope.page,
+			function() {
+				$scope.searching = false;
+			}
+		);
 	};
 
 	$scope.selectPage = function(p) {
@@ -66,6 +71,11 @@ webApp.controller('StrutturaDetailCtrl', function($scope, $rootScope, $routePara
 
 	$scope.editUrl = function() {
 		return "#" + $rootScope.mStrutture.mainUrl() + "/" + $routeParams.id + "/edit";
+	};
+
+	// URL per l'aggiunta di attività nella struttura
+	$scope.newUrl = function() {
+		return "#" + $rootScope.mAttivita.mainUrl() + "/new?struttura=" + $routeParams.id;
 	};
 
 	$scope.handleListLink = function(attivita) {

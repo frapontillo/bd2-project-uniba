@@ -70,13 +70,17 @@ public class AttivitaResource {
 				.offset(offset)
 				.fetch();
 		Field<Integer> countField = ATTIVITA.CODICE.count();
-		Record c = f
+
+		SelectConditionStep whereC = f
 				.select(countField)
 				.from(ATTIVITA)
-				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"))
-				.fetchOne();
+				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"));
+		if (struttura != null && struttura > 0)
+			whereC = whereC.and(ATTIVITA.ID_STRUTTURA.equal(struttura));
+		Record c = whereC.fetchOne();
 		Double count = Double.valueOf(c.getValue(countField));
 		pages = Math.ceil(count/pageSize);
+		
 		AttivitaList entity = new AttivitaList(count, page, pages, new AttivitaConverter().fromResult(r));
 		return entity;
 	}

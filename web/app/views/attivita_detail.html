@@ -2,8 +2,10 @@
     <div class="page-header">
         <h1>Attività<div class="actionbar pull-right" ng-include src="'views/_buttons_entity_edit.html'"></div></h1>
     </div>
-    <h2 ui-if="d">Dettaglio attivita {{a.nome}}
-        <p class="lead">Per modificare questa attività, clicca sul pulsante "Modifica".</p></h2>
+
+    <h2 ui-if="a">Dettaglio attivita {{a.nome}}
+        <p class="lead">Per modificare questa attività, clicca sul pulsante "Modifica".</p>
+    </h2>
 
     <div class="row">
         <p class="span2"><strong>Codice</strong></p>
@@ -28,7 +30,7 @@
     <div class="row">
         <p ui-if="a.franchising" class="span2"><strong>Manager</strong></p>
         <p ui-if="!a.franchising" class="span2"><strong>Proprietario</strong></p>
-        <p class="span6"><span ui-if="a.manager">{{a.manager.nome_cognome}}</span></p>
+        <p class="span6"><a ui-if="a.manager" ng-href="#{{mDipendenti.mainUrl()}}/{{a.manager.id}}"><span>{{a.manager.nome_cognome}}</span></a></p>
     </div>
     <div class="row">
         <p class="span2"><strong>Numero dipendenti</strong></p>
@@ -49,6 +51,6 @@
         </p>
     </h3>
 
-    <!-- TODO: creare partial della tabella delle assunzioni in base ad un ID di attività. -->
-
+    <!-- Referenza alla partial della lista delle assunzioni in base ad un ID di attività. -->
+    <div ng-include src="'views/_select_assunzione.html'"></div>
 </section>

@@ -1,6 +1,6 @@
 'use strict';
 
-var webApp = angular.module('webApp', ['ui', 'ui.bootstrap', '$strap', 'ngCookies', 'ngResource']);
+var webApp = angular.module('webApp', ['ui', 'ui.bootstrap', '$strap', '$strap.directives', 'ngCookies', 'ngResource']);
 
 webApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
@@ -69,15 +69,20 @@ webApp.config(['$routeProvider', function($routeProvider) {
 			templateRoute: '/attivita/:id/edit',
 			controller: 'AttivitaNewEditCtrl'
 		})
-		.when('/dipendenza/:id', {
-			templateUrl: 'views/dipendenza_detail.html',
-			templateRoute: '/dipendenza/:id',
-			controller: 'DipendenzaDetailCtrl'
+		.when('/assunzione/new', {
+			templateUrl: 'views/assunzione_new.html',
+			templateRoute: '/assunzione/new',
+			controller: 'AssunzioneNewEditCtrl'
 		})
-		.when('/dipendenza/:id/edit', {
-			templateUrl: 'views/dipendenza_list.html',
-			templateRoute: '/dipendenza/:id/edit',
-			controller: 'DipendenzaEditCtrl'
+		.when('/assunzione/:id', {
+			templateUrl: 'views/assunzione_detail.html',
+			templateRoute: '/assunzione/:id',
+			controller: 'AssunzioneDetailCtrl'
+		})
+		.when('/assunzione/:id/edit', {
+			templateUrl: 'views/assunzione_edit.html',
+			templateRoute: '/assunzione/:id/edit',
+			controller: 'AssunzioneNewEditCtrl'
 		})
 		.when('/login', {
 			templateUrl: 'views/login.html',
@@ -145,10 +150,23 @@ webApp.run(function ($rootScope, $location, $cookieStore, $routeParams, AuthHand
 			"/dipendente/new",
 			"/dipendente/" + $routeParams.id,
 			"/dipendente/" + $routeParams.id + "/edit",
+			"/assunzione/new",
 			"/assunzione/" + $routeParams.id,
 			"/assunzione/" + $routeParams.id + "/edit"
 		]; },
 		menuOrder: 2
+	});
+
+	$rootScope.mAssunzioni = new Menu({
+		name: "Assunzioni",
+		description: "Gestione delle assunzioni dei dipendenti nelle attività.",
+		url: function() { return [
+			"/assunzione",
+			"/assunzione/new",
+			"/assunzione/" + $routeParams.id,
+			"/assunzione/" + $routeParams.id + "/edit"
+		]; },
+		menuOrder: 3
 	});
 
 	// Creo la gerarchia del menu
