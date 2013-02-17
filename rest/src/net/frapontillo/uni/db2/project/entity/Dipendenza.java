@@ -7,17 +7,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Dipendenza implements IEntity {
 	protected Long id;
-	protected String cf;
+	protected Integer id_dipendente;
 	protected Integer id_attivita;
 	protected Date data_assunzione;
 	protected Date data_licenziamento;
 	protected Dipendente dipendente;
 	protected Attivita attivita;
-	public Dipendenza(Long id, String cf, Integer id_attivita, Date data_assunzione,
+	public Dipendenza(Long id, Integer id_dipendente, Integer id_attivita, Date data_assunzione,
 			Date data_licenziamento, Dipendente dipendente, Attivita attivita) {
 		super();
 		this.id = id;
-		this.cf = cf;
+		this.id_dipendente = id_dipendente;
 		this.id_attivita = id_attivita;
 		this.data_assunzione = data_assunzione;
 		this.data_licenziamento = data_licenziamento;
@@ -31,11 +31,11 @@ public class Dipendenza implements IEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getCf() {
-		return cf;
+	public Integer getIdDipendente() {
+		return id_dipendente;
 	}
-	public void setCf(String cf) {
-		this.cf = cf;
+	public void setIdDipendente(Integer id_dipendente) {
+		this.id_dipendente = id_dipendente;
 	}
 	public Integer getId_attivita() {
 		return id_attivita;

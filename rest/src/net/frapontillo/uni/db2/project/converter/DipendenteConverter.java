@@ -11,13 +11,14 @@ public class DipendenteConverter extends AbstractConverter<DipendenteRecordDB, D
 		if (source == null) return null;
 		Dipendente obj = new Dipendente();
 		if (lev >= CONV_TYPE.MINIMUM) {
+			obj.setId(source.getId());
 			obj.setCf(source.getCf());
 			obj.setCognome(source.getCognome());
 			obj.setNome(source.getNome());
-		}
-		if (lev >= CONV_TYPE.NORMAL) {
 			obj.setData_nascita(source.getDataNascita());
 			obj.setLuogo_nascita(source.getLuogoNascita());
+		}
+		if (lev >= CONV_TYPE.NORMAL) {
 			obj.setSesso(source.getSesso() ? "M" :"F");
 		}
 		if (lev >= CONV_TYPE.CASCADE) {
@@ -32,13 +33,14 @@ public class DipendenteConverter extends AbstractConverter<DipendenteRecordDB, D
 		if (source == null) return null;
 		if (dbObj == null) dbObj = new DipendenteRecordDB();
 		if (lev >= CONV_TYPE.MINIMUM) {
+			dbObj.setId(source.getId());
 			dbObj.setCf(source.getCf());
 			dbObj.setCognome(source.getCognome());
 			dbObj.setNome(source.getNome());
-		}
-		if (lev >= CONV_TYPE.NORMAL) {
 			dbObj.setDataNascita(ConvUtil.DateUtilToSql(source.getData_nascita()));
 			dbObj.setLuogoNascita(source.getLuogo_nascita());
+		}
+		if (lev >= CONV_TYPE.NORMAL) {
 			String sesso = source.getSesso();
 			if (sesso != null) {
 				dbObj.setSesso(sesso.equals("M"));

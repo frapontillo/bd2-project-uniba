@@ -1,6 +1,6 @@
 'use strict';
 
-webApp.factory('Dipendente', function() {
+webApp.factory('Dipendente', function($resource, Config, AuthHandler) {
 	var Dipendente = $resource(Config.baseAPI() + 'dipendente/:id', {},
 		{
 			_query: {method: 'GET', params: {authcode: '', nomecognome: '', page: '1'}},
@@ -51,7 +51,7 @@ webApp.factory('Dipendente', function() {
 	};
 
 	Dipendente.prototype.fill = function(obj) {
-		obj.cod = obj.tipo.codice + '-' + obj.id;
+		// obj.data_nascita = moment(obj.data_nascita);
 	};
 
 	Dipendente.prototype.fillAll = function(objects) {

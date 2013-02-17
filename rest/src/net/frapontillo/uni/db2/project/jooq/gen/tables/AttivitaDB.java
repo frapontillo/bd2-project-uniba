@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables;
 @java.lang.SuppressWarnings("all")
 public class AttivitaDB extends org.jooq.impl.UpdatableTableImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB> {
 
-	private static final long serialVersionUID = -1298307231;
+	private static final long serialVersionUID = 429652223;
 
 	/**
 	 * The singleton instance of public.attivita
@@ -86,15 +86,15 @@ public class AttivitaDB extends org.jooq.impl.UpdatableTableImpl<net.frapontillo
 	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB, java.lang.Integer> ID_TIPO_ATTIVITA = createField("id_tipo_attivita", org.jooq.impl.SQLDataType.INTEGER, this);
 
 	/**
-	 * The table column <code>public.attivita.cf_dipendente_manager</code>
+	 * The table column <code>public.attivita.id_dipendente_manager</code>
 	 * <p>
 	 * This column is part of a FOREIGN KEY: <code><pre>
 	 * CONSTRAINT attivita__fk_attivita_dipendente_manager
-	 * FOREIGN KEY (cf_dipendente_manager)
-	 * REFERENCES public.dipendente (cf)
+	 * FOREIGN KEY (id_dipendente_manager)
+	 * REFERENCES public.dipendente (id)
 	 * </pre></code>
 	 */
-	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB, java.lang.String> CF_DIPENDENTE_MANAGER = createField("cf_dipendente_manager", org.jooq.impl.SQLDataType.VARCHAR, this);
+	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB, java.lang.Integer> ID_DIPENDENTE_MANAGER = createField("id_dipendente_manager", org.jooq.impl.SQLDataType.INTEGER, this);
 
 	public AttivitaDB() {
 		super("attivita", net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC);

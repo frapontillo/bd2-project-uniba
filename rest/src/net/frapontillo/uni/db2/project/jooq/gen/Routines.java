@@ -64,30 +64,6 @@ public final class Routines {
 	}
 
 	/**
-	 * Call public.cerca_dipendenti
-	 *
-	 * @param nomecognome IN parameter
-	 * @param lim IN parameter
-	 * @param offs IN parameter
-	 * @param cf OUT parameter
-	 * @param nome OUT parameter
-	 * @param cognome OUT parameter
-	 * @param luogoNascita OUT parameter
-	 * @param datNascita OUT parameter
-	 * @param sesso OUT parameter
-	 * @throws org.jooq.exception.DataAccessException if something went wrong executing the query
-	 */
-	public static net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendentiDB cercaDipendenti(org.jooq.Configuration configuration, java.lang.String nomecognome, java.lang.Long lim, java.lang.Long offs) {
-		net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendentiDB p = new net.frapontillo.uni.db2.project.jooq.gen.routines.CercaDipendentiDB();
-		p.setNomecognome(nomecognome);
-		p.setLim(lim);
-		p.setOffs(offs);
-
-		p.execute(configuration);
-		return p;
-	}
-
-	/**
 	 * Call public.conta_cerca_dipendenti
 	 *
 	 * @param nomecognome

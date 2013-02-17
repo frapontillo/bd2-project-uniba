@@ -42,8 +42,8 @@ public class AttivitaConverter extends AbstractConverter<AttivitaRecordDB, Attiv
 		}
 		if (lev >= CONV_TYPE.NORMAL) {
 			dbObj.setFranchising(source.getFranchising());
-			String cfManager = source.getManager() != null ? source.getManager().getCf() : null;
-			dbObj.setCfDipendenteManager(cfManager);
+			Integer idManager = source.getManager() != null ? source.getManager().getId() : null;
+			dbObj.setIdDipendenteManager(idManager);
 			Integer numDip = source.getNum_dip();
 			numDip = numDip == null ? 0 : numDip;
 			dbObj.setNumDip(numDip);

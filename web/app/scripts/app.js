@@ -1,6 +1,6 @@
 'use strict';
 
-var webApp = angular.module('webApp', ['ui', 'ui.bootstrap', 'ngCookies', 'ngResource']);
+var webApp = angular.module('webApp', ['ui', 'ui.bootstrap', '$strap', 'ngCookies', 'ngResource']);
 
 webApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
@@ -145,8 +145,8 @@ webApp.run(function ($rootScope, $location, $cookieStore, $routeParams, AuthHand
 			"/dipendente/new",
 			"/dipendente/" + $routeParams.id,
 			"/dipendente/" + $routeParams.id + "/edit",
-			"/dipendenza/" + $routeParams.id,
-			"/dipendenza/" + $routeParams.id + "/edit"
+			"/assunzione/" + $routeParams.id,
+			"/assunzione/" + $routeParams.id + "/edit"
 		]; },
 		menuOrder: 2
 	});

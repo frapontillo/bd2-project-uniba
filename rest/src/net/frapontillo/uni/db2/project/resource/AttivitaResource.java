@@ -76,18 +76,6 @@ public class AttivitaResource {
 		return entity;
 	}
 	
-	/*
-	@GET
-	public GenericEntity<List<Attivita>> search(@QueryParam("nome") String nome) {
-		Result<Record> r = DBUtil.getConn().select()
-				.from(ATTIVITA)
-				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"))
-				.fetch();
-		List<Attivita> entity = new AttivitaConverter().fromResult(r);
-		return new GenericEntity<List<Attivita>>(entity) {};
-	}
-	*/
-	
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Attivita post(Attivita a) {

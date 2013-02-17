@@ -20,55 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="struttura.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/struttura.js">
+      <file leaf-file-name="Dipendente.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/Dipendente.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="0" selection-start="3690" selection-end="3690" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#94#575#0" expanded="false" />
-                <element signature="e#694#1819#0" expanded="false" />
-                <element signature="e#1958#2331#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="struttura_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/struttura_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="1640" vertical-scroll-proportion="-0.0">
+            <state line="53" column="55" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.25083613">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dipendente_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/dipendente_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="82" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-21.12">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Struttura.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/Struttura.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="46" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="25" selection-start="3491" selection-end="3491" vertical-scroll-proportion="-0.3178808">
-              <folding>
-                <element signature="e#453#576#0" expanded="false" />
-                <element signature="e#604#729#0" expanded="false" />
-                <element signature="e#762#891#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +32,51 @@
       <file leaf-file-name="dipendente.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/dipendente.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="44" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+            <state line="28" column="115" selection-start="614" selection-end="678" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#96#559#0" expanded="false" />
+                <element signature="e#680#1846#0" expanded="false" />
+                <element signature="e#1933#2295#0" expanded="false" />
+                <element signature="e#2382#3136#0" expanded="false" />
+                <element signature="e#3222#3758#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="46" selection-start="3223" selection-end="3223" vertical-scroll-proportion="-13.44">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dipendente_new_edit.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/dipendente_new_edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="62" selection-start="1998" selection-end="1998" vertical-scroll-proportion="-9.48">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="68" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#205#294#0" expanded="false" />
+                <element signature="e#318#435#0" expanded="false" />
+                <element signature="e#463#586#0" expanded="false" />
+                <element signature="e#614#739#0" expanded="false" />
+                <element signature="e#772#901#0" expanded="false" />
+                <element signature="e#926#1046#0" expanded="false" />
+                <element signature="e#1075#1201#0" expanded="false" />
+                <element signature="e#1230#1358#0" expanded="false" />
+                <element signature="e#1392#1524#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,27 +91,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/services/TipoStruttura.js" />
-        <option value="$PROJECT_DIR$/app/views/_delete_confirm.html" />
-        <option value="$PROJECT_DIR$/app/views/_edit_entity.html" />
-        <option value="$PROJECT_DIR$/app/styles/struttura-edit.scss" />
         <option value="$PROJECT_DIR$/app/styles/my-bootstrap.scss" />
-        <option value="$PROJECT_DIR$/app/views/_new_entity.html" />
-        <option value="$PROJECT_DIR$/app/views/struttura_list.html" />
-        <option value="$PROJECT_DIR$/app/views/struttura_new_edit.html" />
-        <option value="$PROJECT_DIR$/app/views/struttura_edit.html" />
-        <option value="$PROJECT_DIR$/app/views/struttura_new.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/Struttura.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/struttura.js" />
+        <option value="$PROJECT_DIR$/app/views/dipendente_detail.html" />
+        <option value="$PROJECT_DIR$/app/views/dipendente_new.html" />
+        <option value="$PROJECT_DIR$/app/views/dipendente_edit.html" />
         <option value="$PROJECT_DIR$/app/views/dipendente_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/dipendente.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/struttura.js" />
+        <option value="$PROJECT_DIR$/app/styles/login.scss" />
+        <option value="$PROJECT_DIR$/app/views/attivita_list.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/attivita.js" />
+        <option value="$PROJECT_DIR$/app/views/attivita_detail.html" />
+        <option value="$PROJECT_DIR$/app/scripts/services/Attivita.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/Dipendente.js" />
+        <option value="$PROJECT_DIR$/app/views/dipendente_new_edit.html" />
+        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
+    <option name="x" value="-2" />
     <option name="y" value="22" />
     <option name="width" value="1362" />
     <option name="height" value="746" />
@@ -159,100 +158,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,7 +240,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="22" width="1362" height="746" extended-state="6" />
+    <frame x="-2" y="22" width="1362" height="746" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -347,7 +252,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.49467275" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.232" sideWeight="0.974924" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.232" sideWeight="0.974924" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -412,123 +317,158 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/attivita_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dipendenza_edit.html">
+    <entry file="file://$PROJECT_DIR$/app/views/struttura_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/_edit_entity.html">
+    <entry file="file://$PROJECT_DIR$/app/views/attivita_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="372" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/_attivita_table.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="56" selection-start="510" selection-end="510" vertical-scroll-proportion="0.44859812">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/_save_entity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="357" selection-end="357" vertical-scroll-proportion="0.2990654">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/_new_entity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="66" selection-start="164" selection-end="164" vertical-scroll-proportion="0.11214953">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/struttura_new_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="30" selection-start="256" selection-end="256" vertical-scroll-proportion="-1.92">
+        <state line="27" column="21" selection-start="1009" selection-end="1009" vertical-scroll-proportion="-10.24">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/struttura.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="0" selection-start="3690" selection-end="3690" vertical-scroll-proportion="0.0">
+        <state line="150" column="0" selection-start="3758" selection-end="3758" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#94#575#0" expanded="false" />
-            <element signature="e#694#1819#0" expanded="false" />
-            <element signature="e#1958#2331#0" expanded="false" />
+            <element signature="e#94#553#0" expanded="false" />
+            <element signature="e#672#1797#0" expanded="false" />
+            <element signature="e#1898#2322#0" expanded="false" />
+            <element signature="e#2407#3151#0" expanded="false" />
+            <element signature="e#3221#3755#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/struttura_list.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/attivita.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1640" vertical-scroll-proportion="-0.0">
+        <state line="28" column="113" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#92#547#0" expanded="false" />
+            <element signature="e#664#1789#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Attivita.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="11" selection-start="26" selection-end="26" vertical-scroll-proportion="0.053511705">
+          <folding>
+            <element signature="e#152#446#0" expanded="false" />
+            <element signature="e#516#751#0" expanded="false" />
+            <element signature="e#808#1018#0" expanded="false" />
+            <element signature="e#1080#1294#0" expanded="false" />
+            <element signature="e#1353#1561#0" expanded="false" />
+            <element signature="e#1621#1796#0" expanded="false" />
+            <element signature="e#1840#1844#0" expanded="false" />
+            <element signature="e#1895#2395#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/struttura_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="22" selection-start="993" selection-end="993" vertical-scroll-proportion="-14.72">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dipendente_list.html">
+    <entry file="file://$PROJECT_DIR$/app/components/bootstrap-datepicker/js/locales/bootstrap-datepicker.cs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="82" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-21.12">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/bootstrap-datepicker/js/bootstrap-datepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="-0.24247491">
+          <folding>
+            <element signature="e#1169#5428#0" expanded="false" />
+            <element signature="e#5455#24953#0" expanded="false" />
+            <element signature="e#24995#25453#0" expanded="false" />
+            <element signature="e#25484#25488#0" expanded="false" />
+            <element signature="e#25570#26074#0" expanded="false" />
+            <element signature="e#26093#31245#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/angular-strap/dist/angular-strap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/struttura_new.html">
+    <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="87" selection-end="87" vertical-scroll-proportion="0.039408866">
+        <state line="58" column="46" selection-start="3223" selection-end="3223" vertical-scroll-proportion="-13.44">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/Dipendente.js">
+    <entry file="file://$PROJECT_DIR$/app/components/angular-strap/dist/angular-strap.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="46" selection-start="2192" selection-end="2192" vertical-scroll-proportion="0.2575406">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/struttura_edit.html">
+    <entry file="file://$PROJECT_DIR$/app/components/angular-strap/src/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="47" selection-start="290" selection-end="290" vertical-scroll-proportion="0.2364532">
+        <state line="4" column="22" selection-start="190" selection-end="196" vertical-scroll-proportion="0.10702341">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/Struttura.js">
+    <entry file="file://$PROJECT_DIR$/app/views/dipendente_new_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="46" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/dipendente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="44" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+        <state line="34" column="62" selection-start="1998" selection-end="1998" vertical-scroll-proportion="-9.48">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="25" selection-start="3491" selection-end="3491" vertical-scroll-proportion="-0.3178808">
+        <state line="2" column="68" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#453#576#0" expanded="false" />
-            <element signature="e#604#729#0" expanded="false" />
-            <element signature="e#762#891#0" expanded="false" />
+            <element signature="e#205#294#0" expanded="false" />
+            <element signature="e#318#435#0" expanded="false" />
+            <element signature="e#463#586#0" expanded="false" />
+            <element signature="e#614#739#0" expanded="false" />
+            <element signature="e#772#901#0" expanded="false" />
+            <element signature="e#926#1046#0" expanded="false" />
+            <element signature="e#1075#1201#0" expanded="false" />
+            <element signature="e#1230#1358#0" expanded="false" />
+            <element signature="e#1392#1524#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/dipendente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="115" selection-start="614" selection-end="678" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#96#559#0" expanded="false" />
+            <element signature="e#680#1846#0" expanded="false" />
+            <element signature="e#1933#2295#0" expanded="false" />
+            <element signature="e#2382#3136#0" expanded="false" />
+            <element signature="e#3222#3758#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Dipendente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="55" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.25083613">
+          <folding />
         </state>
       </provider>
     </entry>

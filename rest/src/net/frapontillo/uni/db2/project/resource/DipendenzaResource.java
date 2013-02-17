@@ -46,13 +46,13 @@ public class DipendenzaResource {
 	}
 	
 	@GET
-	public GenericEntity<List<Dipendenza>> search(@QueryParam("dipendente") String dipendente) {
+	public GenericEntity<List<Dipendenza>> search(@QueryParam("dipendente") Integer dipendente) {
 		if (dipendente == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
 		Result<Record> dbObj = f
 				.select()
 				.from(DIPENDENZA)
-				.where(DIPENDENZA.CF_DIPENDENTE.equal(dipendente))
+				.where(DIPENDENZA.ID_DIPENDENTE.equal(dipendente))
 				.fetch();
 		List<Dipendenza> entity = new DipendenzaConverter().fromResult(dbObj);
 		return new GenericEntity<List<Dipendenza>>(entity) {};

@@ -11,12 +11,10 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables.records;
 @java.lang.SuppressWarnings("all")
 public class DipendenteRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB> {
 
-	private static final long serialVersionUID = -1836183745;
+	private static final long serialVersionUID = 1336782305;
 
 	/**
 	 * The table column <code>public.dipendente.cf</code>
-	 * <p>
-	 * This column is part of the table's PRIMARY KEY
 	 */
 	public void setCf(java.lang.String value) {
 		setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF, value);
@@ -24,35 +22,9 @@ public class DipendenteRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.fr
 
 	/**
 	 * The table column <code>public.dipendente.cf</code>
-	 * <p>
-	 * This column is part of the table's PRIMARY KEY
 	 */
 	public java.lang.String getCf() {
 		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF);
-	}
-
-	/**
-	 * The table column <code>public.dipendente.cf</code>
-	 * <p>
-	 * This column is part of the table's PRIMARY KEY
-	 */
-	public java.util.List<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB> fetchAttivitaDBList() {
-		return create()
-			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA)
-			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.CF_DIPENDENTE_MANAGER.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF)))
-			.fetch();
-	}
-
-	/**
-	 * The table column <code>public.dipendente.cf</code>
-	 * <p>
-	 * This column is part of the table's PRIMARY KEY
-	 */
-	public java.util.List<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB> fetchDipendenzaDBList() {
-		return create()
-			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA)
-			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.CF_DIPENDENTE.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF)))
-			.fetch();
 	}
 
 	/**
@@ -123,6 +95,48 @@ public class DipendenteRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.fr
 	 */
 	public java.lang.Boolean getSesso() {
 		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.SESSO);
+	}
+
+	/**
+	 * The table column <code>public.dipendente.id</code>
+	 * <p>
+	 * This column is part of the table's PRIMARY KEY
+	 */
+	public void setId(java.lang.Integer value) {
+		setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID, value);
+	}
+
+	/**
+	 * The table column <code>public.dipendente.id</code>
+	 * <p>
+	 * This column is part of the table's PRIMARY KEY
+	 */
+	public java.lang.Integer getId() {
+		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID);
+	}
+
+	/**
+	 * The table column <code>public.dipendente.id</code>
+	 * <p>
+	 * This column is part of the table's PRIMARY KEY
+	 */
+	public java.util.List<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB> fetchAttivitaDBList() {
+		return create()
+			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA)
+			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_DIPENDENTE_MANAGER.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID)))
+			.fetch();
+	}
+
+	/**
+	 * The table column <code>public.dipendente.id</code>
+	 * <p>
+	 * This column is part of the table's PRIMARY KEY
+	 */
+	public java.util.List<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB> fetchDipendenzaDBList() {
+		return create()
+			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA)
+			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID_DIPENDENTE.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID)))
+			.fetch();
 	}
 
 	/**

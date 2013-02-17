@@ -95,3 +95,8 @@ div.actionbar .for-alert .alert > div {
 div.actionbar .for-alert .alert .close {
   display: none;
 }
+
+/* line 95, ../../app/styles/my-bootstrap.scss */
+section .pagination {
+  text-align: center;
+}

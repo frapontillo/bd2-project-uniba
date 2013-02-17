@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables;
 @java.lang.SuppressWarnings("all")
 public class DipendenteDB extends org.jooq.impl.UpdatableTableImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB> {
 
-	private static final long serialVersionUID = -997970323;
+	private static final long serialVersionUID = 329859002;
 
 	/**
 	 * The singleton instance of public.dipendente
@@ -28,8 +28,6 @@ public class DipendenteDB extends org.jooq.impl.UpdatableTableImpl<net.frapontil
 
 	/**
 	 * The table column <code>public.dipendente.cf</code>
-	 * <p>
-	 * This column is part of the table's PRIMARY KEY
 	 */
 	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB, java.lang.String> CF = createField("cf", org.jooq.impl.SQLDataType.VARCHAR, this);
 
@@ -57,6 +55,13 @@ public class DipendenteDB extends org.jooq.impl.UpdatableTableImpl<net.frapontil
 	 * The table column <code>public.dipendente.sesso</code>
 	 */
 	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB, java.lang.Boolean> SESSO = createField("sesso", org.jooq.impl.SQLDataType.BOOLEAN, this);
+
+	/**
+	 * The table column <code>public.dipendente.id</code>
+	 * <p>
+	 * This column is part of the table's PRIMARY KEY
+	 */
+	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB, java.lang.Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this);
 
 	public DipendenteDB() {
 		super("dipendente", net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC);

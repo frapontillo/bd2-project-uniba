@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables;
 @java.lang.SuppressWarnings("all")
 public class DipendenzaDB extends org.jooq.impl.UpdatableTableImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB> {
 
-	private static final long serialVersionUID = 455626508;
+	private static final long serialVersionUID = 1301453132;
 
 	/**
 	 * The singleton instance of public.dipendenza
@@ -25,17 +25,6 @@ public class DipendenzaDB extends org.jooq.impl.UpdatableTableImpl<net.frapontil
 	public java.lang.Class<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB> getRecordType() {
 		return net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB.class;
 	}
-
-	/**
-	 * The table column <code>public.dipendenza.cf_dipendente</code>
-	 * <p>
-	 * This column is part of a FOREIGN KEY: <code><pre>
-	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
-	 * FOREIGN KEY (cf_dipendente)
-	 * REFERENCES public.dipendente (cf)
-	 * </pre></code>
-	 */
-	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, java.lang.String> CF_DIPENDENTE = createField("cf_dipendente", org.jooq.impl.SQLDataType.VARCHAR, this);
 
 	/**
 	 * The table column <code>public.dipendenza.id_attivita</code>
@@ -65,6 +54,17 @@ public class DipendenzaDB extends org.jooq.impl.UpdatableTableImpl<net.frapontil
 	 */
 	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, java.lang.Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT, this);
 
+	/**
+	 * The table column <code>public.dipendenza.id_dipendente</code>
+	 * <p>
+	 * This column is part of a FOREIGN KEY: <code><pre>
+	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
+	 * FOREIGN KEY (id_dipendente)
+	 * REFERENCES public.dipendente (id)
+	 * </pre></code>
+	 */
+	public final org.jooq.TableField<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, java.lang.Integer> ID_DIPENDENTE = createField("id_dipendente", org.jooq.impl.SQLDataType.INTEGER, this);
+
 	public DipendenzaDB() {
 		super("dipendenza", net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC);
 	}
@@ -92,7 +92,7 @@ public class DipendenzaDB extends org.jooq.impl.UpdatableTableImpl<net.frapontil
 	@Override
 	@SuppressWarnings("unchecked")
 	public java.util.List<org.jooq.ForeignKey<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, ?>> getReferences() {
-		return java.util.Arrays.<org.jooq.ForeignKey<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, ?>>asList(net.frapontillo.uni.db2.project.jooq.gen.Keys.DIPENDENZA__FK_DIPENDENZA_DIPENDENTE, net.frapontillo.uni.db2.project.jooq.gen.Keys.DIPENDENZA__FK_DIPENDENZA_ATTIVITA);
+		return java.util.Arrays.<org.jooq.ForeignKey<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, ?>>asList(net.frapontillo.uni.db2.project.jooq.gen.Keys.DIPENDENZA__FK_DIPENDENZA_ATTIVITA, net.frapontillo.uni.db2.project.jooq.gen.Keys.DIPENDENZA__FK_DIPENDENZA_DIPENDENTE);
 	}
 
 	@Override

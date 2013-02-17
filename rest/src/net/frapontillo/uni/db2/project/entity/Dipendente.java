@@ -6,7 +6,8 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Dipendente implements IEntity {    
+public class Dipendente implements IEntity {  
+	protected Integer id;
     protected String cf;
     protected String cognome;
     protected String nome;
@@ -16,10 +17,11 @@ public class Dipendente implements IEntity {
     protected List<Attivita> attivita_gestite;
     protected List<Dipendenza> impieghi;
     
-	public Dipendente(String cf, String cognome, String nome,
+	public Dipendente(Integer id, String cf, String cognome, String nome,
 			Date data_nascita, String luogo_nascita, String sesso,
 			List<Attivita> attivita_gestite, List<Dipendenza> impieghi) {
 		super();
+		this.id = id;
 		this.cf = cf;
 		this.cognome = cognome;
 		this.nome = nome;
@@ -31,6 +33,14 @@ public class Dipendente implements IEntity {
 	}
     
 	public Dipendente() {}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getCf() {
 		return cf;

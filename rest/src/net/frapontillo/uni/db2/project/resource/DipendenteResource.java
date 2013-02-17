@@ -35,13 +35,13 @@ import com.sun.jersey.spi.container.ResourceFilters;
 @ResourceFilters(AuthenticationResourceFilter.class)
 public class DipendenteResource {
 	@GET
-	@Path("/{cf}")
-	public Dipendente get(@PathParam("cf") String cf) {
-		if (cf == null) throw new BadRequestException();
+	@Path("/{id}")
+	public Dipendente get(@PathParam("id") Integer id) {
+		if (id == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
 		DipendenteRecordDB dbObj = (DipendenteRecordDB) f.select()
 				.from(DIPENDENTE)
-				.where(DIPENDENTE.CF.equal(cf))
+				.where(DIPENDENTE.ID.equal(id))
 				.fetchOne();
 		Dipendente d = new DipendenteConverter().from(dbObj);
 		return d;
@@ -78,15 +78,15 @@ public class DipendenteResource {
 	}
 	
 	@PUT
-	@Path("/{cf}")
+	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Dipendente put(@PathParam("cf") String cf, Dipendente dip) {
+	public Dipendente put(@PathParam("id") Integer id, Dipendente dip) {
 		if (dip == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
 		DipendenteRecordDB d = (DipendenteRecordDB) f.
 				select()
 				.from(DIPENDENTE)
-				.where(DIPENDENTE.CF.equal(dip.getCf()))
+				.where(DIPENDENTE.ID.equal(id))
 				.fetchOne();
 		d = new DipendenteConverter().to(dip, d);
 		int r = d.store();
@@ -96,12 +96,12 @@ public class DipendenteResource {
 	}
 	
 	@DELETE
-	@Path("/{cf}")
-	public void delete(@PathParam("cf") String cf) {
-		if (cf == null) throw new BadRequestException();
+	@Path("/{id}")
+	public void delete(@PathParam("id") Integer id) {
+		if (id == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
 		int r = f.delete(DIPENDENTE)
-				.where(DIPENDENTE.CF.equal(cf))
+				.where(DIPENDENTE.ID.equal(id))
 				.execute();
 		if (r != 1) throw new RuntimeException();
 		return;

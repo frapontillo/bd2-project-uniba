@@ -17,7 +17,8 @@ The project is divided into 5 folders:
 ## TODO
 
 - Update the doc with the newest logic schema (already exported in png).
-
+- Update the logic schema once again by adding a PK (`ID`) to the `Dipendente` table, then add the image to the doc.
+- Solve date issue on Dipendente Edit/New.
 
 ## RESTful Web Service
 
@@ -38,6 +39,17 @@ The dependencies for the RESTful Web Service are:
 	- Detail of Struttura (to complete with list of Attivita attached)
 	- Edit Struttura
 	- New Struttura
+- Pages for Dipendente made:
+	- List/Search of Dipendente
+	- Detail of Dipendente (to complete with list of Assunzione in different Attivita attached)
+	- Edit Dipendente
+	- New Dipendente
+- Pages for Attivita made:
+	- List/Search of Attivita
+	- Detail of Attivita (to complete with list of Assunzione of different Dipendente attached)
+- Added momentjs.
+- Added angular-strap as a reference.
+- Added bootstrap-datepicker.
 
 ### 2013-02-15
 

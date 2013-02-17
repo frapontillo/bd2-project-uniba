@@ -4,7 +4,6 @@ webApp.controller('StrutturaListCtrl', function($scope, $rootScope, Struttura) {
 	$scope.strutture = {};
 	$scope.cerca = '';
 	$scope.page = 1;
-	$scope.netOp = null;
 
 	$scope.restartSearch = function() {
 		$scope.page = 1;
@@ -27,7 +26,7 @@ webApp.controller('StrutturaListCtrl', function($scope, $rootScope, Struttura) {
 	$scope.restartSearch();
 });
 
-webApp.controller('StrutturaDetailCtrl', function($scope, $routeParams, $rootScope, $location, $dialog, Struttura) {
+webApp.controller('StrutturaDetailCtrl', function($scope, $rootScope, $routeParams, $location, $dialog, Struttura) {
 	// Avvio una nuova richiesta
 	$scope.s = new Struttura().get($routeParams.id);
 
@@ -71,13 +70,16 @@ webApp.controller('StrutturaDetailCtrl', function($scope, $routeParams, $rootSco
 	}
 });
 
-webApp.controller('StrutturaNewEditCtrl', function($scope, $routeParams, $rootScope, $location, AuthHandler, Struttura, TipoStruttura) {
+webApp.controller('StrutturaNewEditCtrl', function($scope, $rootScope, $location, TipoStruttura) {
+	$scope.triedSave = false;
+
 	$scope.tipi = new TipoStruttura().query(null, null, function(s) {
 		$scope.tipi = s;
 	});
 
 	$scope.controlGroupStatus = function(evaluate) {
-		if (!evaluate) return 'error';
+		if (!evaluate && $scope.triedSave)
+			return 'error';
 	};
 
 	$scope.goToList = function(id) {
@@ -89,7 +91,7 @@ webApp.controller('StrutturaNewEditCtrl', function($scope, $routeParams, $rootSc
 	}
 });
 
-webApp.controller('StrutturaEditCtrl', function($scope, $routeParams, $rootScope, $location, AuthHandler, Struttura, TipoStruttura) {
+webApp.controller('StrutturaEditCtrl', function($scope, $routeParams, Struttura) {
 	$scope.locked = true;
 	$scope.alert = {type:"info", msg:"Carico la struttura..."};
 
@@ -101,6 +103,7 @@ webApp.controller('StrutturaEditCtrl', function($scope, $routeParams, $rootScope
 
 	$scope.save = function() {
 		if (!$scope.locked) {
+			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};
 			$scope.locked = true;
 			$scope.s = new Struttura().put($routeParams.id, $scope.s,
@@ -108,6 +111,7 @@ webApp.controller('StrutturaEditCtrl', function($scope, $routeParams, $rootScope
 				$scope.goToDetail($routeParams.id);
 			},
 			function() {
+				$scope.locked = false;
 				$scope.alert = {type:"error", msg:"Errore durante il salvataggio!"};
 			});
 		}
@@ -115,15 +119,16 @@ webApp.controller('StrutturaEditCtrl', function($scope, $routeParams, $rootScope
 
 	$scope.cancel = function() {
 		if (!$scope.locked)
-			$scope.goToDetail();
+			$scope.goToDetail($scope.s.id);
 	};
 });
 
-webApp.controller('StrutturaNewCtrl', function($scope, $routeParams, $rootScope, $location, AuthHandler, Struttura, TipoStruttura) {
+webApp.controller('StrutturaNewCtrl', function($scope, Struttura) {
 	$scope.s = new Struttura();
 
 	$scope.save = function() {
 		if (!$scope.locked) {
+			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};
 			$scope.locked = true;
 			$scope.s = new Struttura().post($scope.s,

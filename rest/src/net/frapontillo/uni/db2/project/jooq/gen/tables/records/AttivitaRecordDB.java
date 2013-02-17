@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables.records;
 @java.lang.SuppressWarnings("all")
 public class AttivitaRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB> {
 
-	private static final long serialVersionUID = 2105526222;
+	private static final long serialVersionUID = -906440832;
 
 	/**
 	 * The table column <code>public.attivita.id_attivita</code>
@@ -238,57 +238,57 @@ public class AttivitaRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.frap
 	}
 
 	/**
-	 * The table column <code>public.attivita.cf_dipendente_manager</code>
+	 * The table column <code>public.attivita.id_dipendente_manager</code>
 	 * <p>
 	 * This column is part of a FOREIGN KEY: <code><pre>
 	 * CONSTRAINT attivita__fk_attivita_dipendente_manager
-	 * FOREIGN KEY (cf_dipendente_manager)
-	 * REFERENCES public.dipendente (cf)
+	 * FOREIGN KEY (id_dipendente_manager)
+	 * REFERENCES public.dipendente (id)
 	 * </pre></code>
 	 */
-	public void setCfDipendenteManager(java.lang.String value) {
-		setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.CF_DIPENDENTE_MANAGER, value);
+	public void setIdDipendenteManager(java.lang.Integer value) {
+		setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_DIPENDENTE_MANAGER, value);
 	}
 
 	/**
-	 * The table column <code>public.attivita.cf_dipendente_manager</code>
+	 * The table column <code>public.attivita.id_dipendente_manager</code>
 	 * <p>
 	 * This column is part of a FOREIGN KEY: <code><pre>
 	 * CONSTRAINT attivita__fk_attivita_dipendente_manager
-	 * FOREIGN KEY (cf_dipendente_manager)
-	 * REFERENCES public.dipendente (cf)
+	 * FOREIGN KEY (id_dipendente_manager)
+	 * REFERENCES public.dipendente (id)
 	 * </pre></code>
 	 */
-	public java.lang.String getCfDipendenteManager() {
-		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.CF_DIPENDENTE_MANAGER);
+	public java.lang.Integer getIdDipendenteManager() {
+		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_DIPENDENTE_MANAGER);
 	}
 
 	/**
 	 * Link this record to a given {@link net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB 
 	 * DipendenteRecordDB}
 	 */
-	public void setCfDipendenteManager(net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB value) {
+	public void setIdDipendenteManager(net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB value) {
 		if (value == null) {
-			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.CF_DIPENDENTE_MANAGER, null);
+			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_DIPENDENTE_MANAGER, null);
 		}
 		else {
-			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.CF_DIPENDENTE_MANAGER, value.getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF));
+			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_DIPENDENTE_MANAGER, value.getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID));
 		}
 	}
 
 	/**
-	 * The table column <code>public.attivita.cf_dipendente_manager</code>
+	 * The table column <code>public.attivita.id_dipendente_manager</code>
 	 * <p>
 	 * This column is part of a FOREIGN KEY: <code><pre>
 	 * CONSTRAINT attivita__fk_attivita_dipendente_manager
-	 * FOREIGN KEY (cf_dipendente_manager)
-	 * REFERENCES public.dipendente (cf)
+	 * FOREIGN KEY (id_dipendente_manager)
+	 * REFERENCES public.dipendente (id)
 	 * </pre></code>
 	 */
 	public net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB fetchDipendenteDB() {
 		return create()
 			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE)
-			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.CF_DIPENDENTE_MANAGER)))
+			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_DIPENDENTE_MANAGER)))
 			.fetchOne();
 	}
 

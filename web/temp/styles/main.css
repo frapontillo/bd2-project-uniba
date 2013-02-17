@@ -96,6 +96,11 @@ div.actionbar .for-alert .alert .close {
   display: none;
 }
 
+/* line 95, ../../app/styles/my-bootstrap.scss */
+section .pagination {
+  text-align: center;
+}
+
 /**
  * Created with JetBrains WebStorm.
  * User: francescopontillo
@@ -133,7 +138,7 @@ body {
 .form-signin {
   max-width: 300px;
   padding: 19px 29px 29px;
-  margin: 0 auto 20px;
+  margin: 30px auto 20px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
@@ -158,11 +163,6 @@ body {
  * Date: 15/02/13
  * Time: 22:29
  */
-/* line 9, ../../app/styles/struttura-list.scss */
-section#struttura-list .pagination {
-  text-align: center;
-}
-
 /**
  * Created with JetBrains WebStorm.
  * User: francescopontillo

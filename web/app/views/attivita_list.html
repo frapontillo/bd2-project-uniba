@@ -1,1 +1,33 @@
-<p>This is the attivita view.</p>
+<section id="attivita-list">
+    <div class="page-header">
+        <h1>Attività <div class="actionbar pull-right" ng-include src="'views/_new_entity.html'"></div></h1>
+    </div>
+    <h2>Ricerca attività</h2>
+
+    <form class="input-prepend input-append">
+        <span class="add-on">Cerca per nome attività:</span>
+        <input class="input-large" type="text" ng-model="cerca">
+        <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
+    </form>
+
+    <div id="attivita-table-pagination" ng-show="attivita.list">
+        <table id="attivita-table" class="table table-hover table-clickable" data-provides="rowlink">
+            <thead>
+            <tr>
+                <th class="span4">Codice</th>
+                <th class="span4">Nome</th>
+                <th class="span4">Tipo Attività</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="a in attivita.list">
+                <td class="span4"><a ng-href="#{{mAttivita.mainUrl()}}/{{a.id}}">{{ a.codice }}</a></td>
+                <td class="span4"><a ng-href="#{{mAttivita.mainUrl()}}/{{a.id}}">{{ a.nome }}</a></td>
+                <td class="span4"><a ng-href="#{{mAttivita.mainUrl()}}/{{a.id}}">{{ a.tipo_attivita.descrizione }}</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination num-pages="attivita.pages" current-page="page" max-size="10"
+                    on-select-page="selectPage(page)" next-text="Avanti" prev-text="Indietro"></pagination>
+    </div>
+</section>

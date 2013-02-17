@@ -11,62 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables.records;
 @java.lang.SuppressWarnings("all")
 public class DipendenzaRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB> {
 
-	private static final long serialVersionUID = 1850683306;
-
-	/**
-	 * The table column <code>public.dipendenza.cf_dipendente</code>
-	 * <p>
-	 * This column is part of a FOREIGN KEY: <code><pre>
-	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
-	 * FOREIGN KEY (cf_dipendente)
-	 * REFERENCES public.dipendente (cf)
-	 * </pre></code>
-	 */
-	public void setCfDipendente(java.lang.String value) {
-		setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.CF_DIPENDENTE, value);
-	}
-
-	/**
-	 * The table column <code>public.dipendenza.cf_dipendente</code>
-	 * <p>
-	 * This column is part of a FOREIGN KEY: <code><pre>
-	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
-	 * FOREIGN KEY (cf_dipendente)
-	 * REFERENCES public.dipendente (cf)
-	 * </pre></code>
-	 */
-	public java.lang.String getCfDipendente() {
-		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.CF_DIPENDENTE);
-	}
-
-	/**
-	 * Link this record to a given {@link net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB 
-	 * DipendenteRecordDB}
-	 */
-	public void setCfDipendente(net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB value) {
-		if (value == null) {
-			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.CF_DIPENDENTE, null);
-		}
-		else {
-			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.CF_DIPENDENTE, value.getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF));
-		}
-	}
-
-	/**
-	 * The table column <code>public.dipendenza.cf_dipendente</code>
-	 * <p>
-	 * This column is part of a FOREIGN KEY: <code><pre>
-	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
-	 * FOREIGN KEY (cf_dipendente)
-	 * REFERENCES public.dipendente (cf)
-	 * </pre></code>
-	 */
-	public net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB fetchDipendenteDB() {
-		return create()
-			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE)
-			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.CF.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.CF_DIPENDENTE)))
-			.fetchOne();
-	}
+	private static final long serialVersionUID = -399438180;
 
 	/**
 	 * The table column <code>public.dipendenza.id_attivita</code>
@@ -167,6 +112,61 @@ public class DipendenzaRecordDB extends org.jooq.impl.UpdatableRecordImpl<net.fr
 	 */
 	public java.lang.Long getId() {
 		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID);
+	}
+
+	/**
+	 * The table column <code>public.dipendenza.id_dipendente</code>
+	 * <p>
+	 * This column is part of a FOREIGN KEY: <code><pre>
+	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
+	 * FOREIGN KEY (id_dipendente)
+	 * REFERENCES public.dipendente (id)
+	 * </pre></code>
+	 */
+	public void setIdDipendente(java.lang.Integer value) {
+		setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID_DIPENDENTE, value);
+	}
+
+	/**
+	 * The table column <code>public.dipendenza.id_dipendente</code>
+	 * <p>
+	 * This column is part of a FOREIGN KEY: <code><pre>
+	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
+	 * FOREIGN KEY (id_dipendente)
+	 * REFERENCES public.dipendente (id)
+	 * </pre></code>
+	 */
+	public java.lang.Integer getIdDipendente() {
+		return getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID_DIPENDENTE);
+	}
+
+	/**
+	 * Link this record to a given {@link net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB 
+	 * DipendenteRecordDB}
+	 */
+	public void setIdDipendente(net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB value) {
+		if (value == null) {
+			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID_DIPENDENTE, null);
+		}
+		else {
+			setValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID_DIPENDENTE, value.getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID));
+		}
+	}
+
+	/**
+	 * The table column <code>public.dipendenza.id_dipendente</code>
+	 * <p>
+	 * This column is part of a FOREIGN KEY: <code><pre>
+	 * CONSTRAINT dipendenza__fk_dipendenza_dipendente
+	 * FOREIGN KEY (id_dipendente)
+	 * REFERENCES public.dipendente (id)
+	 * </pre></code>
+	 */
+	public net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB fetchDipendenteDB() {
+		return create()
+			.selectFrom(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE)
+			.where(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID.equal(getValue(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID_DIPENDENTE)))
+			.fetchOne();
 	}
 
 	/**
