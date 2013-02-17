@@ -1,0 +1,37 @@
+<!-- DipendenteListCtrl contiene tutte le informazioni per la ricerca del dipendente -->
+<!-- Il click sulla lista è gestito da handleListClick(dipendente) -->
+<!-- L'href è gestito dalla funzione handleListLink(dipendente) -->
+<div ng-controller="DipendenteListCtrl">
+    <h2>Ricerca dipendente</h2>
+
+    <form class="input-prepend input-append">
+        <span class="add-on">Cerca per nome e cognome:</span>
+        <input class="input-large" type="text" ng-model="cerca">
+        <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
+    </form>
+
+    <div id="dipendente-table-pagination" ng-show="dipendenti.list">
+        <table id="dipendente-table" class="table table-hover table-clickable" data-provides="rowlink">
+            <thead>
+            <tr>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Codice Fiscale</th>
+                <th>Data di nascita</th>
+                <th>Luogo di nascita</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="d in dipendenti.list">
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.cognome }}</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.nome }}</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.cf }}</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.data_nascita | date:'shortDate' }}</a></td>
+                <td ng-click="handleListClick(d)"><a ng-href="{{handleListLink(d)}}">{{ d.luogo_nascita }}</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination num-pages="dipendenti.pages" current-page="page" max-size="10"
+                    on-select-page="selectPage(page)" next-text="Avanti" prev-text="Indietro"></pagination>
+    </div>
+</div>

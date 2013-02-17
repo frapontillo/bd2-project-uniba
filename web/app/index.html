@@ -29,7 +29,7 @@
 
         <!-- Add your site or application content here -->
         <div class="wrapper">
-            <div ng-include src="'views/_header.html'"></div>
+            <div ng-include src="'views/__header.html'"></div>
             <div class="container">
                 <div class="container-view" ng-view></div>
             </div>
@@ -54,6 +54,7 @@
         <script src="components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="components/bootstrap-datepicker/js/locales/bootstrap-datepicker.it.js"></script>
         <script src="components/angular-strap/dist/angular-strap.js"></script>
+        <script src="components/moment/moment.js"></script>
 
         <!-- build:js scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -77,6 +78,8 @@
         <script src="scripts/services/AuthHandler.js"></script>
         <script src="scripts/services/AppHttpInterceptor.js"></script>
         <script src="scripts/directives/onScroll.js"></script>
+        <script src="scripts/directives/date.js"></script>
+        <script src="scripts/filters/bool.js"></script>
         <!-- endbuild -->
     </body>
 </html>

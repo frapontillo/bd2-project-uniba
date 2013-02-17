@@ -1,5 +1,31 @@
 'use strict';
 
+// Controller per la pagina principale di ricerca dipendenti (route: /dipendente).
+// Gestisce i click sulla lista tramite link, non tramite click.
+webApp.controller('DipendenteListPageCtrl', function($scope, $rootScope) {
+	$scope.newUrl = function() {
+		return "#" + $rootScope.mDipendenti.mainUrl() + "/new";
+	};
+	// Reindirizza al dettaglio del dipendente
+	$scope.handleListLink = function(dipendente) {
+		return "#" + $rootScope.mDipendenti.mainUrl() + "/" + dipendente.id;
+	};
+});
+
+// Controller per la messagebox che contiene la vista parziale.
+// Gestisce i click sulla lista, non usa i link.
+// dialog viene iniettata automaticamente nel controller
+webApp.controller('DipendenteListDialogCtrl', function($scope, dialog) {
+	// Chiude la dialog restituendo al chiamante il dipendente
+	$scope.handleListClick = function(dipendente) {
+		dialog.close(dipendente);
+	};
+	$scope.closeNoResult = function() {
+		dialog.close(null);
+	}
+});
+
+// Controller per la vista parziale, cerca solamente i dipendenti e li mostra, non gestisce i click o i link
 webApp.controller('DipendenteListCtrl', function($scope, $rootScope, Dipendente) {
 	$scope.dipendenti = {};
 	$scope.cerca = '';
@@ -17,10 +43,6 @@ webApp.controller('DipendenteListCtrl', function($scope, $rootScope, Dipendente)
 	$scope.selectPage = function(p) {
 		$scope.page = p;
 		$scope.searchPage();
-	};
-
-	$scope.newUrl = function() {
-		return "#" + $rootScope.mDipendenti.mainUrl() + "/new";
 	};
 
 	$scope.restartSearch();
@@ -75,17 +97,18 @@ webApp.controller('DipendenteNewEditCtrl', function($scope, $rootScope, $locatio
 	$scope.sessi = ["M", "F"];
 
 	$scope.controlGroupStatus = function(evaluate) {
-		if (!evaluate && $scope.triedSave)
+		//if (!evaluate && $scope.triedSave)
+		if (!evaluate)
 			return 'error';
 	};
 
 	$scope.goToList = function(id) {
 		$location.path($rootScope.mDipendenti.mainUrl());
-	}
+	};
 
 	$scope.goToDetail = function(id) {
 		$location.path($rootScope.mDipendenti.mainUrl() + '/' + id);
-	}
+	};
 });
 
 webApp.controller('DipendenteEditCtrl', function($scope, $routeParams, Dipendente) {
@@ -99,6 +122,7 @@ webApp.controller('DipendenteEditCtrl', function($scope, $routeParams, Dipendent
 	});
 
 	$scope.save = function() {
+		// TODO: controllare validità del form
 		if (!$scope.locked) {
 			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};
@@ -124,6 +148,7 @@ webApp.controller('DipendenteNewCtrl', function($scope, $routeParams, Dipendente
 	$scope.d = new Dipendente();
 
 	$scope.save = function() {
+		// TODO: controllare validità del form
 		if (!$scope.locked) {
 			$scope.$parent.triedSave = true;
 			$scope.alert = {type:"info", msg:"Salvataggio in corso..."};

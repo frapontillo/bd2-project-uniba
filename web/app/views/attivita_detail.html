@@ -1,6 +1,6 @@
 <section id="attivita-detail">
     <div class="page-header">
-        <h1>Attività<div class="actionbar pull-right" ng-include src="'views/_edit_entity.html'"></div></h1>
+        <h1>Attività<div class="actionbar pull-right" ng-include src="'views/_buttons_entity_edit.html'"></div></h1>
     </div>
     <h2 ui-if="d">Dettaglio attivita {{a.nome}}
         <p class="lead">Per modificare questa attività, clicca sul pulsante "Modifica".</p></h2>
@@ -14,23 +14,28 @@
         <p class="span6">{{a.nome}}</p>
     </div>
     <div class="row">
+        <p class="span2"><strong>Tipo attività</strong></p>
+        <p class="span6">{{a.tipo_attivita.descrizione}}</p>
+    </div>
+    <div class="row">
         <p class="span2"><strong>Partita IVA</strong></p>
         <p class="span6">{{a.piva}}</p>
     </div>
     <div class="row">
         <p class="span2"><strong>Franchising</strong></p>
-        <p class="span6">{{a.franchising}}</p>
+        <p class="span6">{{a.franchising | bool:["Sì","No"]}}</p>
+    </div>
+    <div class="row">
+        <p ui-if="a.franchising" class="span2"><strong>Manager</strong></p>
+        <p ui-if="!a.franchising" class="span2"><strong>Proprietario</strong></p>
+        <p class="span6"><span ui-if="a.manager">{{a.manager.nome_cognome}}</span></p>
     </div>
     <div class="row">
         <p class="span2"><strong>Numero dipendenti</strong></p>
         <p class="span6">{{a.num_dip}}</p>
     </div>
     <div class="row">
-        <p class="span2"><strong>Manager</strong></p>
-        <p class="span6"><span ui-if="a.manager">{{a.manager.cognome + " " + a.manager.nome}}</span></p>
-    </div>
-    <div class="row">
-        <p class="span2"><strong>Locazione</strong></p>
+        <p class="span2"><strong>Struttura</strong></p>
         <p class="span6">
             <span ui-if="a.struttura.tipo.codice && a.struttura.id">({{a.struttura.tipo.codice + '-' + a.struttura.id}})</span>
             <span>{{a.struttura.codice}}</span>
@@ -38,7 +43,7 @@
         </p>
     </div>
 
-    <h3><div class="actionbar pull-right" ng-include src="'views/_new_entity.html'"></div>Lista delle assunzioni
+    <h3><div class="actionbar pull-right" ng-include src="'views/_buttons_entity_new.html'"></div>Lista delle assunzioni
         <p class="lead">Per licenziare un dipendente o modificare i dettagli dell'assunzione, selezionarne una dalla lista sottostante.
             Puoi assumere il dipendente cliccando sul pulsante "Nuovo".
         </p>

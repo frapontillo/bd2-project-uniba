@@ -58,11 +58,15 @@
   background-color: #e5e5e5;
 }
 
-/* line 58, ../../app/styles/my-bootstrap.scss */
+/* line 57, ../../app/styles/my-bootstrap.scss */
+table.table-clickable {
+  table-layout: fixed;
+}
+/* line 59, ../../app/styles/my-bootstrap.scss */
 table.table-clickable td {
   padding: 0;
 }
-/* line 61, ../../app/styles/my-bootstrap.scss */
+/* line 62, ../../app/styles/my-bootstrap.scss */
 table.table-clickable td a {
   display: block;
   width: 100%;
@@ -71,34 +75,47 @@ table.table-clickable td a {
   padding: 8px;
   text-decoration: none;
   box-sizing: content-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-/* line 72, ../../app/styles/my-bootstrap.scss */
+/* line 76, ../../app/styles/my-bootstrap.scss */
 table.table-clickable td a:hover,
 table.table-clickable td a:focus {
   text-decoration: none;
 }
 
-/* line 78, ../../app/styles/my-bootstrap.scss */
+/* line 82, ../../app/styles/my-bootstrap.scss */
 div.actionbar {
   display: inline-block;
 }
-/* line 80, ../../app/styles/my-bootstrap.scss */
+/* line 84, ../../app/styles/my-bootstrap.scss */
 div.actionbar .for-alert {
   display: inline-block;
   font-size: 14px;
 }
-/* line 84, ../../app/styles/my-bootstrap.scss */
+/* line 88, ../../app/styles/my-bootstrap.scss */
 div.actionbar .for-alert .alert > div {
   height: 30px;
 }
-/* line 87, ../../app/styles/my-bootstrap.scss */
+/* line 91, ../../app/styles/my-bootstrap.scss */
 div.actionbar .for-alert .alert .close {
   display: none;
 }
 
-/* line 95, ../../app/styles/my-bootstrap.scss */
-section .pagination {
+/* line 98, ../../app/styles/my-bootstrap.scss */
+.pagination {
   text-align: center;
+}
+
+/* line 103, ../../app/styles/my-bootstrap.scss */
+form .control-group > .controls .input-append > button {
+  height: 30px;
+}
+
+/* line 108, ../../app/styles/my-bootstrap.scss */
+.modal-body.my-modal-body {
+  overflow-x: hidden;
 }
 
 /**

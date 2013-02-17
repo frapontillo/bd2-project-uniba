@@ -31,6 +31,21 @@ The dependencies for the RESTful Web Service are:
 
 ## History
 
+### 2013-02-17
+
+- Used datepicker.
+- Made a filter for boolean.
+- Attivita working in read/edit/new/delete mode.
+- Struttura working in read/edit/new/delete mode.
+- Dipendente working in read/edit/new/delete mode.
+- Connection of Attivita to Struttura almost complete.
+- TODO:
+	- Connection of Assunzione to Dipendente and to Attivita.
+	- List of Assunzione.
+	- New Assunzione.
+	- Edit Assunzione.
+	- Delete Assunzione (firing).
+
 ### 2013-02-16
 
 - `DipendenteResource` now working with the PostgreSQL function.

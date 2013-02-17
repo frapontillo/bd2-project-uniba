@@ -12,7 +12,7 @@ webApp.config(['$routeProvider', function($routeProvider) {
 		.when('/struttura', {
 			templateUrl: 'views/struttura_list.html',
 			templateRoute: '/struttura',
-			controller: 'StrutturaListCtrl'
+			controller: 'StrutturaListPageCtrl'
 		})
 		.when('/struttura/new', {
 			templateUrl: 'views/struttura_new.html',
@@ -32,7 +32,7 @@ webApp.config(['$routeProvider', function($routeProvider) {
 		.when('/dipendente', {
 			templateUrl: 'views/dipendente_list.html',
 			templateRoute: '/dipendente',
-			controller: 'DipendenteListCtrl'
+			controller: 'DipendenteListPageCtrl'
 		})
 		.when('/dipendente/new', {
 			templateUrl: 'views/dipendente_new.html',
@@ -52,7 +52,7 @@ webApp.config(['$routeProvider', function($routeProvider) {
 		.when('/attivita', {
 			templateUrl: 'views/attivita_list.html',
 			templateRoute: '/attivita',
-			controller: 'AttivitaListCtrl'
+			controller: 'AttivitaListPageCtrl'
 		})
 		.when('/attivita/new', {
 			templateUrl: 'views/attivita_new.html',

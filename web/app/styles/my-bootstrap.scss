@@ -55,6 +55,7 @@
 }
 
 table.table-clickable {
+  table-layout:fixed;
   td {
     padding: 0;
 
@@ -66,6 +67,9 @@ table.table-clickable {
       padding: 8px;
       text-decoration: none;
       box-sizing: content-box;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     a:hover,
@@ -91,8 +95,16 @@ div.actionbar {
   }
 }
 
-section {
-  .pagination {
-    text-align: center;
+.pagination {
+  text-align: center;
+}
+
+form {
+  .control-group > .controls .input-append > button {
+    height: 30px;
   }
+}
+
+.modal-body.my-modal-body {
+  overflow-x: hidden;
 }

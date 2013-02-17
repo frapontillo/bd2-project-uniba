@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen.tables;
 @java.lang.SuppressWarnings("all")
 public class DipendenteDB extends org.jooq.impl.UpdatableTableImpl<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB> {
 
-	private static final long serialVersionUID = 329859002;
+	private static final long serialVersionUID = -2103267874;
 
 	/**
 	 * The singleton instance of public.dipendente
@@ -69,6 +69,11 @@ public class DipendenteDB extends org.jooq.impl.UpdatableTableImpl<net.frapontil
 
 	public DipendenteDB(java.lang.String alias) {
 		super(alias, net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC, net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE);
+	}
+
+	@Override
+	public org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB, java.lang.Integer> getIdentity() {
+		return net.frapontillo.uni.db2.project.jooq.gen.Keys.IDENTITY_DIPENDENTE;
 	}
 
 	@Override

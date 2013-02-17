@@ -1,37 +1,7 @@
 <section id="dipendente-list">
     <div class="page-header">
-        <h1>Dipendenti <div class="actionbar pull-right" ng-include src="'views/_new_entity.html'"></div></h1>
+        <h1>Dipendenti <div class="actionbar pull-right" ng-include src="'views/_buttons_entity_new.html'"></div></h1>
     </div>
-    <h2>Ricerca dipendente</h2>
 
-    <form class="input-prepend input-append">
-        <span class="add-on">Cerca per nome e cognome:</span>
-        <input class="input-large" type="text" ng-model="cerca">
-        <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
-    </form>
-
-    <div id="dipendente-table-pagination" ng-show="dipendenti.list">
-        <table id="dipendente-table" class="table table-hover table-clickable" data-provides="rowlink">
-            <thead>
-            <tr>
-                <th class="span3">Cognome</th>
-                <th class="span3">Nome</th>
-                <th class="span3">Codice Fiscale</th>
-                <th class="span3">Data di nascita</th>
-                <th class="span3">Luogo di nascita</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="d in dipendenti.list">
-                <td class="span3"><a ng-href="#{{mDipendenti.mainUrl()}}/{{d.id}}">{{ d.cognome }}</a></td>
-                <td class="span3"><a ng-href="#{{mDipendenti.mainUrl()}}/{{d.id}}">{{ d.nome }}</a></td>
-                <td class="span3"><a ng-href="#{{mDipendenti.mainUrl()}}/{{d.id}}">{{ d.cf }}</a></td>
-                <td class="span3"><a ng-href="#{{mDipendenti.mainUrl()}}/{{d.id}}">{{ d.data_nascita | date:'shortDate' }}</a></td>
-                <td class="span3"><a ng-href="#{{mDipendenti.mainUrl()}}/{{d.id}}">{{ d.luogo_nascita }}</a></td>
-            </tr>
-            </tbody>
-        </table>
-        <pagination num-pages="dipendenti.pages" current-page="page" max-size="10"
-                    on-select-page="selectPage(page)" next-text="Avanti" prev-text="Indietro"></pagination>
-    </div>
+    <div ng-include src="'views/_select_dipendente.html'"></div>
 </section>

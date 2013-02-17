@@ -51,7 +51,8 @@ webApp.factory('Dipendente', function($resource, Config, AuthHandler) {
 	};
 
 	Dipendente.prototype.fill = function(obj) {
-		// obj.data_nascita = moment(obj.data_nascita);
+		obj.data_nascita = moment(obj.data_nascita)._d;
+		obj.nome_cognome = obj.cognome + " " + obj.nome;
 	};
 
 	Dipendente.prototype.fillAll = function(objects) {

@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response.Status;
 import org.jooq.Field;
 import org.jooq.Record;
 import org.jooq.Result;
+import org.jooq.SelectConditionStep;
 import org.jooq.impl.Factory;
 
 import static net.frapontillo.uni.db2.project.jooq.gen.Tables.*;
@@ -51,15 +52,19 @@ public class AttivitaResource {
 	@GET
 	public AttivitaList search(
 			@QueryParam("nome") String nome,
+			@QueryParam("struttura") Integer struttura,
 			@QueryParam("page") @DefaultValue("1") Double page) {
 		double pageSize = 10;
 		int offset = (int) (pageSize*(page-1));
 		double pages = 0;
 		Factory f = DBUtil.getConn();
-		Result<Record> r = f
+		SelectConditionStep where = f
 				.select()
 				.from(ATTIVITA)
-				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"))
+				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"));
+		if (struttura != null && struttura > 0)
+			where = where.and(ATTIVITA.ID_STRUTTURA.equal(struttura));
+		Result<Record> r = where
 				.orderBy(ATTIVITA.NOME)
 				.limit((int)pageSize)
 				.offset(offset)

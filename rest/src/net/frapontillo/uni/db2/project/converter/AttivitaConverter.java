@@ -21,6 +21,7 @@ public class AttivitaConverter extends AbstractConverter<AttivitaRecordDB, Attiv
 			obj.setNum_dip(source.getNumDip());
 			obj.setPiva(source.getPiva());
 			obj.setStruttura(new StrutturaConverter().from(source.fetchStrutturaDB(), lev-1));
+			obj.setPiano(source.getPiano());
 		}
 		if (lev >= CONV_TYPE.CASCADE) {
 			obj.setDipendenze(new DipendenzaConverter().fromList(source.fetchDipendenzaDBList(), lev-2));
@@ -41,13 +42,15 @@ public class AttivitaConverter extends AbstractConverter<AttivitaRecordDB, Attiv
 			dbObj.setIdTipoAttivita(idTipoAttivita);
 		}
 		if (lev >= CONV_TYPE.NORMAL) {
-			dbObj.setFranchising(source.getFranchising());
+			dbObj.setFranchising(source.getFranchising() == null ? false : source.getFranchising());
 			Integer idManager = source.getManager() != null ? source.getManager().getId() : null;
 			dbObj.setIdDipendenteManager(idManager);
 			Integer numDip = source.getNum_dip();
 			numDip = numDip == null ? 0 : numDip;
 			dbObj.setNumDip(numDip);
 			dbObj.setPiva(source.getPiva());
+			Integer idStruttura = source.getStruttura() != null ? source.getStruttura().getId() : null;
+			dbObj.setIdStruttura(idStruttura);
 			dbObj.setPiano(source.getPiano());
 		}
 		if (lev >= CONV_TYPE.CASCADE) {

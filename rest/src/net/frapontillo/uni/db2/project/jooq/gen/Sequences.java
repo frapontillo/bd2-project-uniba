@@ -19,6 +19,11 @@ public final class Sequences {
 	public static final org.jooq.Sequence<java.lang.Long> ATTIVITA_ID_ATTIVITA_SEQ = new org.jooq.impl.SequenceImpl<java.lang.Long>("attivita_id_attivita_seq", net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC, org.jooq.impl.SQLDataType.BIGINT);
 
 	/**
+	 * The sequence public.dipendente_id_dipendente_seq
+	 */
+	public static final org.jooq.Sequence<java.lang.Long> DIPENDENTE_ID_DIPENDENTE_SEQ = new org.jooq.impl.SequenceImpl<java.lang.Long>("dipendente_id_dipendente_seq", net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC, org.jooq.impl.SQLDataType.BIGINT);
+
+	/**
 	 * The sequence public.dipendenza_id_seq
 	 */
 	public static final org.jooq.Sequence<java.lang.Long> DIPENDENZA_ID_SEQ = new org.jooq.impl.SequenceImpl<java.lang.Long>("dipendenza_id_seq", net.frapontillo.uni.db2.project.jooq.gen.PublicDB.PUBLIC, org.jooq.impl.SQLDataType.BIGINT);

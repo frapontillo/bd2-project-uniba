@@ -16,6 +16,7 @@ public class Keys {
 
 	// IDENTITY definitions
 	public static final org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB, java.lang.Integer> IDENTITY_ATTIVITA = Identities0.IDENTITY_ATTIVITA;
+	public static final org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB, java.lang.Integer> IDENTITY_DIPENDENTE = Identities0.IDENTITY_DIPENDENTE;
 	public static final org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, java.lang.Long> IDENTITY_DIPENDENZA = Identities0.IDENTITY_DIPENDENZA;
 	public static final org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.StrutturaRecordDB, java.lang.Integer> IDENTITY_STRUTTURA = Identities0.IDENTITY_STRUTTURA;
 	public static final org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.TipoAttivitaRecordDB, java.lang.Integer> IDENTITY_TIPO_ATTIVITA = Identities0.IDENTITY_TIPO_ATTIVITA;
@@ -55,6 +56,7 @@ public class Keys {
 	@SuppressWarnings("hiding")
 	private static class Identities0 extends org.jooq.impl.AbstractKeys {
 		public static org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.AttivitaRecordDB, java.lang.Integer> IDENTITY_ATTIVITA = createIdentity(net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA, net.frapontillo.uni.db2.project.jooq.gen.tables.AttivitaDB.ATTIVITA.ID_ATTIVITA);
+		public static org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenteRecordDB, java.lang.Integer> IDENTITY_DIPENDENTE = createIdentity(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE, net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenteDB.DIPENDENTE.ID);
 		public static org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.DipendenzaRecordDB, java.lang.Long> IDENTITY_DIPENDENZA = createIdentity(net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA, net.frapontillo.uni.db2.project.jooq.gen.tables.DipendenzaDB.DIPENDENZA.ID);
 		public static org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.StrutturaRecordDB, java.lang.Integer> IDENTITY_STRUTTURA = createIdentity(net.frapontillo.uni.db2.project.jooq.gen.tables.StrutturaDB.STRUTTURA, net.frapontillo.uni.db2.project.jooq.gen.tables.StrutturaDB.STRUTTURA.ID_STRUTTURA);
 		public static org.jooq.Identity<net.frapontillo.uni.db2.project.jooq.gen.tables.records.TipoAttivitaRecordDB, java.lang.Integer> IDENTITY_TIPO_ATTIVITA = createIdentity(net.frapontillo.uni.db2.project.jooq.gen.tables.TipoAttivitaDB.TIPO_ATTIVITA, net.frapontillo.uni.db2.project.jooq.gen.tables.TipoAttivitaDB.TIPO_ATTIVITA.ID);

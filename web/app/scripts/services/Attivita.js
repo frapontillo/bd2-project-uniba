@@ -3,7 +3,7 @@
 webApp.factory('Attivita', function($resource, Config, AuthHandler) {
 	var Attivita = $resource(Config.baseAPI() + 'attivita/:id', {},
 		{
-			_query: {method: 'GET', params: {authcode: '', nome: '', page: '1'}},
+			_query: {method: 'GET', params: {authcode: '', nome: '', struttura: '', page: '1'}},
 			_get: {method: 'GET', params: {authcode:'', id:''}},
 			_post: {method: 'POST', params: {authcode:''}},
 			_put: {method: 'PUT', params: {authcode:'', id:''}},
@@ -11,8 +11,8 @@ webApp.factory('Attivita', function($resource, Config, AuthHandler) {
 		}
 	);
 
-	Attivita.prototype.query = function(nome, page, success, fail) {
-		return Attivita._query({nome:nome, page:page||'1', authcode:AuthHandler.getAuthcode()},
+	Attivita.prototype.query = function(nome, struttura, page, success, fail) {
+		return Attivita._query({nome:nome, struttura:struttura||'', page:page||'1', authcode:AuthHandler.getAuthcode()},
 			function (result) {
 				Attivita.prototype.fillAll(result);
 				if (success && angular.isFunction(success)) success(result);
@@ -51,6 +51,10 @@ webApp.factory('Attivita', function($resource, Config, AuthHandler) {
 	};
 
 	Attivita.prototype.fill = function(obj) {
+		obj.franchising = (obj.franchising == "true" || obj.franchising == true);
+		if (obj.manager) {
+			obj.manager.nome_cognome = obj.manager.cognome + " " + obj.manager.nome;
+		}
 	};
 
 	Attivita.prototype.fillAll = function(objects) {

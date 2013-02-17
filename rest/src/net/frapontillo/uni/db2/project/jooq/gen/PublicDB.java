@@ -11,7 +11,7 @@ package net.frapontillo.uni.db2.project.jooq.gen;
 @java.lang.SuppressWarnings("all")
 public class PublicDB extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = 1417996826;
+	private static final long serialVersionUID = -455301411;
 
 	/**
 	 * The singleton instance of public
@@ -29,6 +29,7 @@ public class PublicDB extends org.jooq.impl.SchemaImpl {
 	public final java.util.List<org.jooq.Sequence<?>> getSequences() {
 		return java.util.Arrays.<org.jooq.Sequence<?>>asList(
 			net.frapontillo.uni.db2.project.jooq.gen.Sequences.ATTIVITA_ID_ATTIVITA_SEQ,
+			net.frapontillo.uni.db2.project.jooq.gen.Sequences.DIPENDENTE_ID_DIPENDENTE_SEQ,
 			net.frapontillo.uni.db2.project.jooq.gen.Sequences.DIPENDENZA_ID_SEQ,
 			net.frapontillo.uni.db2.project.jooq.gen.Sequences.STRUTTURA_ID_STRUTTURA_SEQ,
 			net.frapontillo.uni.db2.project.jooq.gen.Sequences.TIPO_ATTIVITA_ID_SEQ,

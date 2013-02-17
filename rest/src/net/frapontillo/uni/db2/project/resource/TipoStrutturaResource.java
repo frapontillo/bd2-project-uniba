@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.jooq.Record;
 import org.jooq.Result;
-import org.jooq.SelectConditionStep;
+import org.jooq.SelectLimitStep;
 
 import net.frapontillo.uni.db2.project.converter.TipoStrutturaConverter;
 import net.frapontillo.uni.db2.project.entity.TipoStruttura;
@@ -46,10 +46,11 @@ public class TipoStrutturaResource {
 			@QueryParam("descrizione") @DefaultValue("") String descrizione,
 			@QueryParam("skip") @DefaultValue("0") Integer skip,
 			@QueryParam("top") @DefaultValue("0") Integer top) {
-		SelectConditionStep s = DBUtil.getConn()
+		SelectLimitStep s = DBUtil.getConn()
 				.select()
 				.from(TIPO_STRUTTURA)
-				.where(TIPO_STRUTTURA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"));
+				.where(TIPO_STRUTTURA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"))
+				.orderBy(TIPO_STRUTTURA.DESCRIZIONE);
 		Result<Record> r = null;
 		if (top > 0) {
 			skip = skip >= 0 ? skip : 0;
