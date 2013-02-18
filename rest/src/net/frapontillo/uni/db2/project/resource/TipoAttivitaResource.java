@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.jooq.Record;
 import org.jooq.Result;
 import org.jooq.SelectLimitStep;
+import org.jooq.impl.Factory;
 
 import net.frapontillo.uni.db2.project.converter.TipoAttivitaConverter;
 import net.frapontillo.uni.db2.project.entity.TipoAttivita;
@@ -32,12 +33,14 @@ public class TipoAttivitaResource {
 	@GET
 	@Path("/{id}")
 	public TipoAttivita get(@PathParam("id") Integer id) {
-		TipoAttivitaRecordDB r = (TipoAttivitaRecordDB) DBUtil.getConn()
+		Factory f = DBUtil.getConn();
+		TipoAttivitaRecordDB r = (TipoAttivitaRecordDB) f
 				.select()
 				.from(TIPO_ATTIVITA)
 				.where(TIPO_ATTIVITA.ID.equal(id))
 				.fetchOne();
 		TipoAttivita entity = new TipoAttivitaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -46,7 +49,8 @@ public class TipoAttivitaResource {
 			@QueryParam("descrizione") @DefaultValue("") String descrizione,
 			@QueryParam("skip") @DefaultValue("0") Integer skip,
 			@QueryParam("top") @DefaultValue("0") Integer top) {
-		SelectLimitStep s = DBUtil.getConn()
+		Factory f = DBUtil.getConn();
+		SelectLimitStep s = f
 				.select()
 				.from(TIPO_ATTIVITA)
 				.where(TIPO_ATTIVITA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"))
@@ -59,6 +63,7 @@ public class TipoAttivitaResource {
 			r = s.fetch();
 		}
 		List<TipoAttivita> entity = new TipoAttivitaConverter().fromResult(r);
+		DBUtil.closeConn(f);
 		return new GenericEntity<List<TipoAttivita>>(entity) {};
 	}
 }

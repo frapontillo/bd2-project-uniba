@@ -16,8 +16,8 @@ The project is divided into 5 folders:
 
 ## TODO
 
-- Update the doc with the newest logic schema (already exported in png).
-- Update the logic schema once again by adding a PK (`ID`) to the `Dipendente` table, then add the image to the doc.
+- Make the DW.
+- Update the documentation with info about the Web application.
 
 ## RESTful Web Service
 
@@ -29,6 +29,22 @@ The dependencies for the RESTful Web Service are:
 - `jackson-all-1.9.11.jar` for the JSON serialization/deserialization.
 
 ## History
+
+### 2013-02-18
+
+- Added JNDI lookup for the `DataSource`. Connection string is handled by the EE Container.
+- Added `<title>` tags to all of the pages, injected by controllers.
+- Improved connection, closing every connection after the `IEntity` conversion.
+- Added `tomcat-conf` folder, containing a bootstrap configuration for the default case.
+- Update database schema in `db/script.sql`.
+- Exported `rest.war` file.
+- Web app built with yeoman.
+- Exported `app.war` file.
+- Created `web/_server.sh` script for starting the yeoman preview server.
+- Created `web/_build.sh` script for building the project with yeoman.
+- Created `web/app/_war.sh` script for building a war file from the folder the script is in. The script is automatically copied by `_build.sh` in the distribution folder.
+- Created `web/_build_war.sh` scripts, at first it builds, then makes a war file.
+- Added `href`: Attivita to Struttura.
 
 ### 2013-02-17
 

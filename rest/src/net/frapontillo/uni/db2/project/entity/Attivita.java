@@ -1,8 +1,11 @@
 package net.frapontillo.uni.db2.project.entity;
 
+import net.frapontillo.uni.db2.project.converter.IntegerConverter;
+
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement
 public class Attivita implements IEntity {
@@ -71,6 +74,7 @@ public class Attivita implements IEntity {
 	public Integer getPiano() {
 		return piano;
 	}
+	@XmlJavaTypeAdapter(IntegerConverter.class)
 	public void setPiano(Integer piano) {
 		this.piano = piano;
 	}

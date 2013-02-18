@@ -44,6 +44,7 @@ public class DipendenteResource {
 				.where(DIPENDENTE.ID.equal(id))
 				.fetchOne();
 		Dipendente d = new DipendenteConverter().from(dbObj);
+		DBUtil.closeConn(f);
 		return d;
 	}
 	
@@ -61,6 +62,7 @@ public class DipendenteResource {
 		pages = Math.ceil(count/pageSize);
 		DipendenteList entity = new DipendenteList(
 				count, page, pages, new DipendenteConverter().fromList(r, CONV_TYPE.MINIMUM));
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -72,8 +74,12 @@ public class DipendenteResource {
 		DipendenteRecordDB d = f.newRecord(DIPENDENTE);
 		d = new DipendenteConverter().to(dip, d);
 		int r = d.store();
-		if (r != 1) throw new RuntimeException();
+		if (r != 1) {
+			DBUtil.closeConn(f);
+			throw new RuntimeException();
+		}
 		dip = new DipendenteConverter().from(d);
+		DBUtil.closeConn(f);
 		return dip;
 	}
 	
@@ -90,8 +96,12 @@ public class DipendenteResource {
 				.fetchOne();
 		d = new DipendenteConverter().to(dip, d);
 		int r = d.store();
-		if (r != 1) throw new RuntimeException();
+		if (r != 1) {
+			DBUtil.closeConn(f);
+			throw new RuntimeException();
+		}
 		dip = new DipendenteConverter().from(d);
+		DBUtil.closeConn(f);
 		return dip;
 	}
 	
@@ -103,7 +113,11 @@ public class DipendenteResource {
 		int r = f.delete(DIPENDENTE)
 				.where(DIPENDENTE.ID.equal(id))
 				.execute();
-		if (r != 1) throw new RuntimeException();
+		if (r != 1) {
+			DBUtil.closeConn(f);
+			throw new RuntimeException();
+		}
+		DBUtil.closeConn(f);
 		return;
 	}
 }

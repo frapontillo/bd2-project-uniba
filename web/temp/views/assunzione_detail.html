@@ -1,0 +1,26 @@
+<section id="attivita-detail" xmlns="http://www.w3.org/1999/html">
+    <div class="page-header">
+        <h1>Assunzione<div class="actionbar pull-right" ng-include src="'views/_buttons_entity_edit.html'"></div></h1>
+    </div>
+
+    <h2 ui-if="a">Dettaglio assunzione di {{a.dipendente.cognome}} {{a.dipendente.nome}}
+        <p class="lead">Per modificare questa assunzione, clicca sul pulsante "Modifica".</p>
+    </h2>
+
+    <div class="row">
+        <p class="span2"><strong>Dipendente</strong></p>
+        <p class="span6"><a ui-if="a.dipendente" ng-href="#{{mDipendenti.mainUrl()}}/{{a.dipendente.id}}">{{a.dipendente.cognome}} {{a.dipendente.nome}}</a></p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Attività</strong></p>
+        <p class="span6"><a ui-if="a.attivita" ng-href="#{{mAttivita.mainUrl()}}/{{a.attivita.id}}">{{a.attivita.nome}}</a></p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Data di assunzione</strong></p>
+        <p class="span6">{{a.data_assunzione | date:'longDate'}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Data di licenziamento</strong></p>
+        <p class="span6">{{a.data_licenziamento | date:'longDate'}}</p>
+    </div>
+</section>

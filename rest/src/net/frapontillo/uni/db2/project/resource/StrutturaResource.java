@@ -38,18 +38,20 @@ public class StrutturaResource {
 	@GET
 	@Path("/{id}")
 	public Struttura get(@PathParam("id") Integer id) {
-		StrutturaRecordDB r = (StrutturaRecordDB) DBUtil.getConn()
+		Factory f = DBUtil.getConn();
+		StrutturaRecordDB r = (StrutturaRecordDB) f
 				.select()
 				.from(STRUTTURA)
 				.where(STRUTTURA.ID_STRUTTURA.equal(id))
 				.fetchOne();
 		Struttura entity = new StrutturaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
 	@GET
 	public StrutturaList search(
-			@QueryParam("codice") String codice,
+			@QueryParam("codice") @DefaultValue("") String codice,
 			@QueryParam("page") @DefaultValue("1") Double page) {
 		double pageSize = 10;
 		int offset = (int) (pageSize*(page-1));
@@ -71,7 +73,10 @@ public class StrutturaResource {
 				.fetchOne();
 		Double count = Double.valueOf(c.getValue(countField));
 		pages = Math.ceil(count/pageSize);
-		StrutturaList entity = new StrutturaList(count, page, pages, new StrutturaConverter().fromResult(r));
+		StrutturaList entity = new StrutturaList(
+				count, page, pages, new StrutturaConverter().fromResult(r));
+		
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -83,6 +88,7 @@ public class StrutturaResource {
 		new StrutturaConverter().to(a, r);
 		r.store();
 		Struttura entity = new StrutturaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 
@@ -99,6 +105,7 @@ public class StrutturaResource {
 		new StrutturaConverter().to(a, r);
 		r.store();
 		Struttura entity = new StrutturaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 
@@ -110,6 +117,8 @@ public class StrutturaResource {
 		int d = f.delete(STRUTTURA)
 				.where(STRUTTURA.ID_STRUTTURA.equal(id))
 				.execute();
+
+		DBUtil.closeConn(f);
 		
 		if (d == 1) {
 			return new ResponseBuilderImpl()

@@ -49,6 +49,7 @@ public class DipendenzaResource {
 				.where(DIPENDENZA.ID.equal(id))
 				.fetchOne();
 		Dipendenza d = new DipendenzaConverter().from(dbObj);
+		DBUtil.closeConn(f);
 		return d;
 	}
 	
@@ -91,7 +92,10 @@ public class DipendenzaResource {
 		
 		Double count = Double.valueOf(c.getValue(countField));
 		pages = Math.ceil(count/pageSize);
-		DipendenzaList entity = new DipendenzaList(count, page, pages, new DipendenzaConverter().fromResult(r));
+		DipendenzaList entity = new DipendenzaList(
+				count, page, pages, new DipendenzaConverter().fromResult(r));
+		
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -103,6 +107,7 @@ public class DipendenzaResource {
 		new DipendenzaConverter().to(a, r);
 		r.store();
 		Dipendenza entity = new DipendenzaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -119,8 +124,12 @@ public class DipendenzaResource {
 				.fetchOne();
 		d = new DipendenzaConverter().to(dip, d);
 		int r = d.store();
-		if (r != 1) throw new RuntimeException();
+		if (r != 1) {
+			DBUtil.closeConn(f);
+			throw new RuntimeException();
+		}
 		dip = new DipendenzaConverter().from(d);
+		DBUtil.closeConn(f);
 		return dip;
 	}
 
@@ -132,6 +141,8 @@ public class DipendenzaResource {
 		int d = f.delete(DIPENDENZA)
 				.where(DIPENDENZA.ID.equal(id))
 				.execute();
+		
+		DBUtil.closeConn(f);
 		
 		if (d == 1) {
 			return new ResponseBuilderImpl()
