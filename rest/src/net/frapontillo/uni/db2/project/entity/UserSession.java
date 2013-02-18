@@ -2,6 +2,9 @@ package net.frapontillo.uni.db2.project.entity;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class UserSession implements IEntity {
 	protected Long id;
 	protected String authcode;
