@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.2.2
 -- Dumped by pg_dump version 9.2.2
--- Started on 2013-02-18 14:01:33 CET
+-- Started on 2013-02-18 16:37:26 CET
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -579,15 +579,13 @@ ALTER TABLE ONLY user_session ALTER COLUMN id SET DEFAULT nextval('user_session_
 -- Data for Name: attivita; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) FROM stdin;
-1	Comics 4 All	0	34567432	COMICS4ALL	t	13	\N	18	6
-2	I-Maxx	2	546434564eee	IMAX2	t	13	\N	7	7
-19	Fun Fun Fun!!!	1	1234567	FUN2	f	12	\N	18	\N
-23	Apple Store	1	4290293	AAPL	t	14	\N	9	1
-24	Art Y	0	768796	RTY	t	1	11	2	\N
-20	Revenge of the Nerds	1	1337	NERDZ	f	13	\N	9	6
-10	Ipercoop	1	456789	IPRCP	t	2	\N	5	5
-\.
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (1, 'Comics 4 All', 0, '34567432', 'COMICS4ALL', true, 13, NULL, 18, 6);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (19, 'Fun Fun Fun!!!', 1, '1234567', 'FUN2', false, 12, NULL, 18, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (23, 'Apple Store', 1, '4290293', 'AAPL', true, 14, NULL, 9, 1);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (24, 'Art Y', 0, '768796', 'RTY', true, 1, 11, 2, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (20, 'Revenge of the Nerds', 0, '1337', 'NERDZ', false, 13, NULL, 9, 6);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (2, 'I-Maxx', 2, '546434564eee', 'IMAX2', true, 13, NULL, 7, 7);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (10, 'Ipercoop', 1, '456789', 'IPRCP', true, 2, NULL, 5, 5);
 
 
 --
@@ -605,14 +603,12 @@ SELECT pg_catalog.setval('attivita_id_attivita_seq', 24, true);
 -- Data for Name: dipendente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) FROM stdin;
-RDFGBHN	Mario	Rossino	Matera	1990-01-30	t	1
-PNTVTI	Vito	Pontillo	Altamura (BA)	1990-03-23	t	5
-tryu	Giovanni	Verdi	Roma	2013-02-17	t	3
-yuiop	Giovanna	Bianchi	Bari	2013-02-05	f	7
-rtyj	Francesco	Pontillo	Altamura (BA)	1988-10-10	t	6
-4567890	Caia	Tizia	Altamura	\N	f	9
-\.
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('RDFGBHN', 'Mario', 'Rossino', 'Matera', '1990-01-30', true, 1);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('PNTVTI', 'Vito', 'Pontillo', 'Altamura (BA)', '1990-03-23', true, 5);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('tryu', 'Giovanni', 'Verdi', 'Roma', '2013-02-17', true, 3);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('yuiop', 'Giovanna', 'Bianchi', 'Bari', '2013-02-05', false, 7);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('rtyj', 'Francesco', 'Pontillo', 'Altamura (BA)', '1988-10-10', true, 6);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('4567890', 'Caia', 'Tizia', 'Altamura', NULL, false, 9);
 
 
 --
@@ -630,16 +626,14 @@ SELECT pg_catalog.setval('dipendente_id_dipendente_seq', 10, true);
 -- Data for Name: dipendenza; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) FROM stdin;
-20	2013-02-12	\N	14	6
-10	2013-02-06	2013-03-05	16	7
-10	2013-02-07	\N	18	7
-19	2013-01-01	2013-01-30	20	6
-2	2013-02-07	\N	21	7
-2	2013-02-02	\N	22	9
-19	2013-02-15	\N	23	3
-23	2013-02-18	\N	25	9
-\.
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (10, '2013-02-06', '2013-03-05', 16, 7);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (10, '2013-02-07', NULL, 18, 7);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2013-01-01', '2013-01-30', 20, 6);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2013-02-02', NULL, 22, 9);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2013-02-15', NULL, 23, 3);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (23, '2013-02-18', NULL, 25, 9);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2013-02-05', '2013-01-31', 14, 6);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2013-02-07', NULL, 21, 7);
 
 
 --
@@ -657,30 +651,28 @@ SELECT pg_catalog.setval('dipendenza_id_seq', 25, true);
 -- Data for Name: struttura; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY struttura (id_struttura, codice, id_tipo_struttura) FROM stdin;
-1	Glass Building	3
-2	Prima strada	5
-3	Seconda strada	5
-4	Terza strada	5
-7	Quarta strada	5
-8	Quinta strada	5
-10	Oro	8
-14	Piccadilly	7
-15	Tiananmen	7
-16	Place de la Concorde	7
-17	Washington Square Park	7
-18	The Tower	3
-20	West	3
-21	South	3
-9	Sesta strada!	3
-11	East Side	8
-23	Whop whop!	5
-22	North	5
-24	Gangnam Style	5
-26	Twisted B	3
-13	Nerdz	8
-12	Fun	7
-\.
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (1, 'Glass Building', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (2, 'Prima strada', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (3, 'Seconda strada', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (4, 'Terza strada', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (7, 'Quarta strada', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (8, 'Quinta strada', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (10, 'Oro', 8);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (14, 'Piccadilly', 7);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (15, 'Tiananmen', 7);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (16, 'Place de la Concorde', 7);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (17, 'Washington Square Park', 7);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (18, 'The Tower', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (20, 'West', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (21, 'South', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (9, 'Sesta strada!', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (11, 'East Side', 8);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (23, 'Whop whop!', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (22, 'North', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (24, 'Gangnam Style', 5);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (26, 'Twisted B', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (13, 'Nerdz', 8);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (12, 'Fun', 7);
 
 
 --
@@ -698,26 +690,24 @@ SELECT pg_catalog.setval('struttura_id_struttura_seq', 26, true);
 -- Data for Name: tipo_attivita; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY tipo_attivita (id, descrizione) FROM stdin;
-1	negozio di abbigliamento
-2	negozio di accessori
-3	negozio di scarpe
-4	ristorante lucano
-5	distribuzione organizzata
-6	cinema
-7	cinema multisala
-8	ristorante
-9	negozio di informatica
-10	drogheria
-11	bar
-12	pub
-13	ristorante cinese
-14	fast food
-15	slow food
-16	concessionaria d'auto
-17	gioielleria
-18	negozio di fumetti
-\.
+INSERT INTO tipo_attivita (id, descrizione) VALUES (1, 'negozio di abbigliamento');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (2, 'negozio di accessori');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (3, 'negozio di scarpe');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (4, 'ristorante lucano');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (5, 'distribuzione organizzata');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (6, 'cinema');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (7, 'cinema multisala');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (8, 'ristorante');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (9, 'negozio di informatica');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (10, 'drogheria');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (11, 'bar');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (12, 'pub');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (13, 'ristorante cinese');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (14, 'fast food');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (15, 'slow food');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (16, 'concessionaria d''auto');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (17, 'gioielleria');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (18, 'negozio di fumetti');
 
 
 --
@@ -735,12 +725,10 @@ SELECT pg_catalog.setval('tipo_attivita_id_seq', 18, true);
 -- Data for Name: tipo_struttura; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY tipo_struttura (id, descrizione, codice) FROM stdin;
-3	edificio	E
-5	via	V
-7	piazza	P
-8	galleria	G
-\.
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (3, 'edificio', 'E');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (5, 'via', 'V');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (7, 'piazza', 'P');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (8, 'galleria', 'G');
 
 
 --
@@ -758,9 +746,7 @@ SELECT pg_catalog.setval('tipo_struttura_id_seq', 8, true);
 -- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "user" (id, username, password) FROM stdin;
-2	admin	b1487b31aa21e263a6d454d7d8e0100b12fa41811d5bf6e3a31d2dbf197ead30
-\.
+INSERT INTO "user" (id, username, password) VALUES (2, 'admin', 'b1487b31aa21e263a6d454d7d8e0100b12fa41811d5bf6e3a31d2dbf197ead30');
 
 
 --
@@ -778,32 +764,30 @@ SELECT pg_catalog.setval('user_id_seq', 2, true);
 -- Data for Name: user_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY user_session (id, id_user, date_login, date_logout, authcode) FROM stdin;
-2	2	2013-02-15 00:00:00+01	\N	9aa54d07e4ca6148438ca89946cd5289b3713204fd0ec0ef2cd046e87b456c26
-3	2	2013-02-15 00:00:00+01	\N	c3cc786653eded26bceb2d6c85f38c4cd49380f100b122b6c256b9073dbae20b
-5	2	2013-02-15 19:12:35.794+01	\N	d0d53fe611bf51e99b35ba70837651fd36879c286ab7b0fa127973bfeb2adcce
-6	2	2013-02-15 19:13:40.987+01	\N	f4a65106cb5ddb30bb38082d9a13b24d278f38ba82e7c6df0e57bafeb265313c
-7	2	2013-02-15 19:23:27.399+01	\N	67123668583b6a4f70ce3b279979cc48bbfbb7f0468811ffc21f1d513d6711f3
-8	2	2013-02-15 19:23:46.625+01	\N	154816946c48ee483bb23c7dfc40cf77665e5943eebe333ccadeec6d47618383
-9	2	2013-02-15 20:26:01.148+01	\N	b7879246b0b95fb07c4aea4be29c5048564aa7ddc0633dfaff61919a71561e08
-10	2	2013-02-15 20:26:26.737+01	\N	c533ebdb06c4e09092bc4f742dfdbe60b432e4971dc5c8389bff28579231360d
-11	2	2013-02-15 20:26:48.927+01	\N	2cf676a10d0b61467a6f5bac820261d2e92e9706cee3ffa79fcb850edb2497fd
-12	2	2013-02-15 20:34:48.737+01	\N	d80eb795a7aabe6ce13af0c03d074eed536984befd0ab570ff2bc6e21de5e959
-13	2	2013-02-15 20:35:14.625+01	\N	60b81f53a4a2def8a5013054cfe5e69325d73b668dc8aaeb4233b3aa8c7750f6
-14	2	2013-02-15 20:35:59.516+01	\N	214d77a19f0995c4477fa97d575948f31f0396d2753356540d91cede207385b6
-15	2	2013-02-15 20:37:37.012+01	\N	3343160fb6d02b2385ce07515e73b9493a2368168c11bb23544f29acce8ef21b
-18	2	2013-02-15 20:44:24.766+01	\N	a4c137a6812d4501057e90044fff93b91c3407a4ca339f9a815979b59118288a
-21	2	2013-02-15 20:45:47.949+01	\N	bd5c0203ac39530afb1c6b9f16f2996972ef446ada5e4522fdc2240859e021da
-1	2	2013-02-15 00:00:00+01	\N	1337
-22	2	2013-02-16 10:41:29.657+01	\N	32a9258cffdda638443e5a7c01c827f182323cb0b46c0fc1c5c35f00e912c6ec
-23	2	2013-02-16 17:25:43.604+01	\N	0e888f3bbee7fb36aa3d32b021acbfbac538cc93c2540a3b65f10c8b3ad33dff
-24	2	2013-02-16 17:59:30.769+01	\N	f289b02372ae4016a7c167da06f1ca9b52bf4f1e47ac16080dcca7905caaf2e2
-25	2	2013-02-16 18:26:27.146+01	\N	78dee5535a2f594c191423f47f706604cf459086d36e4ac3b540d1a9dfce645b
-26	2	2013-02-16 18:26:43.824+01	\N	3b7e7b437b7bf47ea9f483e5c152ba6f6220b2edcd4315f5d3fba9083e7373fa
-29	2	2013-02-17 02:36:58.41+01	\N	667d83bfadf9f9f44d77db8349781f2afa511e5d7c747768ed1bb0bc194ea65b
-33	2	2013-02-17 12:03:16.655+01	\N	72bd67d9101a9267c9634be47958006c362fba494c711553f4f2a2b32b2c0a9d
-35	2	2013-02-17 23:56:44.546+01	\N	acd2e4f01b73b2d7a543adc8baa69b0bbb5901a9bbe63d3f7233853f64053cb2
-\.
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (2, 2, '2013-02-15 00:00:00+01', NULL, '9aa54d07e4ca6148438ca89946cd5289b3713204fd0ec0ef2cd046e87b456c26');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (3, 2, '2013-02-15 00:00:00+01', NULL, 'c3cc786653eded26bceb2d6c85f38c4cd49380f100b122b6c256b9073dbae20b');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (5, 2, '2013-02-15 19:12:35.794+01', NULL, 'd0d53fe611bf51e99b35ba70837651fd36879c286ab7b0fa127973bfeb2adcce');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (6, 2, '2013-02-15 19:13:40.987+01', NULL, 'f4a65106cb5ddb30bb38082d9a13b24d278f38ba82e7c6df0e57bafeb265313c');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (7, 2, '2013-02-15 19:23:27.399+01', NULL, '67123668583b6a4f70ce3b279979cc48bbfbb7f0468811ffc21f1d513d6711f3');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (8, 2, '2013-02-15 19:23:46.625+01', NULL, '154816946c48ee483bb23c7dfc40cf77665e5943eebe333ccadeec6d47618383');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (9, 2, '2013-02-15 20:26:01.148+01', NULL, 'b7879246b0b95fb07c4aea4be29c5048564aa7ddc0633dfaff61919a71561e08');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (10, 2, '2013-02-15 20:26:26.737+01', NULL, 'c533ebdb06c4e09092bc4f742dfdbe60b432e4971dc5c8389bff28579231360d');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (11, 2, '2013-02-15 20:26:48.927+01', NULL, '2cf676a10d0b61467a6f5bac820261d2e92e9706cee3ffa79fcb850edb2497fd');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (12, 2, '2013-02-15 20:34:48.737+01', NULL, 'd80eb795a7aabe6ce13af0c03d074eed536984befd0ab570ff2bc6e21de5e959');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (13, 2, '2013-02-15 20:35:14.625+01', NULL, '60b81f53a4a2def8a5013054cfe5e69325d73b668dc8aaeb4233b3aa8c7750f6');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (14, 2, '2013-02-15 20:35:59.516+01', NULL, '214d77a19f0995c4477fa97d575948f31f0396d2753356540d91cede207385b6');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (15, 2, '2013-02-15 20:37:37.012+01', NULL, '3343160fb6d02b2385ce07515e73b9493a2368168c11bb23544f29acce8ef21b');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (18, 2, '2013-02-15 20:44:24.766+01', NULL, 'a4c137a6812d4501057e90044fff93b91c3407a4ca339f9a815979b59118288a');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (21, 2, '2013-02-15 20:45:47.949+01', NULL, 'bd5c0203ac39530afb1c6b9f16f2996972ef446ada5e4522fdc2240859e021da');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (1, 2, '2013-02-15 00:00:00+01', NULL, '1337');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (22, 2, '2013-02-16 10:41:29.657+01', NULL, '32a9258cffdda638443e5a7c01c827f182323cb0b46c0fc1c5c35f00e912c6ec');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (23, 2, '2013-02-16 17:25:43.604+01', NULL, '0e888f3bbee7fb36aa3d32b021acbfbac538cc93c2540a3b65f10c8b3ad33dff');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (24, 2, '2013-02-16 17:59:30.769+01', NULL, 'f289b02372ae4016a7c167da06f1ca9b52bf4f1e47ac16080dcca7905caaf2e2');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (25, 2, '2013-02-16 18:26:27.146+01', NULL, '78dee5535a2f594c191423f47f706604cf459086d36e4ac3b540d1a9dfce645b');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (26, 2, '2013-02-16 18:26:43.824+01', NULL, '3b7e7b437b7bf47ea9f483e5c152ba6f6220b2edcd4315f5d3fba9083e7373fa');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (29, 2, '2013-02-17 02:36:58.41+01', NULL, '667d83bfadf9f9f44d77db8349781f2afa511e5d7c747768ed1bb0bc194ea65b');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (33, 2, '2013-02-17 12:03:16.655+01', NULL, '72bd67d9101a9267c9634be47958006c362fba494c711553f4f2a2b32b2c0a9d');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (35, 2, '2013-02-17 23:56:44.546+01', NULL, 'acd2e4f01b73b2d7a543adc8baa69b0bbb5901a9bbe63d3f7233853f64053cb2');
 
 
 --
@@ -1095,7 +1079,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2013-02-18 14:01:34 CET
+-- Completed on 2013-02-18 16:37:27 CET
 
 --
 -- PostgreSQL database dump complete
