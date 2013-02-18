@@ -1,0 +1,2 @@
+yeoman build
+pause
