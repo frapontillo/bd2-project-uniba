@@ -1,6 +1,5 @@
 package net.frapontillo.uni.db2.project.resource;
 
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -40,12 +39,14 @@ public class AttivitaResource {
 	@GET
 	@Path("/{id}")
 	public Attivita get(@PathParam("id") Integer id) {
-		AttivitaRecordDB r = (AttivitaRecordDB) DBUtil.getConn()
+		Factory f = DBUtil.getConn();
+		AttivitaRecordDB r = (AttivitaRecordDB) f
 				.select()
 				.from(ATTIVITA)
 				.where(ATTIVITA.ID_ATTIVITA.equal(id))
 				.fetchOne();
 		Attivita entity = new AttivitaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -82,6 +83,7 @@ public class AttivitaResource {
 		pages = Math.ceil(count/pageSize);
 		
 		AttivitaList entity = new AttivitaList(count, page, pages, new AttivitaConverter().fromResult(r));
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -93,6 +95,7 @@ public class AttivitaResource {
 		new AttivitaConverter().to(a, r);
 		r.store();
 		Attivita entity = new AttivitaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 
@@ -108,6 +111,7 @@ public class AttivitaResource {
 		new AttivitaConverter().to(a, r);
 		r.store();
 		Attivita entity = new AttivitaConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 
@@ -119,6 +123,7 @@ public class AttivitaResource {
 		int d = f.delete(ATTIVITA)
 				.where(ATTIVITA.ID_ATTIVITA.equal(id))
 				.execute();
+		DBUtil.closeConn(f);
 		
 		if (d == 1) {
 			return new ResponseBuilderImpl()

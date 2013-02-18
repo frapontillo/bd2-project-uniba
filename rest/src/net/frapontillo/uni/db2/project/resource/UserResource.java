@@ -6,6 +6,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.jooq.impl.Factory;
+
 import com.sun.jersey.spi.container.ResourceFilters;
 
 import static net.frapontillo.uni.db2.project.jooq.gen.Tables.*;
@@ -23,12 +25,14 @@ public class UserResource {
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public User get(@PathParam("id") Integer id) {
-		UserRecordDB r = (UserRecordDB) DBUtil.getConn()
+		Factory f = DBUtil.getConn();
+		UserRecordDB r = (UserRecordDB) f
 				.select()
 				.from(USER)
 				.where(USER.ID.equal(id))
 				.fetchOne();
 		User obj = new UserConverter().from(r);
+		DBUtil.closeConn(f);
 		return obj;
 	}
 }

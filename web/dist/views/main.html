@@ -1,0 +1,13 @@
+<div class="hero-unit big-hero-unit">
+    <h1>{{menu.name}}</h1>
+    <h2>{{menu.subtitle}}</h2>
+    <p>{{menu.description}}</p>
+</div>
+
+<div class="row-fluid">
+    <div class="index-menu-item" ng-class="menuSpan()" ng-repeat="m in menu.children">
+        <h2>{{m.name}}</h2>
+        <p>{{m.description}}</p>
+        <p><a class="btn btn-large btn-info" ng-href="#{{m.mainUrl()}}">Vai a {{m.name}} »</a></p>
+    </div>
+</div>

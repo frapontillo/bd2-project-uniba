@@ -1,0 +1,12 @@
+<section id="assunzione-edit" ng-controller="AssunzioneEditCtrl">
+    <div class="page-header">
+        <h1>Assunzione<div class="actionbar pull-right" ng-include src="'views/_buttons_entity_save.html'"></div></h1>
+    </div>
+
+    <div class="elements">
+        <h2>Modifica assunzione di {{a.dipendente.cognome}} {{a.dipendente.nome}}
+            <p class="lead">Modifica i dettagli di questa assunzione, quindi clicca sul pulsante "Salva".</p>
+        </h2>
+        <div ng-include src="'views/assunzione_new_edit.html'"></div>
+    </div>
+</section>

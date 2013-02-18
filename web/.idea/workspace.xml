@@ -29,30 +29,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/_select_struttura.html" />
-        <option value="$PROJECT_DIR$/app/views/_select_assunzione.html" />
-        <option value="$PROJECT_DIR$/app/views/assunzione_edit.html" />
-        <option value="$PROJECT_DIR$/app/views/assunzione_new.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/Dipendenza.js" />
-        <option value="$PROJECT_DIR$/app/components/angular-strap/src/directives/datepicker.js" />
-        <option value="$PROJECT_DIR$/app/components/angular-strap/dist/angular-strap.js" />
-        <option value="$PROJECT_DIR$/app/views/assunzione_new_edit.html" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/struttura.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/date.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/AppHttpInterceptor.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/Attivita.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/AuthHandler.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/Dipendente.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/Dipendenza.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/Struttura.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/TipoAttivita.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/TipoStruttura.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/UserSession.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/_build_war.sh" />
         <option value="$PROJECT_DIR$/app/views/attivita_detail.html" />
-        <option value="$PROJECT_DIR$/app/views/assunzione_detail.html" />
-        <option value="$PROJECT_DIR$/app/404.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/assunzione.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/dipendente.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/attivita.js" />
+        <option value="$PROJECT_DIR$/app/.buildignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
+    <option name="x" value="4" />
     <option name="y" value="22" />
-    <option name="width" value="1362" />
-    <option name="height" value="746" />
+    <option name="width" value="1276" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -133,11 +133,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/WEB-INF" />
       <recent name="$PROJECT_DIR$/app/scripts/services" />
       <recent name="$PROJECT_DIR$/app/components/boostrap-rowlink" />
       <recent name="$PROJECT_DIR$/app/scripts/vendor" />
       <recent name="$PROJECT_DIR$/app/components/angular-bootstrap" />
-      <recent name="$PROJECT_DIR$/app/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,19 +198,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="22" width="1362" height="746" extended-state="7" />
+    <frame x="4" y="22" width="1276" height="778" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.4969605" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31354642" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23708206" sideWeight="0.3264" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23556231" sideWeight="0.5808" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25203252" sideWeight="0.58143073" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23556231" sideWeight="0.176" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25203252" sideWeight="0.17656012" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.49772036" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.232" sideWeight="0.974924" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23135464" sideWeight="0.974924" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -271,49 +271,113 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/dipendente_new_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="1485" selection-end="2281" vertical-scroll-proportion="0.261343">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dipendente_new.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/filters/bool.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/AppHttpInterceptor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="84" selection-start="99" selection-end="99" vertical-scroll-proportion="0.066945605">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Attivita.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="64" selection-start="79" selection-end="79" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#123#2752#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/AuthHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="4" selection-start="90" selection-end="90" vertical-scroll-proportion="0.10041841">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Dipendente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="66" selection-start="81" selection-end="81" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#125#2693#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/Dipendenza.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="42" selection-start="2517" selection-end="2517" vertical-scroll-proportion="1.2675586">
+        <state line="2" column="80" selection-start="95" selection-end="95" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#151#2908#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/angular-strap/src/directives/datepicker.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/TipoStruttura.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="24" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.73846155">
-          <folding />
+        <state line="2" column="70" selection-start="85" selection-end="85" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#128#1523#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/angular-strap/dist/angular-strap.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/UserSession.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="421" column="40" selection-start="11219" selection-end="11219" vertical-scroll-proportion="0.6991453">
-          <folding />
+        <state line="2" column="52" selection-start="67" selection-end="67" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#98#1069#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/TipoAttivita.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="69" selection-start="84" selection-end="84" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#127#1507#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/Struttura.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="66" selection-start="44" selection-end="81" vertical-scroll-proportion="0.066945605">
+          <folding>
+            <element signature="e#124#2594#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="10" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0">
+        <state line="109" column="91" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.7656904">
           <folding>
+            <element signature="e#226#315#0" expanded="false" />
             <element signature="e#339#460#0" expanded="false" />
             <element signature="e#488#611#0" expanded="false" />
             <element signature="e#639#764#0" expanded="false" />
@@ -332,87 +396,29 @@
             <element signature="e#2646#2742#0" expanded="false" />
             <element signature="e#2763#2862#0" expanded="false" />
             <element signature="e#2877#2901#0" expanded="false" />
+            <element signature="e#3221#6317#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/date.js">
+    <entry file="file://$PROJECT_DIR$/_build_war.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="16" selection-start="737" selection-end="737" vertical-scroll-proportion="0.95364237">
+        <state line="5" column="9" selection-start="100" selection-end="100" vertical-scroll-proportion="0.16736402">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/assunzione_new_edit.html">
+    <entry file="file://$PROJECT_DIR$/app/.buildignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="45" selection-start="3131" selection-end="3131" vertical-scroll-proportion="1.7349398">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="62" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.26746988">
+        <state line="14" column="27" selection-start="458" selection-end="458" vertical-scroll-proportion="0.46861926">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/attivita_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="100" selection-start="1240" selection-end="1315" vertical-scroll-proportion="0.42409638">
+        <state line="45" column="92" selection-start="1982" selection-end="1982" vertical-scroll-proportion="0.4181818">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/assunzione_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/assunzione_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="99" selection-start="600" selection-end="600" vertical-scroll-proportion="0.42409638">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="29" selection-start="90" selection-end="104" vertical-scroll-proportion="0.037383176">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/attivita.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="30" selection-start="6935" selection-end="6935" vertical-scroll-proportion="0.29081634">
-          <folding>
-            <element signature="e#230#485#0" expanded="false" />
-            <element signature="e#728#927#0" expanded="false" />
-            <element signature="e#1117#1684#0" expanded="false" />
-            <element signature="e#3592#5075#0" expanded="false" />
-            <element signature="e#5170#6455#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/dipendente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="30" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.29081634">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/assunzione.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="30" selection-start="5558" selection-end="5558" vertical-scroll-proportion="0.6989796">
-          <folding>
-            <element signature="e#84#694#0" expanded="false" />
-            <element signature="e#815#2173#0" expanded="false" />
-            <element signature="e#3587#4934#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

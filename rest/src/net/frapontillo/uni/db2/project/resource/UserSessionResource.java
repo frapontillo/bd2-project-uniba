@@ -36,11 +36,13 @@ public class UserSessionResource {
 	@GET
 	@ResourceFilters(AuthenticationResourceFilter.class)
 	public UserSession get(@QueryParam("authcode") String authcode) {
-		UserSessionRecordDB r = (UserSessionRecordDB) DBUtil.getConn().
+		Factory f = DBUtil.getConn();
+		UserSessionRecordDB r = (UserSessionRecordDB) f.
 				select().
 				from(USER_SESSION).
 				where(USER_SESSION.AUTHCODE.equal(authcode)).fetchOne();
 		UserSession obj = new UserSessionConverter().from(r);
+		DBUtil.closeConn(f);
 		return obj;
 	}
 	
@@ -76,6 +78,7 @@ public class UserSessionResource {
 		r.setIdUser(u.getId());
 		r.store();
 		UserSession entity = new UserSessionConverter().from(r);
+		DBUtil.closeConn(f);
 		return entity;
 	}
 	
@@ -88,6 +91,8 @@ public class UserSessionResource {
 				.delete(USER_SESSION)
 				.where(USER_SESSION.AUTHCODE.equal(authcode))
 				.execute();
+		
+		DBUtil.closeConn(f);
 		
 		// Se l'authcode non esiste rigetto 401
 		if (r != 1) {
