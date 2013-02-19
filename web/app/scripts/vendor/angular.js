@@ -3126,7 +3126,7 @@ function Browser(window, document, $log, $sniffer) {
   //////////////////////////////////////////////////////////////
   var lastCookies = {};
   var lastCookieString = '';
-  var cookiePath = self.baseHref();
+  var cookiePath = self.baseHref() || ''; // FIX: https://github.com/angular/angular.js/issues/1191
 
   /**
    * @name ng.$browser#cookies

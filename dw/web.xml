@@ -1,5 +1,5 @@
 <resource-ref>
-	<description>Risorsa collegata al database PostgreSQL bd2.</description>
+	<description>Risorsa collegata al database PostgreSQL bd2-dw.</description>
 	<res-ref-name>jdbc/MallOLAP</res-ref-name>
 	<res-type>javax.sql.DataSource</res-type>
 	<res-auth>Container</res-auth>

@@ -38,6 +38,9 @@ The dependencies for the RESTful Web Service are:
 - Made a better landing page for jPivot, called `better.jsp`.
 - Integrated the new jpivot route in the Web app (as an `iframe`), referencing `better.jsp?query=mallAnalysis`.
 - Few bugfixes.
+- Documentation updated.
+- AngularJS bugfix for cookies.
+- Deploy guide written.
 
 ### 2013-02-18
 

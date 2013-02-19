@@ -1,2 +1,2 @@
-jar cvf ../mall.war *
+jar cvf ../war/mall.war *
 pause
