@@ -1,4 +1,4 @@
-/rest/build
-/rest-gen/bin
-/web/temp
-/web/.sass-cache
+rest/build
+rest-gen/bin
+web/temp
+web/.sass-cache
