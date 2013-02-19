@@ -1,0 +1,58 @@
+<Schema name="schema">
+  <Cube name="Incassi" visible="true" cache="true" enabled="true">
+    <Table name="incasso" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_attivita" highCardinality="false" name="Attivita">
+      <Hierarchy name="Attivit&#224;" visible="true" hasAll="true" allMemberName="Tutte le attivit&#224;" primaryKey="id">
+        <Table name="attivita" schema="public">
+        </Table>
+        <Level name="tipo" visible="true" column="tipo" nameColumn="tipo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="nome" visible="true" column="nome" nameColumn="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_struttura" highCardinality="false" name="Struttura">
+      <Hierarchy name="Struttura" visible="true" hasAll="true" allMemberName="Tutte le strutture" primaryKey="id">
+        <Table name="struttura" schema="public">
+        </Table>
+        <Level name="tipo" visible="true" column="tipo" nameColumn="tipo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="nome" visible="true" column="nome" nameColumn="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_data" highCardinality="false" name="Data">
+      <Hierarchy name="data" visible="true" hasAll="true" allMemberName="Tutte le date" primaryKey="id">
+        <Table name="data" schema="public">
+        </Table>
+        <Level name="anno" visible="true" column="anno" nameColumn="anno" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="quarto" visible="true" column="quarto" nameColumn="quarto" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="mese" visible="true" column="mese" nameColumn="mese" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="giorno" visible="true" column="giorno" nameColumn="giorno" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_dipendente" highCardinality="false" name="Dipendente">
+      <Hierarchy name="Dipendente" visible="true" hasAll="true" allMemberName="Tutti i dipendenti" primaryKey="id">
+        <Table name="dipendente" schema="public" alias="dip">
+        </Table>
+        <Level name="nome" visible="true" column="nome" nameColumn="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_responsabile" highCardinality="false" name="Responsabile">
+      <Hierarchy name="Responsabile" visible="true" hasAll="true" allMemberName="Tutti i responsabili" primaryKey="id">
+        <Table name="dipendente" schema="public" alias="res">
+        </Table>
+        <Level name="nome" visible="true" column="nome" nameColumn="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Incasso" column="somma" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

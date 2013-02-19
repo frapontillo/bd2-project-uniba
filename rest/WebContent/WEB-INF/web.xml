@@ -43,11 +43,7 @@
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	<resource-ref>
-		<description> Resource reference to a factory for java.sql.Connection
-		  instances that may be used for talking to a particular
-		  database that is configured in the Context
-		  configurartion for the web application.
-		</description>
+		<description>Risorsa collegata al database PostgreSQL bd2.</description>
 		<res-ref-name>jdbc/MallDB</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>

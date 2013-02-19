@@ -5,7 +5,7 @@ University project for the Database Systems 2 course.
 
 ## Project folders
 
-The project is divided into 5 folders:
+The project is divided into several folders:
 
 - `web`, containing the Web application.
 - `db`, containing scripts and files for creating and managing the database.
@@ -13,6 +13,7 @@ The project is divided into 5 folders:
 - `rest`, containing the RESTful Web Service that implements the business logic.
 - `rest-gen`, containing the generation code for the database classes.
 - `doc`, containing the whole documentation and a bunch of other stuff.
+- `tomcat-conf` contains a configuration example for the Tomcat server.
 
 ## TODO
 
@@ -30,6 +31,13 @@ The dependencies for the RESTful Web Service are:
 
 ## History
 
+### 2013-02-19
+
+TODO:
+- Complete JPivot page.
+- End doc.
+- Write install guide.
+
 ### 2013-02-18
 
 - Added JNDI lookup for the `DataSource`. Connection string is handled by the EE Container.
@@ -45,6 +53,10 @@ The dependencies for the RESTful Web Service are:
 - Created `web/app/_war.sh` script for building a war file from the folder the script is in. The script is automatically copied by `_build.sh` in the distribution folder.
 - Created `web/_build_war.sh` scripts, at first it builds, then makes a war file.
 - Added `href`: Attivita to Struttura.
+- Doc updated (Data Warehouse), DW schema created.
+- DW schema filled with lots of fake entities (courtesy of Sir Internet, The).
+- Mondrian schema created.
+- JPivot page created, date problems solved by changing the DW schema with all `integer`s reset to `character varying`. JPivot example working, to be integrated in the Web app (as a link?).
 
 ### 2013-02-17
 
