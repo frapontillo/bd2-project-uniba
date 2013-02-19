@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.2.2
 -- Dumped by pg_dump version 9.2.2
--- Started on 2013-02-19 01:55:33 CET
+-- Started on 2013-02-19 12:06:01 CET
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -36,7 +36,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 169 (class 1259 OID 34264)
+-- TOC entry 168 (class 1259 OID 34437)
 -- Name: attivita; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -50,7 +50,7 @@ CREATE TABLE attivita (
 ALTER TABLE public.attivita OWNER TO postgres;
 
 --
--- TOC entry 168 (class 1259 OID 34262)
+-- TOC entry 169 (class 1259 OID 34440)
 -- Name: attivita_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -66,7 +66,7 @@ ALTER TABLE public.attivita_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2245 (class 0 OID 0)
--- Dependencies: 168
+-- Dependencies: 169
 -- Name: attivita_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -74,7 +74,7 @@ ALTER SEQUENCE attivita_id_seq OWNED BY attivita.id;
 
 
 --
--- TOC entry 175 (class 1259 OID 34302)
+-- TOC entry 170 (class 1259 OID 34442)
 -- Name: data; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -90,7 +90,7 @@ CREATE TABLE data (
 ALTER TABLE public.data OWNER TO postgres;
 
 --
--- TOC entry 174 (class 1259 OID 34300)
+-- TOC entry 171 (class 1259 OID 34445)
 -- Name: data_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -106,7 +106,7 @@ ALTER TABLE public.data_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2246 (class 0 OID 0)
--- Dependencies: 174
+-- Dependencies: 171
 -- Name: data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -114,7 +114,7 @@ ALTER SEQUENCE data_id_seq OWNED BY data.id;
 
 
 --
--- TOC entry 171 (class 1259 OID 34275)
+-- TOC entry 172 (class 1259 OID 34447)
 -- Name: dipendente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -127,7 +127,7 @@ CREATE TABLE dipendente (
 ALTER TABLE public.dipendente OWNER TO postgres;
 
 --
--- TOC entry 170 (class 1259 OID 34273)
+-- TOC entry 173 (class 1259 OID 34450)
 -- Name: dipendente_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -143,7 +143,7 @@ ALTER TABLE public.dipendente_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2247 (class 0 OID 0)
--- Dependencies: 170
+-- Dependencies: 173
 -- Name: dipendente_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -151,7 +151,7 @@ ALTER SEQUENCE dipendente_id_seq OWNED BY dipendente.id;
 
 
 --
--- TOC entry 177 (class 1259 OID 34310)
+-- TOC entry 174 (class 1259 OID 34452)
 -- Name: incasso; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -169,7 +169,7 @@ CREATE TABLE incasso (
 ALTER TABLE public.incasso OWNER TO postgres;
 
 --
--- TOC entry 176 (class 1259 OID 34308)
+-- TOC entry 175 (class 1259 OID 34456)
 -- Name: incasso_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -185,7 +185,7 @@ ALTER TABLE public.incasso_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2248 (class 0 OID 0)
--- Dependencies: 176
+-- Dependencies: 175
 -- Name: incasso_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -193,7 +193,7 @@ ALTER SEQUENCE incasso_id_seq OWNED BY incasso.id;
 
 
 --
--- TOC entry 173 (class 1259 OID 34294)
+-- TOC entry 176 (class 1259 OID 34458)
 -- Name: struttura; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -207,7 +207,7 @@ CREATE TABLE struttura (
 ALTER TABLE public.struttura OWNER TO postgres;
 
 --
--- TOC entry 172 (class 1259 OID 34292)
+-- TOC entry 177 (class 1259 OID 34461)
 -- Name: struttura_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -223,7 +223,7 @@ ALTER TABLE public.struttura_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2249 (class 0 OID 0)
--- Dependencies: 172
+-- Dependencies: 177
 -- Name: struttura_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -231,7 +231,7 @@ ALTER SEQUENCE struttura_id_seq OWNED BY struttura.id;
 
 
 --
--- TOC entry 2206 (class 2604 OID 34267)
+-- TOC entry 2206 (class 2604 OID 34463)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -239,7 +239,7 @@ ALTER TABLE ONLY attivita ALTER COLUMN id SET DEFAULT nextval('attivita_id_seq':
 
 
 --
--- TOC entry 2209 (class 2604 OID 34305)
+-- TOC entry 2207 (class 2604 OID 34464)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -247,7 +247,7 @@ ALTER TABLE ONLY data ALTER COLUMN id SET DEFAULT nextval('data_id_seq'::regclas
 
 
 --
--- TOC entry 2207 (class 2604 OID 34278)
+-- TOC entry 2208 (class 2604 OID 34465)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -255,7 +255,7 @@ ALTER TABLE ONLY dipendente ALTER COLUMN id SET DEFAULT nextval('dipendente_id_s
 
 
 --
--- TOC entry 2210 (class 2604 OID 34313)
+-- TOC entry 2210 (class 2604 OID 34466)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -263,7 +263,7 @@ ALTER TABLE ONLY incasso ALTER COLUMN id SET DEFAULT nextval('incasso_id_seq'::r
 
 
 --
--- TOC entry 2208 (class 2604 OID 34297)
+-- TOC entry 2211 (class 2604 OID 34467)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -271,8 +271,8 @@ ALTER TABLE ONLY struttura ALTER COLUMN id SET DEFAULT nextval('struttura_id_seq
 
 
 --
--- TOC entry 2228 (class 0 OID 34264)
--- Dependencies: 169
+-- TOC entry 2227 (class 0 OID 34437)
+-- Dependencies: 168
 -- Data for Name: attivita; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -299,7 +299,7 @@ INSERT INTO attivita (id, nome, tipo) VALUES (19, 'Clear Mouse Company', 'Inform
 
 --
 -- TOC entry 2250 (class 0 OID 0)
--- Dependencies: 168
+-- Dependencies: 169
 -- Name: attivita_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -307,8 +307,8 @@ SELECT pg_catalog.setval('attivita_id_seq', 19, true);
 
 
 --
--- TOC entry 2234 (class 0 OID 34302)
--- Dependencies: 175
+-- TOC entry 2229 (class 0 OID 34442)
+-- Dependencies: 170
 -- Data for Name: data; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -682,7 +682,7 @@ INSERT INTO data (id, giorno, mese, quarto, anno) VALUES (7, '31', '12', '4', '2
 
 --
 -- TOC entry 2251 (class 0 OID 0)
--- Dependencies: 174
+-- Dependencies: 171
 -- Name: data_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -690,8 +690,8 @@ SELECT pg_catalog.setval('data_id_seq', 368, true);
 
 
 --
--- TOC entry 2230 (class 0 OID 34275)
--- Dependencies: 171
+-- TOC entry 2231 (class 0 OID 34447)
+-- Dependencies: 172
 -- Data for Name: dipendente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -768,7 +768,7 @@ INSERT INTO dipendente (id, nome) VALUES (69, 'Tara Misu');
 
 --
 -- TOC entry 2252 (class 0 OID 0)
--- Dependencies: 170
+-- Dependencies: 173
 -- Name: dipendente_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -776,8 +776,8 @@ SELECT pg_catalog.setval('dipendente_id_seq', 69, true);
 
 
 --
--- TOC entry 2236 (class 0 OID 34310)
--- Dependencies: 177
+-- TOC entry 2233 (class 0 OID 34452)
+-- Dependencies: 174
 -- Data for Name: incasso; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -5785,7 +5785,7 @@ INSERT INTO incasso (id, somma, id_attivita, id_struttura, id_data, id_dipendent
 
 --
 -- TOC entry 2253 (class 0 OID 0)
--- Dependencies: 176
+-- Dependencies: 175
 -- Name: incasso_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -5793,8 +5793,8 @@ SELECT pg_catalog.setval('incasso_id_seq', 5068, true);
 
 
 --
--- TOC entry 2232 (class 0 OID 34294)
--- Dependencies: 173
+-- TOC entry 2235 (class 0 OID 34458)
+-- Dependencies: 176
 -- Data for Name: struttura; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -5812,7 +5812,7 @@ INSERT INTO struttura (id, nome, tipo) VALUES (10, 'Tower of Sigils', 'Edificio'
 
 --
 -- TOC entry 2254 (class 0 OID 0)
--- Dependencies: 172
+-- Dependencies: 177
 -- Name: struttura_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -5820,7 +5820,7 @@ SELECT pg_catalog.setval('struttura_id_seq', 10, true);
 
 
 --
--- TOC entry 2213 (class 2606 OID 34272)
+-- TOC entry 2213 (class 2606 OID 34469)
 -- Name: pk_attivita; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -5829,7 +5829,7 @@ ALTER TABLE ONLY attivita
 
 
 --
--- TOC entry 2219 (class 2606 OID 34307)
+-- TOC entry 2215 (class 2606 OID 34471)
 -- Name: pk_data; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -5838,7 +5838,7 @@ ALTER TABLE ONLY data
 
 
 --
--- TOC entry 2215 (class 2606 OID 34280)
+-- TOC entry 2217 (class 2606 OID 34473)
 -- Name: pk_dipendente; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -5847,7 +5847,7 @@ ALTER TABLE ONLY dipendente
 
 
 --
--- TOC entry 2221 (class 2606 OID 34316)
+-- TOC entry 2219 (class 2606 OID 34475)
 -- Name: pk_incasso; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -5856,7 +5856,7 @@ ALTER TABLE ONLY incasso
 
 
 --
--- TOC entry 2217 (class 2606 OID 34299)
+-- TOC entry 2221 (class 2606 OID 34477)
 -- Name: pk_struttura; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -5865,7 +5865,7 @@ ALTER TABLE ONLY struttura
 
 
 --
--- TOC entry 2222 (class 2606 OID 34317)
+-- TOC entry 2222 (class 2606 OID 34478)
 -- Name: fk_attivita; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5874,7 +5874,7 @@ ALTER TABLE ONLY incasso
 
 
 --
--- TOC entry 2224 (class 2606 OID 34327)
+-- TOC entry 2223 (class 2606 OID 34483)
 -- Name: fk_data; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5883,7 +5883,7 @@ ALTER TABLE ONLY incasso
 
 
 --
--- TOC entry 2225 (class 2606 OID 34332)
+-- TOC entry 2224 (class 2606 OID 34488)
 -- Name: fk_dipendente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5892,7 +5892,7 @@ ALTER TABLE ONLY incasso
 
 
 --
--- TOC entry 2226 (class 2606 OID 34337)
+-- TOC entry 2225 (class 2606 OID 34493)
 -- Name: fk_responsabile; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5901,7 +5901,7 @@ ALTER TABLE ONLY incasso
 
 
 --
--- TOC entry 2223 (class 2606 OID 34322)
+-- TOC entry 2226 (class 2606 OID 34498)
 -- Name: fk_struttura; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5911,7 +5911,7 @@ ALTER TABLE ONLY incasso
 
 --
 -- TOC entry 2243 (class 0 OID 0)
--- Dependencies: 5
+-- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -5921,7 +5921,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2013-02-19 01:55:34 CET
+-- Completed on 2013-02-19 12:06:01 CET
 
 --
 -- PostgreSQL database dump complete

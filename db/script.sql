@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.2.2
 -- Dumped by pg_dump version 9.2.2
--- Started on 2013-02-18 16:37:26 CET
+-- Started on 2013-02-19 12:18:54 CET
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -21,7 +21,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2316 (class 0 OID 0)
+-- TOC entry 2315 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -32,7 +32,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 183 (class 1259 OID 34258)
+-- TOC entry 168 (class 1259 OID 34504)
 -- Name: dipendente_id_dipendente_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -51,7 +51,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 172 (class 1259 OID 33909)
+-- TOC entry 169 (class 1259 OID 34506)
 -- Name: dipendente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -69,7 +69,7 @@ CREATE TABLE dipendente (
 ALTER TABLE public.dipendente OWNER TO postgres;
 
 --
--- TOC entry 203 (class 1255 OID 34185)
+-- TOC entry 197 (class 1255 OID 34513)
 -- Name: cerca_dipendente(character varying, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -87,7 +87,7 @@ $$;
 ALTER FUNCTION public.cerca_dipendente(nomecognome character varying, lim bigint, offs bigint) OWNER TO postgres;
 
 --
--- TOC entry 200 (class 1255 OID 34164)
+-- TOC entry 198 (class 1255 OID 34514)
 -- Name: conta_cerca_dipendenti(character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -107,7 +107,7 @@ $$;
 ALTER FUNCTION public.conta_cerca_dipendenti(nomecognome character varying) OWNER TO postgres;
 
 --
--- TOC entry 197 (class 1255 OID 34058)
+-- TOC entry 199 (class 1255 OID 34515)
 -- Name: del_dipendenza(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -130,7 +130,7 @@ $$;
 ALTER FUNCTION public.del_dipendenza() OWNER TO postgres;
 
 --
--- TOC entry 199 (class 1255 OID 34099)
+-- TOC entry 200 (class 1255 OID 34516)
 -- Name: esiste_sessione(character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -152,7 +152,7 @@ $$;
 ALTER FUNCTION public.esiste_sessione(auth character varying) OWNER TO postgres;
 
 --
--- TOC entry 198 (class 1255 OID 34054)
+-- TOC entry 201 (class 1255 OID 34517)
 -- Name: ins_dipendenza(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -175,7 +175,7 @@ $$;
 ALTER FUNCTION public.ins_dipendenza() OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1255 OID 34060)
+-- TOC entry 202 (class 1255 OID 34518)
 -- Name: upd_dipendenza(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -208,7 +208,7 @@ $$;
 ALTER FUNCTION public.upd_dipendenza() OWNER TO postgres;
 
 --
--- TOC entry 201 (class 1255 OID 34066)
+-- TOC entry 203 (class 1255 OID 34519)
 -- Name: upd_dipendenza_licenziamento(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -242,7 +242,7 @@ $$;
 ALTER FUNCTION public.upd_dipendenza_licenziamento() OWNER TO postgres;
 
 --
--- TOC entry 180 (class 1259 OID 33959)
+-- TOC entry 170 (class 1259 OID 34520)
 -- Name: attivita; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -263,7 +263,7 @@ CREATE TABLE attivita (
 ALTER TABLE public.attivita OWNER TO postgres;
 
 --
--- TOC entry 179 (class 1259 OID 33957)
+-- TOC entry 171 (class 1259 OID 34528)
 -- Name: attivita_id_attivita_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -278,8 +278,8 @@ CREATE SEQUENCE attivita_id_attivita_seq
 ALTER TABLE public.attivita_id_attivita_seq OWNER TO postgres;
 
 --
--- TOC entry 2317 (class 0 OID 0)
--- Dependencies: 179
+-- TOC entry 2316 (class 0 OID 0)
+-- Dependencies: 171
 -- Name: attivita_id_attivita_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -287,7 +287,7 @@ ALTER SEQUENCE attivita_id_attivita_seq OWNED BY attivita.id_attivita;
 
 
 --
--- TOC entry 181 (class 1259 OID 33983)
+-- TOC entry 172 (class 1259 OID 34530)
 -- Name: dipendenza; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -303,7 +303,7 @@ CREATE TABLE dipendenza (
 ALTER TABLE public.dipendenza OWNER TO postgres;
 
 --
--- TOC entry 182 (class 1259 OID 34132)
+-- TOC entry 173 (class 1259 OID 34533)
 -- Name: dipendenza_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -318,8 +318,8 @@ CREATE SEQUENCE dipendenza_id_seq
 ALTER TABLE public.dipendenza_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2318 (class 0 OID 0)
--- Dependencies: 182
+-- TOC entry 2317 (class 0 OID 0)
+-- Dependencies: 173
 -- Name: dipendenza_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -327,7 +327,7 @@ ALTER SEQUENCE dipendenza_id_seq OWNED BY dipendenza.id;
 
 
 --
--- TOC entry 176 (class 1259 OID 33930)
+-- TOC entry 174 (class 1259 OID 34535)
 -- Name: struttura; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -341,7 +341,7 @@ CREATE TABLE struttura (
 ALTER TABLE public.struttura OWNER TO postgres;
 
 --
--- TOC entry 175 (class 1259 OID 33928)
+-- TOC entry 175 (class 1259 OID 34541)
 -- Name: struttura_id_struttura_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -356,7 +356,7 @@ CREATE SEQUENCE struttura_id_struttura_seq
 ALTER TABLE public.struttura_id_struttura_seq OWNER TO postgres;
 
 --
--- TOC entry 2319 (class 0 OID 0)
+-- TOC entry 2318 (class 0 OID 0)
 -- Dependencies: 175
 -- Name: struttura_id_struttura_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -365,7 +365,7 @@ ALTER SEQUENCE struttura_id_struttura_seq OWNED BY struttura.id_struttura;
 
 
 --
--- TOC entry 178 (class 1259 OID 33948)
+-- TOC entry 176 (class 1259 OID 34543)
 -- Name: tipo_attivita; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -378,7 +378,7 @@ CREATE TABLE tipo_attivita (
 ALTER TABLE public.tipo_attivita OWNER TO postgres;
 
 --
--- TOC entry 177 (class 1259 OID 33946)
+-- TOC entry 177 (class 1259 OID 34549)
 -- Name: tipo_attivita_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -393,7 +393,7 @@ CREATE SEQUENCE tipo_attivita_id_seq
 ALTER TABLE public.tipo_attivita_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2320 (class 0 OID 0)
+-- TOC entry 2319 (class 0 OID 0)
 -- Dependencies: 177
 -- Name: tipo_attivita_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -402,7 +402,7 @@ ALTER SEQUENCE tipo_attivita_id_seq OWNED BY tipo_attivita.id;
 
 
 --
--- TOC entry 174 (class 1259 OID 33919)
+-- TOC entry 178 (class 1259 OID 34551)
 -- Name: tipo_struttura; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -416,7 +416,7 @@ CREATE TABLE tipo_struttura (
 ALTER TABLE public.tipo_struttura OWNER TO postgres;
 
 --
--- TOC entry 173 (class 1259 OID 33917)
+-- TOC entry 179 (class 1259 OID 34557)
 -- Name: tipo_struttura_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -431,8 +431,8 @@ CREATE SEQUENCE tipo_struttura_id_seq
 ALTER TABLE public.tipo_struttura_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2321 (class 0 OID 0)
--- Dependencies: 173
+-- TOC entry 2320 (class 0 OID 0)
+-- Dependencies: 179
 -- Name: tipo_struttura_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -440,7 +440,7 @@ ALTER SEQUENCE tipo_struttura_id_seq OWNED BY tipo_struttura.id;
 
 
 --
--- TOC entry 169 (class 1259 OID 33873)
+-- TOC entry 180 (class 1259 OID 34559)
 -- Name: user; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -454,7 +454,7 @@ CREATE TABLE "user" (
 ALTER TABLE public."user" OWNER TO postgres;
 
 --
--- TOC entry 168 (class 1259 OID 33871)
+-- TOC entry 181 (class 1259 OID 34565)
 -- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -469,8 +469,8 @@ CREATE SEQUENCE user_id_seq
 ALTER TABLE public.user_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2322 (class 0 OID 0)
--- Dependencies: 168
+-- TOC entry 2321 (class 0 OID 0)
+-- Dependencies: 181
 -- Name: user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -478,7 +478,7 @@ ALTER SEQUENCE user_id_seq OWNED BY "user".id;
 
 
 --
--- TOC entry 171 (class 1259 OID 33887)
+-- TOC entry 182 (class 1259 OID 34567)
 -- Name: user_session; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -494,7 +494,7 @@ CREATE TABLE user_session (
 ALTER TABLE public.user_session OWNER TO postgres;
 
 --
--- TOC entry 170 (class 1259 OID 33885)
+-- TOC entry 183 (class 1259 OID 34573)
 -- Name: user_session_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -509,8 +509,8 @@ CREATE SEQUENCE user_session_id_seq
 ALTER TABLE public.user_session_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2323 (class 0 OID 0)
--- Dependencies: 170
+-- TOC entry 2322 (class 0 OID 0)
+-- Dependencies: 183
 -- Name: user_session_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -518,7 +518,7 @@ ALTER SEQUENCE user_session_id_seq OWNED BY user_session.id;
 
 
 --
--- TOC entry 2245 (class 2604 OID 33962)
+-- TOC entry 2241 (class 2604 OID 34575)
 -- Name: id_attivita; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -526,7 +526,7 @@ ALTER TABLE ONLY attivita ALTER COLUMN id_attivita SET DEFAULT nextval('attivita
 
 
 --
--- TOC entry 2248 (class 2604 OID 34134)
+-- TOC entry 2242 (class 2604 OID 34576)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -534,7 +534,7 @@ ALTER TABLE ONLY dipendenza ALTER COLUMN id SET DEFAULT nextval('dipendenza_id_s
 
 
 --
--- TOC entry 2243 (class 2604 OID 33933)
+-- TOC entry 2243 (class 2604 OID 34577)
 -- Name: id_struttura; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -542,7 +542,7 @@ ALTER TABLE ONLY struttura ALTER COLUMN id_struttura SET DEFAULT nextval('strutt
 
 
 --
--- TOC entry 2244 (class 2604 OID 33951)
+-- TOC entry 2244 (class 2604 OID 34578)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -550,7 +550,7 @@ ALTER TABLE ONLY tipo_attivita ALTER COLUMN id SET DEFAULT nextval('tipo_attivit
 
 
 --
--- TOC entry 2242 (class 2604 OID 33922)
+-- TOC entry 2245 (class 2604 OID 34579)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -558,7 +558,7 @@ ALTER TABLE ONLY tipo_struttura ALTER COLUMN id SET DEFAULT nextval('tipo_strutt
 
 
 --
--- TOC entry 2239 (class 2604 OID 33876)
+-- TOC entry 2246 (class 2604 OID 34580)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -566,7 +566,7 @@ ALTER TABLE ONLY "user" ALTER COLUMN id SET DEFAULT nextval('user_id_seq'::regcl
 
 
 --
--- TOC entry 2240 (class 2604 OID 33890)
+-- TOC entry 2247 (class 2604 OID 34581)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -574,23 +574,40 @@ ALTER TABLE ONLY user_session ALTER COLUMN id SET DEFAULT nextval('user_session_
 
 
 --
--- TOC entry 2305 (class 0 OID 33959)
--- Dependencies: 180
+-- TOC entry 2294 (class 0 OID 34520)
+-- Dependencies: 170
 -- Data for Name: attivita; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (1, 'Comics 4 All', 0, '34567432', 'COMICS4ALL', true, 13, NULL, 18, 6);
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (19, 'Fun Fun Fun!!!', 1, '1234567', 'FUN2', false, 12, NULL, 18, NULL);
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (23, 'Apple Store', 1, '4290293', 'AAPL', true, 14, NULL, 9, 1);
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (24, 'Art Y', 0, '768796', 'RTY', true, 1, 11, 2, NULL);
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (20, 'Revenge of the Nerds', 0, '1337', 'NERDZ', false, 13, NULL, 9, 6);
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (2, 'I-Maxx', 2, '546434564eee', 'IMAX2', true, 13, NULL, 7, 7);
-INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (10, 'Ipercoop', 1, '456789', 'IPRCP', true, 2, NULL, 5, 5);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (4, 'Champions', 3, '9509504178', 'WQLSW31', true, 6, 2, 1, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (22, 'Sapori abruzzesi', 0, '6591548509', 'IRQDW91', false, 6, 0, 12, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (10, 'Limoni', 1, '9181581361', 'SJVRR37', true, 4, NULL, 10, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (24, 'The Bangkok', 2, '8141813704', 'GAGSP43', false, 8, NULL, 14, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (15, 'PCWorld', 2, '6274194810', 'IGXUU46', true, 9, 2, 4, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (5, 'Clear Mouse Company', 2, '0756890611', 'QWBEZ07', false, 10, 1, 7, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (7, 'Idea Bellezza', 6, '0947858856', 'UBLOI19', true, 1, NULL, 10, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (16, 'Paragon Logistics', 3, '4808308924', 'EDCLW55', false, 8, NULL, 2, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (6, 'Gelido', 1, '8726363205', 'UIQOW24', false, 9, 1, 6, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (8, 'Infopan', 2, '2000365299', 'CIBCV79', false, 4, NULL, 7, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (14, 'Oviesse', 2, '8455804791', 'KOZAQ15', true, 2, NULL, 1, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (18, 'Renault', 6, '0682796642', 'JJSHH54', true, 2, NULL, 3, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (12, 'Ottica Giacoia', 3, '3280667204', 'RLNYX86', false, 7, NULL, 8, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (17, 'Pizza Hut', 5, '4998185032', 'WGRRJ50', true, 5, NULL, 9, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (9, 'Ipercoop', 5, '7925070380', 'IKHJM27', true, 2, NULL, 4, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (20, 'Mangiare', 6, '9819115108', 'NANSZ50', false, 8, NULL, 11, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (11, 'Mediaworld', 3, '0243677104', 'JWMOR50', true, 6, 1, 4, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (19, 'Senso Unico', 5, '4433700061', 'MAECW38', false, 8, NULL, 1, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (13, 'Otto', 3, '8602457118', 'TWEZT26', false, 5, NULL, 8, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (23, 'Cantina della Bruna', 3, '7452514869', 'HROVQ63', false, 2, NULL, 13, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (3, 'Cardinale', 3, '6829469922', 'PBLJV10', false, 10, 0, 6, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (2, 'British Supplies', 5, '2777716853', 'BAYLO73', false, 8, NULL, 5, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (21, 'Trattoria del centro', 4, '7823060595', 'LCOHG44', false, 5, NULL, 11, NULL);
+INSERT INTO attivita (id_attivita, nome, num_dip, piva, codice, franchising, id_struttura, piano, id_tipo_attivita, id_dipendente_manager) VALUES (1, 'Banco Popolare', 4, '5458910213', 'HOLBM52', true, 7, NULL, 2, NULL);
 
 
 --
--- TOC entry 2324 (class 0 OID 0)
--- Dependencies: 179
+-- TOC entry 2323 (class 0 OID 0)
+-- Dependencies: 171
 -- Name: attivita_id_attivita_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -598,160 +615,270 @@ SELECT pg_catalog.setval('attivita_id_attivita_seq', 24, true);
 
 
 --
--- TOC entry 2297 (class 0 OID 33909)
--- Dependencies: 172
+-- TOC entry 2293 (class 0 OID 34506)
+-- Dependencies: 169
 -- Data for Name: dipendente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('RDFGBHN', 'Mario', 'Rossino', 'Matera', '1990-01-30', true, 1);
-INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('PNTVTI', 'Vito', 'Pontillo', 'Altamura (BA)', '1990-03-23', true, 5);
-INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('tryu', 'Giovanni', 'Verdi', 'Roma', '2013-02-17', true, 3);
-INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('yuiop', 'Giovanna', 'Bianchi', 'Bari', '2013-02-05', false, 7);
-INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('rtyj', 'Francesco', 'Pontillo', 'Altamura (BA)', '1988-10-10', true, 6);
-INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('4567890', 'Caia', 'Tizia', 'Altamura', NULL, false, 9);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('RIFJZA48D98K273M', 'James', 'Jenkins', 'Frederick', '1966-06-20', true, 1);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('WTRHHF45F43K666U', 'Jonas', 'Guerra', 'Saginaw', '1985-10-17', true, 2);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('VXRMJH84R12T094H', 'Dalton', 'Mitchell', 'Roanoke', '1967-11-12', true, 3);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('TVFBGW69R22L011N', 'Jin', 'Hartman', 'Hollywood', '1991-10-26', true, 4);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('ZBOFVP22X48Q268H', 'Valentine', 'Patrick', 'Waycross', '1993-12-31', true, 5);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('VJDCUF28S82C836A', 'Castor', 'Duncan', 'Del Rio', '1958-08-05', true, 6);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('LDRHUX96E93D762W', 'Ishmael', 'Johns', 'Catskill', '1954-04-02', true, 7);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('JFYRIT09U22A636Y', 'Caleb', 'Mayer', 'Vallejo', '1954-06-25', true, 8);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('UTWDWP81M36P685J', 'Bradley', 'Frederick', 'Healdsburg', '1959-08-20', true, 9);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('CCPICF77D83B609U', 'Wang', 'Langley', 'New London', '1991-01-21', true, 10);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('CZYSPQ51Z64J759B', 'Macaulay', 'Castro', 'San Bernardino', '1960-08-23', true, 11);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('LHRUJI82D88T976P', 'Gary', 'Fowler', 'Calabasas', '1956-08-01', true, 12);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('OHTAQM55O27I600L', 'Gil', 'Gonzales', 'Farrell', '1968-02-03', true, 13);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('SOBLXS49D82L575A', 'Zachery', 'Mays', 'Franklin', '1989-04-07', true, 15);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('XFZDZF64L74H403X', 'Wesley', 'Berg', 'Healdsburg', '1972-10-26', true, 16);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('WFGDRU82V87D701Y', 'Yoshio', 'Francis', 'Moraga', '1962-10-12', true, 17);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('MTJZAW03U94E864Z', 'Edan', 'Conley', 'Sunbury', '1953-03-30', true, 18);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('NATIDN32L35A824U', 'Elmo', 'Farley', 'Santa Monica', '1950-02-08', true, 19);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('SBUDGR76R18O682Z', 'Zachery', 'Rosales', 'Fullerton', '1960-02-08', true, 20);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('FGQTGL06F39A008F', 'Daquan', 'Kirk', 'Ada', '1959-03-28', true, 21);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('XECTST69S67A806P', 'Dieter', 'Burnett', 'Orangeburg', '1953-05-11', true, 22);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('ZIBXJD91J16J184W', 'Kenyon', 'Cortez', 'Little Rock', '1960-03-12', true, 23);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('PYCJZY36O67F612O', 'Hop', 'Harvey', 'Las Cruces', '1965-01-05', true, 24);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('RTRJCU25R87E362T', 'Lucius', 'Davidson', 'Centennial', '1971-11-03', true, 25);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('HUVBZM12A66M231Q', 'Isaac', 'Wiggins', 'Stevens Point', '1966-05-08', true, 26);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('AQRUUC40V13Z408L', 'Ashton', 'Erickson', 'Natchez', '1977-01-31', true, 27);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('IHFZUN39D89A856R', 'Fritz', 'Rice', 'Carolina', '1970-12-31', true, 28);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('LPGTPQ83C96S299F', 'Octavius', 'Hopkins', 'Minneapolis', '1951-08-14', true, 29);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('RPKQPH12Y50C063T', 'Clinton', 'Yates', 'New Brunswick', '1976-02-04', true, 30);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('IYDCJW09F32Z985K', 'Velma', 'Ballard', 'Del Rio', '1952-02-09', false, 31);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('BXGJGE38W55P947A', 'Shaeleigh', 'Mcdowell', 'Annapolis', '1992-03-08', false, 32);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('VVICUH93R83X821G', 'Kelsey', 'Francis', 'Northampton', '1950-04-19', false, 33);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('JEFWTD34E10E985B', 'Naomi', 'Russo', 'Williamsport', '1989-04-21', false, 34);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('AMVJJR64Y17P498I', 'Nomlanga', 'Wise', 'Oneida', '1969-05-03', false, 35);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('EDVGIU18W86V816E', 'Kaye', 'Gay', 'San Fernando', '1971-02-19', false, 36);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('ZHXTXJ77S46J581V', 'Chava', 'Wong', 'Watervliet', '1990-11-01', false, 37);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('BVTSRO83S36N394C', 'Sasha', 'Ryan', 'San Clemente', '1955-08-01', false, 38);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('ONFGXU00P20O393A', 'Madison', 'Solomon', 'Tucson', '1964-06-09', false, 39);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('XPGOCP55R33M886D', 'Quyn', 'Hopkins', 'Coral Springs', '1971-11-21', false, 40);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('WBLYPT89U47S339Y', 'Joelle', 'Madden', 'La Verne', '1964-09-21', false, 41);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('ZGVISR13V97A884T', 'Jenna', 'Daugherty', 'Muncie', '1953-01-19', false, 42);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('IABCSK46J92V846F', 'Cassandra', 'Gilbert', 'Irving', '1957-08-10', false, 43);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('NDJHEE16Y58N985A', 'Lillith', 'Wise', 'Laramie', '1958-10-11', false, 44);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('GJJMEH98M11X632Y', 'Kai', 'Jacobson', 'Bethany', '1992-11-26', false, 45);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('CKRYXP74Q34D685C', 'Zena', 'Roberson', 'Battle Creek', '1955-10-04', false, 46);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('VHEZEU34T79V834U', 'Donna', 'Branch', 'Morrison', '1957-06-16', false, 47);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('STYEWO93R91T749T', 'Madison', 'Petersen', 'Bell', '1987-02-10', false, 48);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('BLVAHS37N68C350M', 'Jocelyn', 'Miles', 'Laguna Woods', '1972-04-12', false, 49);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('VILYBF39Z96B019B', 'Jamalia', 'Melton', 'Iowa City', '1957-05-04', false, 50);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('EDABFJ62V19I927W', 'Emi', 'Wilkinson', 'Deadwood', '1973-04-05', false, 51);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('GYEYAF09H55S767T', 'Sybill', 'Bentley', 'Idaho Falls', '1974-07-13', false, 52);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('EXNBFL29H59N796S', 'Vielka', 'Vance', 'Savannah', '1964-06-29', false, 53);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('WFIKXA06U96F057E', 'Rowan', 'Campbell', 'Kemmerer', '1993-04-20', false, 54);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('ULZTYU66N65I476W', 'Maya', 'Oneill', 'Toledo', '1974-08-14', false, 55);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('GMVXRY43C35N095W', 'Tallulah', 'Frost', 'Macon', '1986-10-15', false, 56);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('NVDBDP88L44I791Q', 'Meredith', 'Bond', 'Burlington', '1960-09-06', false, 57);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('BELPSN52J45X930A', 'Kylan', 'Medina', 'Springfield', '1969-07-23', false, 58);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('IBIVJA85Q46U572C', 'Katell', 'Poole', 'Nome', '1986-05-11', false, 59);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('SCBGAA60B16X462I', 'Ashely', 'Douglas', 'Carrollton', '1982-04-17', false, 60);
+INSERT INTO dipendente (cf, nome, cognome, luogo_nascita, data_nascita, sesso, id) VALUES ('RMCMGA29Q62T255G', 'Brock', 'Aguirre', 'Shelton', '1979-11-11', true, 14);
+
+
+--
+-- TOC entry 2324 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: dipendente_id_dipendente_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('dipendente_id_dipendente_seq', 60, true);
+
+
+--
+-- TOC entry 2296 (class 0 OID 34530)
+-- Dependencies: 172
+-- Data for Name: dipendenza; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (7, '2011-12-25', NULL, 2, 27);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (9, '2011-06-20', NULL, 3, 5);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2011-08-08', NULL, 4, 58);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2012-11-05', NULL, 5, 41);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (1, '2012-12-29', NULL, 6, 14);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (9, '2012-04-02', NULL, 7, 53);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (17, '2011-08-18', NULL, 9, 19);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (8, '2012-12-11', NULL, 10, 30);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (17, '2012-12-31', NULL, 11, 37);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (15, '2011-10-13', NULL, 16, 20);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (10, '2011-09-15', NULL, 17, 55);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2012-10-10', NULL, 18, 46);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (18, '2011-02-19', NULL, 20, 45);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (24, '2011-06-21', NULL, 22, 37);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (15, '2011-12-22', NULL, 23, 46);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2012-10-14', NULL, 25, 58);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (14, '2012-03-27', NULL, 27, 17);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (7, '2011-04-04', NULL, 28, 44);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (7, '2011-07-10', NULL, 30, 37);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (23, '2012-03-25', NULL, 32, 36);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2011-01-07', NULL, 33, 41);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (9, '2011-03-24', NULL, 34, 48);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (13, '2011-01-04', NULL, 36, 32);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2011-02-23', NULL, 37, 31);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (18, '2011-04-04', NULL, 41, 23);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (3, '2012-07-17', NULL, 42, 20);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2012-10-22', NULL, 44, 6);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (17, '2011-10-16', NULL, 46, 33);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (8, '2012-11-13', NULL, 49, 30);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (14, '2011-07-29', NULL, 51, 21);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (18, '2012-07-03', NULL, 54, 7);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (12, '2012-07-04', NULL, 56, 45);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (17, '2012-10-19', NULL, 64, 7);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (17, '2011-04-22', NULL, 66, 2);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (21, '2012-06-03', NULL, 67, 47);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (9, '2011-05-28', NULL, 68, 43);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2012-02-05', NULL, 72, 9);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (23, '2012-12-16', NULL, 75, 58);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2011-10-07', NULL, 76, 23);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (3, '2012-08-03', NULL, 77, 55);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2011-01-21', NULL, 78, 55);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (21, '2011-09-10', NULL, 79, 45);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2012-02-05', NULL, 8, 3);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (18, '2012-05-01', NULL, 14, 34);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (7, '2012-08-19', NULL, 21, 43);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (18, '2012-10-12', NULL, 26, 46);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (11, '2012-08-22', NULL, 29, 59);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (7, '2012-05-23', NULL, 35, 5);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (4, '2012-01-19', NULL, 38, 23);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (16, '2012-10-31', NULL, 40, 21);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (16, '2012-08-01', NULL, 43, 22);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (6, '2012-10-27', NULL, 47, 38);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (4, '2012-03-10', NULL, 48, 2);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2012-02-07', NULL, 50, 35);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (3, '2012-05-25', NULL, 52, 21);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (21, '2012-01-23', NULL, 53, 14);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (1, '2012-10-04', NULL, 55, 21);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (23, '2012-07-19', NULL, 59, 7);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (12, '2012-04-28', NULL, 60, 17);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2012-06-02', NULL, 62, 41);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2012-04-27', NULL, 63, 58);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (12, '2012-10-18', NULL, 65, 31);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (1, '2012-01-07', NULL, 69, 6);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2012-03-29', NULL, 70, 1);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (11, '2012-11-02', NULL, 71, 18);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (21, '2012-04-12', NULL, 73, 50);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (13, '2012-03-04', NULL, 74, 49);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (1, '2012-01-06', NULL, 80, 20);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (5, '2012-02-15', NULL, 1, 10);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (13, '2012-01-13', NULL, 12, 30);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (4, '2012-03-21', NULL, 15, 14);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (24, '2012-06-13', NULL, 19, 36);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (16, '2012-03-22', NULL, 24, 16);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (5, '2012-03-17', NULL, 31, 54);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (7, '2012-01-13', NULL, 39, 47);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (9, '2012-06-06', NULL, 45, 20);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (18, '2012-05-25', NULL, 57, 35);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2012-04-01', NULL, 58, 22);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (11, '2012-03-12', NULL, 61, 10);
+INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (4, '2011-05-07', '2011-12-07', 13, 12);
 
 
 --
 -- TOC entry 2325 (class 0 OID 0)
--- Dependencies: 183
--- Name: dipendente_id_dipendente_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Dependencies: 173
+-- Name: dipendenza_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dipendente_id_dipendente_seq', 10, true);
+SELECT pg_catalog.setval('dipendenza_id_seq', 80, true);
 
 
 --
--- TOC entry 2306 (class 0 OID 33983)
--- Dependencies: 181
--- Data for Name: dipendenza; Type: TABLE DATA; Schema: public; Owner: postgres
+-- TOC entry 2298 (class 0 OID 34535)
+-- Dependencies: 174
+-- Data for Name: struttura; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (10, '2013-02-06', '2013-03-05', 16, 7);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (10, '2013-02-07', NULL, 18, 7);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2013-01-01', '2013-01-30', 20, 6);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2013-02-02', NULL, 22, 9);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (19, '2013-02-15', NULL, 23, 3);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (23, '2013-02-18', NULL, 25, 9);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (20, '2013-02-05', '2013-01-31', 14, 6);
-INSERT INTO dipendenza (id_attivita, data_assunzione, data_licenziamento, id, id_dipendente) VALUES (2, '2013-02-07', NULL, 21, 7);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (1, 'Dolan Plaza', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (2, 'Sequola Square', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (3, 'Keshan Road', 4);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (4, 'East Poppy Avenue', 4);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (5, 'Barbarian''s Tunnel', 2);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (6, 'Gnomes'' Tower', 1);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (7, 'Passage of Skeletons', 2);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (8, 'Plaza of Confusion', 3);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (9, 'Crimson Turret', 1);
+INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (10, 'Tower of Sigils', 1);
 
 
 --
 -- TOC entry 2326 (class 0 OID 0)
--- Dependencies: 182
--- Name: dipendenza_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('dipendenza_id_seq', 25, true);
-
-
---
--- TOC entry 2301 (class 0 OID 33930)
--- Dependencies: 176
--- Data for Name: struttura; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (1, 'Glass Building', 3);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (2, 'Prima strada', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (3, 'Seconda strada', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (4, 'Terza strada', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (7, 'Quarta strada', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (8, 'Quinta strada', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (10, 'Oro', 8);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (14, 'Piccadilly', 7);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (15, 'Tiananmen', 7);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (16, 'Place de la Concorde', 7);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (17, 'Washington Square Park', 7);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (18, 'The Tower', 3);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (20, 'West', 3);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (21, 'South', 3);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (9, 'Sesta strada!', 3);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (11, 'East Side', 8);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (23, 'Whop whop!', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (22, 'North', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (24, 'Gangnam Style', 5);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (26, 'Twisted B', 3);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (13, 'Nerdz', 8);
-INSERT INTO struttura (id_struttura, codice, id_tipo_struttura) VALUES (12, 'Fun', 7);
-
-
---
--- TOC entry 2327 (class 0 OID 0)
 -- Dependencies: 175
 -- Name: struttura_id_struttura_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('struttura_id_struttura_seq', 26, true);
+SELECT pg_catalog.setval('struttura_id_struttura_seq', 10, true);
 
 
 --
--- TOC entry 2303 (class 0 OID 33948)
--- Dependencies: 178
+-- TOC entry 2300 (class 0 OID 34543)
+-- Dependencies: 176
 -- Data for Name: tipo_attivita; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO tipo_attivita (id, descrizione) VALUES (1, 'negozio di abbigliamento');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (2, 'negozio di accessori');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (3, 'negozio di scarpe');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (4, 'ristorante lucano');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (5, 'distribuzione organizzata');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (6, 'cinema');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (7, 'cinema multisala');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (8, 'ristorante');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (9, 'negozio di informatica');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (10, 'drogheria');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (11, 'bar');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (12, 'pub');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (13, 'ristorante cinese');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (14, 'fast food');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (15, 'slow food');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (16, 'concessionaria d''auto');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (17, 'gioielleria');
-INSERT INTO tipo_attivita (id, descrizione) VALUES (18, 'negozio di fumetti');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (1, 'Abbigliamento');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (2, 'Banca');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (3, 'Concessionaria');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (4, 'Distr. Org.');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (5, 'Ferramenta');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (6, 'Gelateria');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (7, 'Informatica');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (8, 'Ottica');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (9, 'Pizzeria');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (10, 'Profumeria');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (11, 'Ristorante');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (12, 'Ristorante abruzzese');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (13, 'Ristorante lucano');
+INSERT INTO tipo_attivita (id, descrizione) VALUES (14, 'Ristorante thailandese');
 
 
 --
--- TOC entry 2328 (class 0 OID 0)
+-- TOC entry 2327 (class 0 OID 0)
 -- Dependencies: 177
 -- Name: tipo_attivita_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('tipo_attivita_id_seq', 18, true);
+SELECT pg_catalog.setval('tipo_attivita_id_seq', 14, true);
 
 
 --
--- TOC entry 2299 (class 0 OID 33919)
--- Dependencies: 174
+-- TOC entry 2302 (class 0 OID 34551)
+-- Dependencies: 178
 -- Data for Name: tipo_struttura; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (3, 'edificio', 'E');
-INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (5, 'via', 'V');
-INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (7, 'piazza', 'P');
-INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (8, 'galleria', 'G');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (1, 'Edificio', 'E');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (2, 'Galleria', 'G');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (3, 'Piazza', 'P');
+INSERT INTO tipo_struttura (id, descrizione, codice) VALUES (4, 'Via', 'V');
+
+
+--
+-- TOC entry 2328 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: tipo_struttura_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('tipo_struttura_id_seq', 4, true);
+
+
+--
+-- TOC entry 2304 (class 0 OID 34559)
+-- Dependencies: 180
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO "user" (id, username, password) VALUES (1, 'admin', 'b1487b31aa21e263a6d454d7d8e0100b12fa41811d5bf6e3a31d2dbf197ead30');
 
 
 --
 -- TOC entry 2329 (class 0 OID 0)
--- Dependencies: 173
--- Name: tipo_struttura_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('tipo_struttura_id_seq', 8, true);
-
-
---
--- TOC entry 2294 (class 0 OID 33873)
--- Dependencies: 169
--- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO "user" (id, username, password) VALUES (2, 'admin', 'b1487b31aa21e263a6d454d7d8e0100b12fa41811d5bf6e3a31d2dbf197ead30');
-
-
---
--- TOC entry 2330 (class 0 OID 0)
--- Dependencies: 168
+-- Dependencies: 181
 -- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -759,48 +886,29 @@ SELECT pg_catalog.setval('user_id_seq', 2, true);
 
 
 --
--- TOC entry 2296 (class 0 OID 33887)
--- Dependencies: 171
+-- TOC entry 2306 (class 0 OID 34567)
+-- Dependencies: 182
 -- Data for Name: user_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (2, 2, '2013-02-15 00:00:00+01', NULL, '9aa54d07e4ca6148438ca89946cd5289b3713204fd0ec0ef2cd046e87b456c26');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (3, 2, '2013-02-15 00:00:00+01', NULL, 'c3cc786653eded26bceb2d6c85f38c4cd49380f100b122b6c256b9073dbae20b');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (5, 2, '2013-02-15 19:12:35.794+01', NULL, 'd0d53fe611bf51e99b35ba70837651fd36879c286ab7b0fa127973bfeb2adcce');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (6, 2, '2013-02-15 19:13:40.987+01', NULL, 'f4a65106cb5ddb30bb38082d9a13b24d278f38ba82e7c6df0e57bafeb265313c');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (7, 2, '2013-02-15 19:23:27.399+01', NULL, '67123668583b6a4f70ce3b279979cc48bbfbb7f0468811ffc21f1d513d6711f3');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (8, 2, '2013-02-15 19:23:46.625+01', NULL, '154816946c48ee483bb23c7dfc40cf77665e5943eebe333ccadeec6d47618383');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (9, 2, '2013-02-15 20:26:01.148+01', NULL, 'b7879246b0b95fb07c4aea4be29c5048564aa7ddc0633dfaff61919a71561e08');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (10, 2, '2013-02-15 20:26:26.737+01', NULL, 'c533ebdb06c4e09092bc4f742dfdbe60b432e4971dc5c8389bff28579231360d');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (11, 2, '2013-02-15 20:26:48.927+01', NULL, '2cf676a10d0b61467a6f5bac820261d2e92e9706cee3ffa79fcb850edb2497fd');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (12, 2, '2013-02-15 20:34:48.737+01', NULL, 'd80eb795a7aabe6ce13af0c03d074eed536984befd0ab570ff2bc6e21de5e959');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (13, 2, '2013-02-15 20:35:14.625+01', NULL, '60b81f53a4a2def8a5013054cfe5e69325d73b668dc8aaeb4233b3aa8c7750f6');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (14, 2, '2013-02-15 20:35:59.516+01', NULL, '214d77a19f0995c4477fa97d575948f31f0396d2753356540d91cede207385b6');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (15, 2, '2013-02-15 20:37:37.012+01', NULL, '3343160fb6d02b2385ce07515e73b9493a2368168c11bb23544f29acce8ef21b');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (18, 2, '2013-02-15 20:44:24.766+01', NULL, 'a4c137a6812d4501057e90044fff93b91c3407a4ca339f9a815979b59118288a');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (21, 2, '2013-02-15 20:45:47.949+01', NULL, 'bd5c0203ac39530afb1c6b9f16f2996972ef446ada5e4522fdc2240859e021da');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (1, 2, '2013-02-15 00:00:00+01', NULL, '1337');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (22, 2, '2013-02-16 10:41:29.657+01', NULL, '32a9258cffdda638443e5a7c01c827f182323cb0b46c0fc1c5c35f00e912c6ec');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (23, 2, '2013-02-16 17:25:43.604+01', NULL, '0e888f3bbee7fb36aa3d32b021acbfbac538cc93c2540a3b65f10c8b3ad33dff');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (24, 2, '2013-02-16 17:59:30.769+01', NULL, 'f289b02372ae4016a7c167da06f1ca9b52bf4f1e47ac16080dcca7905caaf2e2');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (25, 2, '2013-02-16 18:26:27.146+01', NULL, '78dee5535a2f594c191423f47f706604cf459086d36e4ac3b540d1a9dfce645b');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (26, 2, '2013-02-16 18:26:43.824+01', NULL, '3b7e7b437b7bf47ea9f483e5c152ba6f6220b2edcd4315f5d3fba9083e7373fa');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (29, 2, '2013-02-17 02:36:58.41+01', NULL, '667d83bfadf9f9f44d77db8349781f2afa511e5d7c747768ed1bb0bc194ea65b');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (33, 2, '2013-02-17 12:03:16.655+01', NULL, '72bd67d9101a9267c9634be47958006c362fba494c711553f4f2a2b32b2c0a9d');
-INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (35, 2, '2013-02-17 23:56:44.546+01', NULL, 'acd2e4f01b73b2d7a543adc8baa69b0bbb5901a9bbe63d3f7233853f64053cb2');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (1, 1, '2013-02-19 12:07:13.475+01', NULL, 'a6da1ee97fb05a635644055ad0b0a1c463fe3f3481224245c22c8f0391374188');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (2, 1, '2013-02-19 12:14:43.883+01', NULL, 'f6d7ecbdd980b81933a899255f4feeef1df1a8911a9dcb1cdd087832b37ffb2e');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (3, 1, '2013-02-19 12:15:42.562+01', NULL, '5779e0f57d4839498ed246b293d27d1681287f52b1f96cd69bb88b05baeb28ed');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (4, 1, '2013-02-19 12:15:49.286+01', NULL, 'c3302327d03300fa33e779be82338baba482c1e845841e9ffc2f7fac67bde40d');
+INSERT INTO user_session (id, id_user, date_login, date_logout, authcode) VALUES (6, 1, '2013-02-19 12:16:56.601+01', NULL, 'a75974446adc67c1769f1db251e5a84d6e8dfcb0e093271a9542d93aaa5dc4b8');
 
 
 --
--- TOC entry 2331 (class 0 OID 0)
--- Dependencies: 170
+-- TOC entry 2330 (class 0 OID 0)
+-- Dependencies: 183
 -- Name: user_session_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('user_session_id_seq', 35, true);
+SELECT pg_catalog.setval('user_session_id_seq', 6, true);
 
 
 --
--- TOC entry 2268 (class 2606 OID 33940)
+-- TOC entry 2259 (class 2606 OID 34583)
 -- Name: cn_struttura_unique; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -809,7 +917,7 @@ ALTER TABLE ONLY struttura
 
 
 --
--- TOC entry 2263 (class 2606 OID 34031)
+-- TOC entry 2267 (class 2606 OID 34585)
 -- Name: cn_tipo_struttura_unique_codice; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -818,7 +926,7 @@ ALTER TABLE ONLY tipo_struttura
 
 
 --
--- TOC entry 2255 (class 2606 OID 33908)
+-- TOC entry 2277 (class 2606 OID 34587)
 -- Name: cn_user_session_authcode; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -827,7 +935,7 @@ ALTER TABLE ONLY user_session
 
 
 --
--- TOC entry 2250 (class 2606 OID 33883)
+-- TOC entry 2272 (class 2606 OID 34589)
 -- Name: cn_user_username; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -836,7 +944,7 @@ ALTER TABLE ONLY "user"
 
 
 --
--- TOC entry 2277 (class 2606 OID 33967)
+-- TOC entry 2253 (class 2606 OID 34591)
 -- Name: pk_attivita; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -845,7 +953,7 @@ ALTER TABLE ONLY attivita
 
 
 --
--- TOC entry 2261 (class 2606 OID 34225)
+-- TOC entry 2250 (class 2606 OID 34593)
 -- Name: pk_dipendente; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -854,7 +962,7 @@ ALTER TABLE ONLY dipendente
 
 
 --
--- TOC entry 2279 (class 2606 OID 34153)
+-- TOC entry 2255 (class 2606 OID 34595)
 -- Name: pk_dipendenza; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -863,7 +971,7 @@ ALTER TABLE ONLY dipendenza
 
 
 --
--- TOC entry 2271 (class 2606 OID 33938)
+-- TOC entry 2262 (class 2606 OID 34597)
 -- Name: pk_struttura; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -872,7 +980,7 @@ ALTER TABLE ONLY struttura
 
 
 --
--- TOC entry 2274 (class 2606 OID 33956)
+-- TOC entry 2265 (class 2606 OID 34599)
 -- Name: pk_tipo_attivita; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -881,7 +989,7 @@ ALTER TABLE ONLY tipo_attivita
 
 
 --
--- TOC entry 2266 (class 2606 OID 33927)
+-- TOC entry 2270 (class 2606 OID 34601)
 -- Name: pk_tipo_struttura; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -890,7 +998,7 @@ ALTER TABLE ONLY tipo_struttura
 
 
 --
--- TOC entry 2253 (class 2606 OID 33881)
+-- TOC entry 2275 (class 2606 OID 34603)
 -- Name: pk_user; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -899,7 +1007,7 @@ ALTER TABLE ONLY "user"
 
 
 --
--- TOC entry 2258 (class 2606 OID 33895)
+-- TOC entry 2280 (class 2606 OID 34605)
 -- Name: pk_user_session; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -908,7 +1016,7 @@ ALTER TABLE ONLY user_session
 
 
 --
--- TOC entry 2281 (class 2606 OID 34242)
+-- TOC entry 2257 (class 2606 OID 34607)
 -- Name: un_dipendenza_dipendente_attivita_assunzione; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -917,7 +1025,7 @@ ALTER TABLE ONLY dipendenza
 
 
 --
--- TOC entry 2275 (class 1259 OID 34024)
+-- TOC entry 2251 (class 1259 OID 34608)
 -- Name: ix_attivita_nome; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -925,7 +1033,7 @@ CREATE INDEX ix_attivita_nome ON attivita USING btree (nome);
 
 
 --
--- TOC entry 2259 (class 1259 OID 34025)
+-- TOC entry 2248 (class 1259 OID 34609)
 -- Name: ix_dipendente_cognome_nome; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -933,7 +1041,7 @@ CREATE INDEX ix_dipendente_cognome_nome ON dipendente USING btree (cognome, nome
 
 
 --
--- TOC entry 2269 (class 1259 OID 34026)
+-- TOC entry 2260 (class 1259 OID 34610)
 -- Name: ix_struttura_codice; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -941,7 +1049,7 @@ CREATE INDEX ix_struttura_codice ON struttura USING hash (codice);
 
 
 --
--- TOC entry 2272 (class 1259 OID 34027)
+-- TOC entry 2263 (class 1259 OID 34611)
 -- Name: ix_tipo_attivita_descrizione; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -949,7 +1057,7 @@ CREATE INDEX ix_tipo_attivita_descrizione ON tipo_attivita USING btree (descrizi
 
 
 --
--- TOC entry 2264 (class 1259 OID 34028)
+-- TOC entry 2268 (class 1259 OID 34612)
 -- Name: ix_tipo_struttura_descrizione; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -957,7 +1065,7 @@ CREATE INDEX ix_tipo_struttura_descrizione ON tipo_struttura USING btree (descri
 
 
 --
--- TOC entry 2256 (class 1259 OID 33901)
+-- TOC entry 2278 (class 1259 OID 34613)
 -- Name: ix_user_session_authcode; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -965,7 +1073,7 @@ CREATE INDEX ix_user_session_authcode ON user_session USING hash (authcode);
 
 
 --
--- TOC entry 2251 (class 1259 OID 34029)
+-- TOC entry 2273 (class 1259 OID 34614)
 -- Name: ix_user_username; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -973,7 +1081,7 @@ CREATE INDEX ix_user_username ON "user" USING hash (username);
 
 
 --
--- TOC entry 2290 (class 2620 OID 34059)
+-- TOC entry 2288 (class 2620 OID 34615)
 -- Name: del_dipendenza; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -981,7 +1089,7 @@ CREATE TRIGGER del_dipendenza AFTER DELETE ON dipendenza FOR EACH ROW EXECUTE PR
 
 
 --
--- TOC entry 2289 (class 2620 OID 34055)
+-- TOC entry 2289 (class 2620 OID 34616)
 -- Name: ins_dipendenza; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -989,7 +1097,7 @@ CREATE TRIGGER ins_dipendenza AFTER INSERT ON dipendenza FOR EACH ROW EXECUTE PR
 
 
 --
--- TOC entry 2291 (class 2620 OID 34062)
+-- TOC entry 2290 (class 2620 OID 34617)
 -- Name: upd_dipendenza; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -997,7 +1105,7 @@ CREATE TRIGGER upd_dipendenza BEFORE UPDATE ON dipendenza FOR EACH ROW EXECUTE P
 
 
 --
--- TOC entry 2292 (class 2620 OID 34068)
+-- TOC entry 2291 (class 2620 OID 34618)
 -- Name: upd_dipendenza_licenziamento; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -1005,7 +1113,7 @@ CREATE TRIGGER upd_dipendenza_licenziamento BEFORE UPDATE ON dipendenza FOR EACH
 
 
 --
--- TOC entry 2286 (class 2606 OID 34253)
+-- TOC entry 2281 (class 2606 OID 34619)
 -- Name: fk_attivita_dipendente_manager; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1014,7 +1122,7 @@ ALTER TABLE ONLY attivita
 
 
 --
--- TOC entry 2284 (class 2606 OID 34243)
+-- TOC entry 2282 (class 2606 OID 34624)
 -- Name: fk_attivita_struttura; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1023,7 +1131,7 @@ ALTER TABLE ONLY attivita
 
 
 --
--- TOC entry 2285 (class 2606 OID 34248)
+-- TOC entry 2283 (class 2606 OID 34629)
 -- Name: fk_attivita_tipo_attivita; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1032,7 +1140,7 @@ ALTER TABLE ONLY attivita
 
 
 --
--- TOC entry 2287 (class 2606 OID 34231)
+-- TOC entry 2284 (class 2606 OID 34634)
 -- Name: fk_dipendenza_attivita; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1041,7 +1149,7 @@ ALTER TABLE ONLY dipendenza
 
 
 --
--- TOC entry 2288 (class 2606 OID 34236)
+-- TOC entry 2285 (class 2606 OID 34639)
 -- Name: fk_dipendenza_dipendente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1050,7 +1158,7 @@ ALTER TABLE ONLY dipendenza
 
 
 --
--- TOC entry 2283 (class 2606 OID 34032)
+-- TOC entry 2286 (class 2606 OID 34644)
 -- Name: fk_struttura_tipo_struttura; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1059,7 +1167,7 @@ ALTER TABLE ONLY struttura
 
 
 --
--- TOC entry 2282 (class 2606 OID 34118)
+-- TOC entry 2287 (class 2606 OID 34649)
 -- Name: fk_user_session_user; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1068,8 +1176,8 @@ ALTER TABLE ONLY user_session
 
 
 --
--- TOC entry 2315 (class 0 OID 0)
--- Dependencies: 5
+-- TOC entry 2314 (class 0 OID 0)
+-- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -1079,7 +1187,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2013-02-18 16:37:27 CET
+-- Completed on 2013-02-19 12:18:54 CET
 
 --
 -- PostgreSQL database dump complete

@@ -1,0 +1,39 @@
+<section id="dipendente-detail">
+    <div class="page-header">
+        <h1>Dipendente<div class="actionbar pull-right" ng-include src="'views/_buttons_entity_edit.html'"></div></h1>
+    </div>
+    <h2 ui-if="d">Dettaglio dipendente {{d.cognome + ' ' + d.nome}}
+        <p class="lead">Per modificare questo dipendente, clicca sul pulsante "Modifica".</p></h2>
+
+    <div class="row">
+        <p class="span2"><strong>Cognome</strong></p>
+        <p class="span6">{{d.cognome}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Nome</strong></p>
+        <p class="span6">{{d.nome}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Codice fiscale</strong></p>
+        <p class="span6">{{d.cf}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Data di nascita</strong></p>
+        <p class="span6">{{d.data_nascita | date:'longDate'}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Luogo di nascita</strong></p>
+        <p class="span6">{{d.luogo_nascita}}</p>
+    </div>
+    <div class="row">
+        <p class="span2"><strong>Sesso</strong></p>
+        <p class="span6">{{d.sesso}}</p>
+    </div>
+
+    <h3><div class="actionbar pull-right" ng-include src="'views/_buttons_entity_new.html'"></div>Storia delle assunzioni<p class="lead">Per licenziare un dipendente o modificare i dettagli dell'assunzione, selezionarne una dalla lista sottostante.
+        Puoi assumere il dipendente cliccando sul pulsante "Nuovo".</p></h3>
+
+    <!-- Referenza alla partial della lista delle assunzioni in base ad un ID di dipendente. -->
+    <div ng-include src="'views/_select_assunzione.html'"></div>
+
+</section>

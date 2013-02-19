@@ -7,18 +7,18 @@ University project for the Database Systems 2 course.
 
 The project is divided into several folders:
 
-- `web`, containing the Web application.
 - `db`, containing scripts and files for creating and managing the database.
-- `dw`, containing the scripts for the data warehouse.
+- `doc`, containing the whole documentation and a bunch of other stuff.
+- `dw`, containing the script for the data warehouse, the Mondrian schema and some pages for jPivot.
 - `rest`, containing the RESTful Web Service that implements the business logic.
 - `rest-gen`, containing the generation code for the database classes.
-- `doc`, containing the whole documentation and a bunch of other stuff.
-- `tomcat-conf` contains a configuration example for the Tomcat server.
+- `tomcat-conf` contains a configuration example for the Tomcat server, referencing two databases (one for the Web app, one for the Mondrian analysis).
+- `web`, containing the Web application.
 
 ## TODO
 
-- Make the DW.
 - Update the documentation with info about the Web application.
+- Write a compile/install tutorial.
 
 ## RESTful Web Service
 
@@ -33,10 +33,11 @@ The dependencies for the RESTful Web Service are:
 
 ### 2013-02-19
 
-TODO:
-- Complete JPivot page.
-- End doc.
-- Write install guide.
+- Created a new database from scratch, filled with lots of fake data. Script made.
+- Made a new script for the DW as well.
+- Made a better landing page for jPivot, called `better.jsp`.
+- Integrated the new jpivot route in the Web app (as an `iframe`), referencing `better.jsp?query=mallAnalysis`.
+- Few bugfixes.
 
 ### 2013-02-18
 

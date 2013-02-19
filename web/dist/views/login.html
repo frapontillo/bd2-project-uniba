@@ -1,0 +1,12 @@
+<form class="form-signin">
+    <h2 class="form-signin-heading">Esegui il login</h2>
+    <input type="text" class="input-block-level" placeholder="Username" ng-model="username" ng-disabled="trying">
+    <input type="password" class="input-block-level" placeholder="Password" ng-model="password" ng-disabled="trying">
+    <label class="checkbox">
+        <input type="checkbox" value="remember-me" ng-model="remember" ng-disabled="trying"> Ricordami
+    </label>
+    <button class="btn btn-large btn-primary btn-block" type="submit" ng-click="tryLogin()" ng-disabled="trying">Entra</button>
+    <div class="for-alert" ng-show="alert">
+        <alert type="alert.type">{{alert.msg}}</alert>
+    </div>
+</form>
