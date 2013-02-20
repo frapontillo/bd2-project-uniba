@@ -1,0 +1,35 @@
+<!-- StrutturaListCtrl contiene tutte le informazioni per la ricerca della struttura -->
+<!-- Il click sulla lista è gestito da handleListClick(struttura) -->
+<!-- L'href è gestito dalla funzione handleListLink(struttura) -->
+<div ng-controller="StrutturaListCtrl">
+    <h2>Ricerca struttura</h2>
+
+    <form class="input-prepend input-append">
+        <span class="add-on">Cerca per descrizione:</span>
+        <input class="input-large" type="text" ng-model="cerca">
+        <button class="btn" type="submit" ng-click="restartSearch()">Cerca</button>
+    </form>
+
+    <p ui-if="strutture.count == 0">Nessuna struttura ritrovata.</p>
+    <p ui-if="searching">Ricerca in corso...</p>
+    <div id="struttura-table-pagination" ng-show="strutture.list">
+        <table id="struttura-table" class="table table-hover table-clickable" data-provides="rowlink">
+            <thead>
+            <tr>
+                <th>Codice</th>
+                <th>Descrizione</th>
+                <th>Tipo struttura</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="s in strutture.list">
+                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.tipo.codice + '-' + s.id }}&nbsp;</a></td>
+                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.codice }}&nbsp;</a></td>
+                <td ng-click="handleListClick(s)"><a ng-href="{{handleListLink(s)}}">{{ s.tipo.descrizione }}&nbsp;</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination num-pages="strutture.pages" current-page="page" max-size="10"
+                    on-select-page="selectPage(page)" next-text="Avanti" previous-text="Indietro"></pagination>
+    </div>
+</div>

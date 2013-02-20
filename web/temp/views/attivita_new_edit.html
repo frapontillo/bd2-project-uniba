@@ -1,0 +1,79 @@
+<form class="form-horizontal" name="formEditAttivita">
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputCodice.$valid)">
+        <label class="control-label" for="inputCodice">Codice</label>
+        <div class="controls">
+            <input type="text" name="inputCodice" id="inputCodice"
+                   placeholder="Codice" ng-model="a.codice"
+                   ng-required="true" ng-disabled="locked">
+            <span class="help-inline">Campo obbligatorio.</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputNome.$valid)">
+        <label class="control-label" for="inputNome">Nome</label>
+        <div class="controls">
+            <input type="text" name="inputNome" id="inputNome"
+                   placeholder="Nome" ng-model="a.nome"
+                   ng-required="true" ng-disabled="locked">
+            <span class="help-inline">Campo obbligatorio.</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.selectTipo.$valid)">
+        <label class="control-label" for="selectTipo">Tipo attività</label>
+        <div class="controls">
+            <select ng-model="a.tipo_attivita.id" ng-options="t.id as t.descrizione for t in tipi"
+                    id="selectTipo" name="selectTipo"
+                    ng-required="true" ng-disabled="locked"></select>
+            <span class="help-inline">Campo obbligatorio.</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputIVA.$valid)">
+        <label class="control-label" for="inputIVA">Partita IVA</label>
+        <div class="controls">
+            <input type="text" name="inputIVA" id="inputIVA"
+                   placeholder="Partita IVA" ng-model="a.piva"
+                   ng-required="true" ng-disabled="locked">
+            <span class="help-inline">Campo obbligatorio.</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputFranchising.$valid)">
+        <label class="control-label" for="inputFranchising">Franchising</label>
+        <div class="controls">
+            <input type="checkbox" name="inputFranchising" id="inputFranchising"
+                   ng-model="a.franchising" ng-disabled="locked">
+            <span class="help-inline"></span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputManager.$valid)">
+        <label ui-if="a.franchising" class="control-label" for="inputManager">Manager</label>
+        <label ui-if="!a.franchising" class="control-label" for="inputManager">Proprietario</label>
+        <div class="controls">
+            <div class="input-append">
+                <input type="text" name="inputManager" id="inputManager"
+                       ng-model="a.manager.nome_cognome" ng-disabled="true">
+                <button type="button" class="btn" ng-disabled="locked" ng-click="selectManager()"><i class="icon-edit"></i></button>
+                <button type="button" class="btn" ng-disabled="locked" ng-click="removeManager()"><i class="icon-remove"></i></button>
+            </div>
+            <span class="help-inline">Cliccare sull'apposito pulsante per cambiare o deselezionare il proprietario.</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputStruttura.$valid)">
+        <label class="control-label" for="inputStruttura">Struttura</label>
+        <div class="controls">
+            <div class="input-append">
+                <input type="text" name="inputStruttura" id="inputStruttura"
+                       ng-model="a.struttura.codice" ng-disabled="true">
+                <button type="button" class="btn" ng-disabled="locked" ng-click="selectStruttura()"><i class="icon-edit"></i></button>
+                <button type="button" class="btn" ng-disabled="locked" ng-click="removeStruttura()"><i class="icon-remove"></i></button>
+            </div>
+            <span class="help-inline">Cliccare sull'apposito pulsante per cambiare o deselezionare la struttura.</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="controlGroupStatus(formEditAttivita.inputPiano.$valid)">
+        <label class="control-label" for="inputPiano">Piano</label>
+        <div class="controls">
+            <input type="text" name="inputPiano" id="inputPiano" ui-validate="checkNumericOrEmpty"
+                   ng-model="a.piano" ng-disabled="locked || a.struttura.tipo.codice != 'E'">
+            <span class="help-inline">Avvalorabile solo se la struttura è un edificio.</span>
+        </div>
+    </div>
+</form>
