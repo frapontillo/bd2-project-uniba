@@ -26,6 +26,8 @@ The project is divided into several folders:
 - Version 1.0.0.
 - Improved error management, JDBC connections is always closed in a finally block.
 - Updated doc.
+- Deleted some parameters from `Resource` configurations.
+- Updated deploy guide.
 - Version 1.0.1.
 
 ### 2013-02-19
