@@ -17,19 +17,16 @@ The project is divided into several folders:
 
 ## TODO
 
-- Update the documentation with info about the Web application.
-- Write a compile/install tutorial.
-
-## RESTful Web Service
-
-The dependencies for the RESTful Web Service are:
-
-- `jersey-bundle-1.17.jar` and `asm-3.3.1.jar` for Jersey, an implementation of the JAX-RS specification.
-- `postgresql-9.2-1002.jdbc4.jar` for managing the connection with PostgreSQL 9.2.
-- `jooq-2.6.2.jar` for the ORM mapping.
-- `jackson-all-1.9.11.jar` for the JSON serialization/deserialization.
+- Check the doc one last time.
 
 ## History
+
+### 2013-02-20
+
+- Fixed a major memory leak in the connection management (only when authentication is not succesful).
+- Fixed a translation issue on the `pagination` plugin tag.
+- Changed database schema for a function which didn't work on PostgreSQL 8.4.
+- Updated deploy guide and documentation.
 
 ### 2013-02-19
 
