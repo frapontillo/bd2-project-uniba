@@ -23,11 +23,16 @@ public class AuthenticationResourceFilter implements ResourceFilter, ContainerRe
 		String authcode = req.getQueryParameters().getFirst("authcode");
 		// Cerco la sessione con l'authcode in input
 		Factory f = DBUtil.getConn();
-		UserSessionRecordDB r = (UserSessionRecordDB) f
-				.select()
-				.from(USER_SESSION)
-				.where(USER_SESSION.AUTHCODE.equal(authcode))
-				.fetchOne();
+		UserSessionRecordDB r = null;
+		try {
+			r = (UserSessionRecordDB) f
+					.select()
+					.from(USER_SESSION)
+					.where(USER_SESSION.AUTHCODE.equal(authcode))
+					.fetchOne();
+		} finally {
+			DBUtil.closeConn(f);
+		}
 		
 		// Se l'authcode non esiste rigetto 401
 		if (r == null) {

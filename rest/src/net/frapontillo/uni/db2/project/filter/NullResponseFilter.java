@@ -1,5 +1,6 @@
 package net.frapontillo.uni.db2.project.filter;
 
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.Provider;
 
 import net.frapontillo.uni.db2.project.exception.NotFoundException;
@@ -13,7 +14,9 @@ public class NullResponseFilter implements ContainerResponseFilter {
 	@Override
 	public ContainerResponse filter(ContainerRequest req, ContainerResponse res) {
 		// Se l'oggetto è nullo, se il metodo era GET
-		if (res.getEntity() == null && req.getMethod().equals("GET"))
+		if (res.getEntity() == null &&
+				req.getMethod().equals("GET") &&
+				res.getStatus() != Status.UNAUTHORIZED.getStatusCode())
 			throw new NotFoundException();
 		
 		// Forzo la restituzione dello status code 200

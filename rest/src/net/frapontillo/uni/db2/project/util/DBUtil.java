@@ -18,6 +18,7 @@ public final class DBUtil {
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
             DataSource ds = (DataSource) envCtx.lookup("jdbc/MallDB");
             Connection conn = ds.getConnection();
+            // factory = new Factory(ds, SQLDialect.POSTGRES);
             factory = new Factory(conn, SQLDialect.POSTGRES);
         } catch (Exception e) {
             e.printStackTrace();
