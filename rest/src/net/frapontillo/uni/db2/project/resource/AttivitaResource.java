@@ -40,14 +40,17 @@ public class AttivitaResource {
 	@Path("/{id}")
 	public Attivita get(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
-		AttivitaRecordDB r = (AttivitaRecordDB) f
-				.select()
-				.from(ATTIVITA)
-				.where(ATTIVITA.ID_ATTIVITA.equal(id))
-				.fetchOne();
-		Attivita entity = new AttivitaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			AttivitaRecordDB r = (AttivitaRecordDB) f
+					.select()
+					.from(ATTIVITA)
+					.where(ATTIVITA.ID_ATTIVITA.equal(id))
+					.fetchOne();
+			Attivita entity = new AttivitaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@GET
@@ -55,48 +58,55 @@ public class AttivitaResource {
 			@QueryParam("nome") String nome,
 			@QueryParam("struttura") Integer struttura,
 			@QueryParam("page") @DefaultValue("1") Double page) {
-		double pageSize = 10;
-		int offset = (int) (pageSize*(page-1));
-		double pages = 0;
 		Factory f = DBUtil.getConn();
-		SelectConditionStep where = f
-				.select()
-				.from(ATTIVITA)
-				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"));
-		if (struttura != null && struttura > 0)
-			where = where.and(ATTIVITA.ID_STRUTTURA.equal(struttura));
-		Result<Record> r = where
-				.orderBy(ATTIVITA.NOME)
-				.limit((int)pageSize)
-				.offset(offset)
-				.fetch();
-		Field<Integer> countField = ATTIVITA.CODICE.count();
-
-		SelectConditionStep whereC = f
-				.select(countField)
-				.from(ATTIVITA)
-				.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"));
-		if (struttura != null && struttura > 0)
-			whereC = whereC.and(ATTIVITA.ID_STRUTTURA.equal(struttura));
-		Record c = whereC.fetchOne();
-		Double count = Double.valueOf(c.getValue(countField));
-		pages = Math.ceil(count/pageSize);
-		
-		AttivitaList entity = new AttivitaList(count, page, pages, new AttivitaConverter().fromResult(r));
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			double pageSize = 10;
+			int offset = (int) (pageSize*(page-1));
+			double pages = 0;
+			SelectConditionStep where = f
+					.select()
+					.from(ATTIVITA)
+					.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"));
+			if (struttura != null && struttura > 0)
+				where = where.and(ATTIVITA.ID_STRUTTURA.equal(struttura));
+			Result<Record> r = where
+					.orderBy(ATTIVITA.NOME)
+					.limit((int)pageSize)
+					.offset(offset)
+					.fetch();
+			Field<Integer> countField = ATTIVITA.CODICE.count();
+	
+			SelectConditionStep whereC = f
+					.select(countField)
+					.from(ATTIVITA)
+					.where(ATTIVITA.NOME.likeIgnoreCase("%"+nome+"%"));
+			if (struttura != null && struttura > 0)
+				whereC = whereC.and(ATTIVITA.ID_STRUTTURA.equal(struttura));
+			Record c = whereC.fetchOne();
+			Double count = Double.valueOf(c.getValue(countField));
+			pages = Math.ceil(count/pageSize);
+			
+			AttivitaList entity = new AttivitaList(count, page, pages, new AttivitaConverter().fromResult(r));
+			DBUtil.closeConn(f);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Attivita post(Attivita a) {
 		Factory f = DBUtil.getConn();
-		AttivitaRecordDB r = f.newRecord(ATTIVITA);
-		new AttivitaConverter().to(a, r);
-		r.store();
-		Attivita entity = new AttivitaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			AttivitaRecordDB r = f.newRecord(ATTIVITA);
+			new AttivitaConverter().to(a, r);
+			r.store();
+			Attivita entity = new AttivitaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 
 	@PUT
@@ -104,15 +114,18 @@ public class AttivitaResource {
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Attivita put(@PathParam("id") Integer id, Attivita a) {
 		Factory f = DBUtil.getConn();
-		AttivitaRecordDB r = (AttivitaRecordDB) f.select()
-				.from(ATTIVITA)
-				.where(ATTIVITA.ID_ATTIVITA.equal(id))
-				.fetchOne();
-		new AttivitaConverter().to(a, r);
-		r.store();
-		Attivita entity = new AttivitaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			AttivitaRecordDB r = (AttivitaRecordDB) f.select()
+					.from(ATTIVITA)
+					.where(ATTIVITA.ID_ATTIVITA.equal(id))
+					.fetchOne();
+			new AttivitaConverter().to(a, r);
+			r.store();
+			Attivita entity = new AttivitaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 
 	@DELETE
@@ -120,19 +133,22 @@ public class AttivitaResource {
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response delete(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
-		int d = f.delete(ATTIVITA)
-				.where(ATTIVITA.ID_ATTIVITA.equal(id))
-				.execute();
-		DBUtil.closeConn(f);
-		
-		if (d == 1) {
-			return new ResponseBuilderImpl()
-				.status(Status.NO_CONTENT)
-				.build();
-		}
+		try {
+			int d = f.delete(ATTIVITA)
+					.where(ATTIVITA.ID_ATTIVITA.equal(id))
+					.execute();
 			
-		return new ResponseBuilderImpl()
-			.status(Status.NOT_FOUND)
-			.build();
+			if (d == 1) {
+				return new ResponseBuilderImpl()
+					.status(Status.NO_CONTENT)
+					.build();
+			}
+				
+			return new ResponseBuilderImpl()
+				.status(Status.NOT_FOUND)
+				.build();
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 }

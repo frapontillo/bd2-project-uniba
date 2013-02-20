@@ -15,10 +15,6 @@ The project is divided into several folders:
 - `tomcat-conf` contains a configuration example for the Tomcat server, referencing two databases (one for the Web app, one for the Mondrian analysis).
 - `web`, containing the Web application.
 
-## TODO
-
-- Check the doc one last time.
-
 ## History
 
 ### 2013-02-20
@@ -27,6 +23,10 @@ The project is divided into several folders:
 - Fixed a translation issue on the `pagination` plugin tag.
 - Changed database schema for a function which didn't work on PostgreSQL 8.4.
 - Updated deploy guide and documentation.
+- Version 1.0.0.
+- Improved error management, JDBC connections is always closed in a finally block.
+- Updated doc.
+- Version 1.0.1.
 
 ### 2013-02-19
 

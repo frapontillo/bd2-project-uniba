@@ -26,13 +26,16 @@ public class UserResource {
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public User get(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
-		UserRecordDB r = (UserRecordDB) f
-				.select()
-				.from(USER)
-				.where(USER.ID.equal(id))
-				.fetchOne();
-		User obj = new UserConverter().from(r);
-		DBUtil.closeConn(f);
-		return obj;
+		try {
+			UserRecordDB r = (UserRecordDB) f
+					.select()
+					.from(USER)
+					.where(USER.ID.equal(id))
+					.fetchOne();
+			User obj = new UserConverter().from(r);
+			return obj;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 }

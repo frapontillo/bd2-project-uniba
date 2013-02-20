@@ -39,57 +39,66 @@ public class StrutturaResource {
 	@Path("/{id}")
 	public Struttura get(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
-		StrutturaRecordDB r = (StrutturaRecordDB) f
-				.select()
-				.from(STRUTTURA)
-				.where(STRUTTURA.ID_STRUTTURA.equal(id))
-				.fetchOne();
-		Struttura entity = new StrutturaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			StrutturaRecordDB r = (StrutturaRecordDB) f
+					.select()
+					.from(STRUTTURA)
+					.where(STRUTTURA.ID_STRUTTURA.equal(id))
+					.fetchOne();
+			Struttura entity = new StrutturaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@GET
 	public StrutturaList search(
 			@QueryParam("codice") @DefaultValue("") String codice,
 			@QueryParam("page") @DefaultValue("1") Double page) {
-		double pageSize = 10;
-		int offset = (int) (pageSize*(page-1));
-		double pages = 0;
 		Factory f = DBUtil.getConn();
-		Result<Record> r = f
-				.select()
-				.from(STRUTTURA)
-				.where(STRUTTURA.CODICE.likeIgnoreCase("%"+codice+"%"))
-				.orderBy(STRUTTURA.CODICE)
-				.limit((int)pageSize)
-				.offset(offset)
-				.fetch();
-		Field<Integer> countField = STRUTTURA.CODICE.count();
-		Record c = f
-				.select(countField)
-				.from(STRUTTURA)
-				.where(STRUTTURA.CODICE.likeIgnoreCase("%"+codice+"%"))
-				.fetchOne();
-		Double count = Double.valueOf(c.getValue(countField));
-		pages = Math.ceil(count/pageSize);
-		StrutturaList entity = new StrutturaList(
-				count, page, pages, new StrutturaConverter().fromResult(r));
+		try {
+			double pageSize = 10;
+			int offset = (int) (pageSize*(page-1));
+			double pages = 0;
+			Result<Record> r = f
+					.select()
+					.from(STRUTTURA)
+					.where(STRUTTURA.CODICE.likeIgnoreCase("%"+codice+"%"))
+					.orderBy(STRUTTURA.CODICE)
+					.limit((int)pageSize)
+					.offset(offset)
+					.fetch();
+			Field<Integer> countField = STRUTTURA.CODICE.count();
+			Record c = f
+					.select(countField)
+					.from(STRUTTURA)
+					.where(STRUTTURA.CODICE.likeIgnoreCase("%"+codice+"%"))
+					.fetchOne();
+			Double count = Double.valueOf(c.getValue(countField));
+			pages = Math.ceil(count/pageSize);
+			StrutturaList entity = new StrutturaList(
+					count, page, pages, new StrutturaConverter().fromResult(r));
 		
-		DBUtil.closeConn(f);
-		return entity;
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Struttura post(Struttura a) {
 		Factory f = DBUtil.getConn();
-		StrutturaRecordDB r = f.newRecord(STRUTTURA);
-		new StrutturaConverter().to(a, r);
-		r.store();
-		Struttura entity = new StrutturaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			StrutturaRecordDB r = f.newRecord(STRUTTURA);
+			new StrutturaConverter().to(a, r);
+			r.store();
+			Struttura entity = new StrutturaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 
 	@PUT
@@ -97,16 +106,19 @@ public class StrutturaResource {
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Struttura put(@PathParam("id") Integer id, Struttura a) {
 		Factory f = DBUtil.getConn();
-		StrutturaRecordDB r = (StrutturaRecordDB) f
-				.select()
-				.from(STRUTTURA)
-				.where(STRUTTURA.ID_STRUTTURA.equal(id))
-				.fetchOne();
-		new StrutturaConverter().to(a, r);
-		r.store();
-		Struttura entity = new StrutturaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			StrutturaRecordDB r = (StrutturaRecordDB) f
+					.select()
+					.from(STRUTTURA)
+					.where(STRUTTURA.ID_STRUTTURA.equal(id))
+					.fetchOne();
+			new StrutturaConverter().to(a, r);
+			r.store();
+			Struttura entity = new StrutturaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 
 	@DELETE
@@ -114,20 +126,22 @@ public class StrutturaResource {
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response delete(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
-		int d = f.delete(STRUTTURA)
-				.where(STRUTTURA.ID_STRUTTURA.equal(id))
-				.execute();
-
-		DBUtil.closeConn(f);
-		
-		if (d == 1) {
-			return new ResponseBuilderImpl()
-				.status(Status.NO_CONTENT)
-				.build();
-		}
+		try {
+			int d = f.delete(STRUTTURA)
+					.where(STRUTTURA.ID_STRUTTURA.equal(id))
+					.execute();
 			
-		return new ResponseBuilderImpl()
-			.status(Status.NOT_FOUND)
-			.build();
+			if (d == 1) {
+				return new ResponseBuilderImpl()
+					.status(Status.NO_CONTENT)
+					.build();
+			}
+				
+			return new ResponseBuilderImpl()
+				.status(Status.NOT_FOUND)
+				.build();
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 }

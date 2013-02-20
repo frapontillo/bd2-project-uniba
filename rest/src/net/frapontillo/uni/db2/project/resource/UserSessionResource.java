@@ -37,13 +37,16 @@ public class UserSessionResource {
 	@ResourceFilters(AuthenticationResourceFilter.class)
 	public UserSession get(@QueryParam("authcode") String authcode) {
 		Factory f = DBUtil.getConn();
-		UserSessionRecordDB r = (UserSessionRecordDB) f.
-				select().
-				from(USER_SESSION).
-				where(USER_SESSION.AUTHCODE.equal(authcode)).fetchOne();
-		UserSession obj = new UserSessionConverter().from(r);
-		DBUtil.closeConn(f);
-		return obj;
+		try {
+			UserSessionRecordDB r = (UserSessionRecordDB) f.
+					select().
+					from(USER_SESSION).
+					where(USER_SESSION.AUTHCODE.equal(authcode)).fetchOne();
+			UserSession obj = new UserSessionConverter().from(r);
+			return obj;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@POST
@@ -59,27 +62,31 @@ public class UserSessionResource {
 		String hashed = SecretUtil.hashPassword(password);
 		// Cerco l'utente
 		Factory f = DBUtil.getConn();
-		UserRecordDB u = (UserRecordDB) f
-				.select()
-				.from(USER)
-				.where(USER.USERNAME.equal(username))
-				.and(USER.PASSWORD.equal(hashed))
-				.fetchOne();
-		// Se la combinazione è errata, rigetto 401
-		if (u == null) {
-			throw new UnauthorizedException();
+		try {
+			UserRecordDB u = (UserRecordDB) f
+					.select()
+					.from(USER)
+					.where(USER.USERNAME.equal(username))
+					.and(USER.PASSWORD.equal(hashed))
+					.fetchOne();
+			// Se la combinazione è errata, rigetto 401
+			if (u == null) {
+				throw new UnauthorizedException();
+			}
+			// Altrimenti 
+			UserSessionRecordDB r = f.newRecord(USER_SESSION);
+			String authcode = SecretUtil.computeHash(username, hashed);
+			r.setAuthcode(authcode);
+			r.setDateLogin(ConvUtil.DateToTimestamp(new Date()));
+			r.setDateLogin(ConvUtil.DateToTimestamp(new Date()));
+			r.setIdUser(u.getId());
+			r.store();
+			UserSession entity = new UserSessionConverter().from(r);
+
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
 		}
-		// Altrimenti 
-		UserSessionRecordDB r = f.newRecord(USER_SESSION);
-		String authcode = SecretUtil.computeHash(username, hashed);
-		r.setAuthcode(authcode);
-		r.setDateLogin(ConvUtil.DateToTimestamp(new Date()));
-		r.setDateLogin(ConvUtil.DateToTimestamp(new Date()));
-		r.setIdUser(u.getId());
-		r.store();
-		UserSession entity = new UserSessionConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
 	}
 	
 	@DELETE
@@ -87,21 +94,23 @@ public class UserSessionResource {
 		// Se sono arrivato fin qui vuol dire che l'authcode esiste
 		// Cancello la sessione con l'authcode in input
 		Factory f = DBUtil.getConn();
-		int r = f
-				.delete(USER_SESSION)
-				.where(USER_SESSION.AUTHCODE.equal(authcode))
-				.execute();
-		
-		DBUtil.closeConn(f);
-		
-		// Se l'authcode non esiste rigetto 401
-		if (r != 1) {
-			throw new UnauthorizedException();
+		try {
+			int r = f
+					.delete(USER_SESSION)
+					.where(USER_SESSION.AUTHCODE.equal(authcode))
+					.execute();
+			
+			// Se l'authcode non esiste rigetto 401
+			if (r != 1) {
+				throw new UnauthorizedException();
+			}
+			
+			// Altrimenti restituisco un 204.
+			return new ResponseBuilderImpl()
+				.status(Status.NO_CONTENT)
+				.build();
+		} finally {
+			DBUtil.closeConn(f);
 		}
-		
-		// Altrimenti restituisco un 204.
-		return new ResponseBuilderImpl()
-			.status(Status.NO_CONTENT)
-			.build();
 	}
 }

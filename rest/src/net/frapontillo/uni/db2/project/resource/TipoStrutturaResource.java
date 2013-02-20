@@ -34,14 +34,17 @@ public class TipoStrutturaResource {
 	@Path("/{id}")
 	public TipoStruttura get(@PathParam("id") Integer id) {
 		Factory f = DBUtil.getConn();
-		TipoStrutturaRecordDB r = (TipoStrutturaRecordDB) f
-				.select()
-				.from(TIPO_STRUTTURA)
-				.where(TIPO_STRUTTURA.ID.equal(id))
-				.fetchOne();
-		TipoStruttura entity = new TipoStrutturaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			TipoStrutturaRecordDB r = (TipoStrutturaRecordDB) f
+					.select()
+					.from(TIPO_STRUTTURA)
+					.where(TIPO_STRUTTURA.ID.equal(id))
+					.fetchOne();
+			TipoStruttura entity = new TipoStrutturaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@GET
@@ -50,20 +53,23 @@ public class TipoStrutturaResource {
 			@QueryParam("skip") @DefaultValue("0") Integer skip,
 			@QueryParam("top") @DefaultValue("0") Integer top) {
 		Factory f = DBUtil.getConn();
-		SelectLimitStep s = f
-				.select()
-				.from(TIPO_STRUTTURA)
-				.where(TIPO_STRUTTURA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"))
-				.orderBy(TIPO_STRUTTURA.DESCRIZIONE);
-		Result<Record> r = null;
-		if (top > 0) {
-			skip = skip >= 0 ? skip : 0;
-			r = s.limit(top).offset(skip).fetch();
-		} else {
-			r = s.fetch();
+		try {
+			SelectLimitStep s = f
+					.select()
+					.from(TIPO_STRUTTURA)
+					.where(TIPO_STRUTTURA.DESCRIZIONE.likeIgnoreCase("%"+descrizione+"%"))
+					.orderBy(TIPO_STRUTTURA.DESCRIZIONE);
+			Result<Record> r = null;
+			if (top > 0) {
+				skip = skip >= 0 ? skip : 0;
+				r = s.limit(top).offset(skip).fetch();
+			} else {
+				r = s.fetch();
+			}
+			List<TipoStruttura> entity = new TipoStrutturaConverter().fromResult(r);
+			return new GenericEntity<List<TipoStruttura>>(entity) {};
+		} finally {
+			DBUtil.closeConn(f);
 		}
-		List<TipoStruttura> entity = new TipoStrutturaConverter().fromResult(r);
-		DBUtil.closeConn(f);
-		return new GenericEntity<List<TipoStruttura>>(entity) {};
 	}
 }

@@ -27,8 +27,11 @@ public final class DBUtil {
 	}
 	
 	public static void closeConn(Factory factory) {
+		if (factory == null) return;
 		try {
-			factory.getConnection().close();
+			Connection c = factory.getConnection();
+			if (c != null && !c.isClosed())
+				factory.getConnection().close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -43,14 +43,17 @@ public class DipendenzaResource {
 	public Dipendenza get(@PathParam("id") Long id) {
 		if (id == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
-		DipendenzaRecordDB dbObj = (DipendenzaRecordDB) f
-				.select()
-				.from(DIPENDENZA)
-				.where(DIPENDENZA.ID.equal(id))
-				.fetchOne();
-		Dipendenza d = new DipendenzaConverter().from(dbObj);
-		DBUtil.closeConn(f);
-		return d;
+		try {
+			DipendenzaRecordDB dbObj = (DipendenzaRecordDB) f
+					.select()
+					.from(DIPENDENZA)
+					.where(DIPENDENZA.ID.equal(id))
+					.fetchOne();
+			Dipendenza d = new DipendenzaConverter().from(dbObj);
+			return d;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@GET
@@ -58,57 +61,63 @@ public class DipendenzaResource {
 			@QueryParam("dipendente") Integer dipendente,
 			@QueryParam("attivita") Integer attivita,
 			@QueryParam("page") @DefaultValue("1") Integer page) {
-		double pageSize = 10;
-		int offset = (int) (pageSize*(page-1));
-		double pages = 0;
 		Factory f = DBUtil.getConn();
-		
-		// PARTE 1: ottengo i record
-		SelectJoinStep join = f.select().from(DIPENDENZA);
-		SelectConditionStep where;
-		// Condizione sul dipendente
-		if (dipendente != null) where = join.where(DIPENDENZA.ID_DIPENDENTE.equal(dipendente));
-		else where = join.where();
-		// Condizione sull'attività
-		if (attivita != null) where = where.and(DIPENDENZA.ID_ATTIVITA.equal(attivita));
-		// A questo punto, where ha un valore e si può proseguire
-		Result<Record> r = where
-				.orderBy(DIPENDENZA.DATA_ASSUNZIONE.desc())
-				.limit((int)pageSize)
-				.offset(offset)
-				.fetch();
-		
-		// PARTE 2: ottengo il conteggio dei record totali
-		Field<Integer> countField = DIPENDENZA.ID.count();
-		SelectJoinStep joinC = f.select(countField).from(DIPENDENZA);
-		SelectConditionStep whereC;
-		// Condizione sul dipendente
-		if (dipendente != null) whereC = joinC.where(DIPENDENZA.ID_DIPENDENTE.equal(dipendente));
-		else whereC = joinC.where();
-		// Condizione sull'attività
-		if (attivita != null) whereC = whereC.and(DIPENDENZA.ID_ATTIVITA.equal(attivita));
-		// A questo punto, whereC ha un valore e si può proseguire
-		Record c = whereC.fetchOne();
-		
-		Double count = Double.valueOf(c.getValue(countField));
-		pages = Math.ceil(count/pageSize);
-		DipendenzaList entity = new DipendenzaList(
-				count, page, pages, new DipendenzaConverter().fromResult(r));
-		
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			double pageSize = 10;
+			int offset = (int) (pageSize*(page-1));
+			double pages = 0;
+			
+			// PARTE 1: ottengo i record
+			SelectJoinStep join = f.select().from(DIPENDENZA);
+			SelectConditionStep where;
+			// Condizione sul dipendente
+			if (dipendente != null) where = join.where(DIPENDENZA.ID_DIPENDENTE.equal(dipendente));
+			else where = join.where();
+			// Condizione sull'attività
+			if (attivita != null) where = where.and(DIPENDENZA.ID_ATTIVITA.equal(attivita));
+			// A questo punto, where ha un valore e si può proseguire
+			Result<Record> r = where
+					.orderBy(DIPENDENZA.DATA_ASSUNZIONE.desc())
+					.limit((int)pageSize)
+					.offset(offset)
+					.fetch();
+			
+			// PARTE 2: ottengo il conteggio dei record totali
+			Field<Integer> countField = DIPENDENZA.ID.count();
+			SelectJoinStep joinC = f.select(countField).from(DIPENDENZA);
+			SelectConditionStep whereC;
+			// Condizione sul dipendente
+			if (dipendente != null) whereC = joinC.where(DIPENDENZA.ID_DIPENDENTE.equal(dipendente));
+			else whereC = joinC.where();
+			// Condizione sull'attività
+			if (attivita != null) whereC = whereC.and(DIPENDENZA.ID_ATTIVITA.equal(attivita));
+			// A questo punto, whereC ha un valore e si può proseguire
+			Record c = whereC.fetchOne();
+			
+			Double count = Double.valueOf(c.getValue(countField));
+			pages = Math.ceil(count/pageSize);
+			DipendenzaList entity = new DipendenzaList(
+					count, page, pages, new DipendenzaConverter().fromResult(r));
+			
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Dipendenza post(Dipendenza a) {
 		Factory f = DBUtil.getConn();
-		DipendenzaRecordDB r = f.newRecord(DIPENDENZA);
-		new DipendenzaConverter().to(a, r);
-		r.store();
-		Dipendenza entity = new DipendenzaConverter().from(r);
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			DipendenzaRecordDB r = f.newRecord(DIPENDENZA);
+			new DipendenzaConverter().to(a, r);
+			r.store();
+			Dipendenza entity = new DipendenzaConverter().from(r);
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@PUT
@@ -117,20 +126,23 @@ public class DipendenzaResource {
 	public Dipendenza put(@PathParam("id") Long id, Dipendenza dip) {
 		if (dip == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
-		DipendenzaRecordDB d = (DipendenzaRecordDB) f.
-				select()
-				.from(DIPENDENZA)
-				.where(DIPENDENZA.ID.equal(dip.getId()))
-				.fetchOne();
-		d = new DipendenzaConverter().to(dip, d);
-		int r = d.store();
-		if (r != 1) {
+		try {
+			DipendenzaRecordDB d = (DipendenzaRecordDB) f.
+					select()
+					.from(DIPENDENZA)
+					.where(DIPENDENZA.ID.equal(dip.getId()))
+					.fetchOne();
+			d = new DipendenzaConverter().to(dip, d);
+			int r = d.store();
+			if (r != 1) {
+				DBUtil.closeConn(f);
+				throw new RuntimeException();
+			}
+			dip = new DipendenzaConverter().from(d);
+			return dip;
+		} finally {
 			DBUtil.closeConn(f);
-			throw new RuntimeException();
 		}
-		dip = new DipendenzaConverter().from(d);
-		DBUtil.closeConn(f);
-		return dip;
 	}
 
 	@DELETE
@@ -138,20 +150,22 @@ public class DipendenzaResource {
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response delete(@PathParam("id") Long id) {
 		Factory f = DBUtil.getConn();
-		int d = f.delete(DIPENDENZA)
-				.where(DIPENDENZA.ID.equal(id))
-				.execute();
-		
-		DBUtil.closeConn(f);
-		
-		if (d == 1) {
-			return new ResponseBuilderImpl()
-				.status(Status.NO_CONTENT)
-				.build();
-		}
+		try {
+			int d = f.delete(DIPENDENZA)
+					.where(DIPENDENZA.ID.equal(id))
+					.execute();
 			
-		return new ResponseBuilderImpl()
-			.status(Status.NOT_FOUND)
-			.build();
+			if (d == 1) {
+				return new ResponseBuilderImpl()
+					.status(Status.NO_CONTENT)
+					.build();
+			}
+				
+			return new ResponseBuilderImpl()
+				.status(Status.NOT_FOUND)
+				.build();
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 }

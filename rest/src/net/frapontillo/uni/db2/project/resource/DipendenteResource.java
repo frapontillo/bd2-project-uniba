@@ -39,31 +39,37 @@ public class DipendenteResource {
 	public Dipendente get(@PathParam("id") Integer id) {
 		if (id == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
-		DipendenteRecordDB dbObj = (DipendenteRecordDB) f.select()
-				.from(DIPENDENTE)
-				.where(DIPENDENTE.ID.equal(id))
-				.fetchOne();
-		Dipendente d = new DipendenteConverter().from(dbObj);
-		DBUtil.closeConn(f);
-		return d;
+		try {
+			DipendenteRecordDB dbObj = (DipendenteRecordDB) f.select()
+					.from(DIPENDENTE)
+					.where(DIPENDENTE.ID.equal(id))
+					.fetchOne();
+			Dipendente d = new DipendenteConverter().from(dbObj);
+			return d;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@GET
 	public DipendenteList search(
 			@QueryParam("nomecognome") String nomecognome,
 			@QueryParam("page") @DefaultValue("1") Double page) {
-		Long pageSize = (long) 10;
-		Long offset = (long) (pageSize*(page-1));
-		double pages = 0;
 		Factory f = DBUtil.getConn();
-		String sql = cercaDipendente(nomecognome, pageSize, offset).toString();
-		List<DipendenteRecordDB> r = f.select().from(sql).fetch().into(DipendenteRecordDB.class);
-		Double count = f.select(contaCercaDipendenti(nomecognome)).fetchOne(0, Double.class);
-		pages = Math.ceil(count/pageSize);
-		DipendenteList entity = new DipendenteList(
-				count, page, pages, new DipendenteConverter().fromList(r, CONV_TYPE.MINIMUM));
-		DBUtil.closeConn(f);
-		return entity;
+		try {
+			Long pageSize = (long) 10;
+			Long offset = (long) (pageSize*(page-1));
+			double pages = 0;
+			String sql = cercaDipendente(nomecognome, pageSize, offset).toString();
+			List<DipendenteRecordDB> r = f.select().from(sql).fetch().into(DipendenteRecordDB.class);
+			Double count = f.select(contaCercaDipendenti(nomecognome)).fetchOne(0, Double.class);
+			pages = Math.ceil(count/pageSize);
+			DipendenteList entity = new DipendenteList(
+					count, page, pages, new DipendenteConverter().fromList(r, CONV_TYPE.MINIMUM));
+			return entity;
+		} finally {
+			DBUtil.closeConn(f);
+		}
 	}
 	
 	@POST
@@ -71,16 +77,19 @@ public class DipendenteResource {
 	public Dipendente post(Dipendente dip) {
 		if (dip == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
-		DipendenteRecordDB d = f.newRecord(DIPENDENTE);
-		d = new DipendenteConverter().to(dip, d);
-		int r = d.store();
-		if (r != 1) {
+		try {
+			DipendenteRecordDB d = f.newRecord(DIPENDENTE);
+			d = new DipendenteConverter().to(dip, d);
+			int r = d.store();
+			if (r != 1) {
+				DBUtil.closeConn(f);
+				throw new RuntimeException();
+			}
+			dip = new DipendenteConverter().from(d);
+			return dip;
+		} finally {
 			DBUtil.closeConn(f);
-			throw new RuntimeException();
 		}
-		dip = new DipendenteConverter().from(d);
-		DBUtil.closeConn(f);
-		return dip;
 	}
 	
 	@PUT
@@ -89,20 +98,23 @@ public class DipendenteResource {
 	public Dipendente put(@PathParam("id") Integer id, Dipendente dip) {
 		if (dip == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
-		DipendenteRecordDB d = (DipendenteRecordDB) f.
-				select()
-				.from(DIPENDENTE)
-				.where(DIPENDENTE.ID.equal(id))
-				.fetchOne();
-		d = new DipendenteConverter().to(dip, d);
-		int r = d.store();
-		if (r != 1) {
+		try {
+			DipendenteRecordDB d = (DipendenteRecordDB) f.
+					select()
+					.from(DIPENDENTE)
+					.where(DIPENDENTE.ID.equal(id))
+					.fetchOne();
+			d = new DipendenteConverter().to(dip, d);
+			int r = d.store();
+			if (r != 1) {
+				DBUtil.closeConn(f);
+				throw new RuntimeException();
+			}
+			dip = new DipendenteConverter().from(d);
+			return dip;
+		} finally {
 			DBUtil.closeConn(f);
-			throw new RuntimeException();
 		}
-		dip = new DipendenteConverter().from(d);
-		DBUtil.closeConn(f);
-		return dip;
 	}
 	
 	@DELETE
@@ -110,14 +122,17 @@ public class DipendenteResource {
 	public void delete(@PathParam("id") Integer id) {
 		if (id == null) throw new BadRequestException();
 		Factory f = DBUtil.getConn();
-		int r = f.delete(DIPENDENTE)
-				.where(DIPENDENTE.ID.equal(id))
-				.execute();
-		if (r != 1) {
+		try {
+			int r = f.delete(DIPENDENTE)
+					.where(DIPENDENTE.ID.equal(id))
+					.execute();
+			if (r != 1) {
+				DBUtil.closeConn(f);
+				throw new RuntimeException();
+			}
+			return;
+		} finally {
 			DBUtil.closeConn(f);
-			throw new RuntimeException();
 		}
-		DBUtil.closeConn(f);
-		return;
 	}
 }
